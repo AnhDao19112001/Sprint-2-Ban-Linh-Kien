@@ -1,7 +1,7 @@
-import "../../css/LoginCSS.css"
+import "../../css/Login.css"
 import "bootstrap/dist/css/bootstrap.css"
 import * as userService from "../../service/user/UserService"
-import { Field, Form, Formik } from "formik";
+import {Field, Form, Formik} from "formik";
 import {Link, useNavigate} from "react-router-dom";
 import Swal from "sweetalert2"
 
@@ -42,72 +42,71 @@ function Login() {
                         handleLogin(cloneValue);
                     }}
             >
-                <Form>
-                    <section className="vh-100 gradient-custom">
-                        <div className="container py-5 h-100">
-                            <div className="row d-flex justify-content-center align-items-center h-100">
-                                <div className="col-12 col-md-8 col-lg-6 col-xl-5">
-                                    <div
-                                        className="card bg-dark text-white"
-                                        style={{borderRadius: "1rem"}}
-                                    >
-                                        <div className="card-body p-5 text-center">
-                                            <div className=" mt-md-4 pb-5">
-                                                <h2 className="fw-bold mb-2 text-uppercase">Đăng nhập</h2>
-                                                <p className="text-white-50 mb-5">
-                                                    Vui lòng nhập tên đăng nhập và mật khẩu!
-                                                </p>
-                                                <div className="form-outline form-white mb-4">
-                                                    <Field
-                                                        type="text"
-                                                        id="userName"
-                                                        name={"userName"}
-                                                        className="form-control form-control-lg"
-                                                    />
-                                                    <div style={{height: "15px"}}></div>
-                                                    <label className="form-label" htmlFor="userName">
-                                                        Tên đăng nhập <span className="text-danger">*</span>
-                                                    </label>
+                <section className="body">
+                    <div className="container">
+                        <div className="login-box">
+                            <div className="row">
+                                <div className="col-sm-6">
+                                    <div className="logo">
+                                        <span className="logo-font">LinhKienDT</span>AD
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-sm-6">
+                                    <br/>
+                                    <h3 className="header-title">Đăng nhập</h3>
+                                    <Form className="login-form">
+                                        <label className={"form-label"} htmlFor={"username"}>Tên đăng nhập
+                                            <span className={"text-danger"}>*</span></label>
+                                        <div className="form-group">
+                                            <Field type="text" className="form-control"
+                                                   id={"username"} name={"userName"}/>
+                                        </div>
+                                        <div className="form-group">
+                                            <label className={"form-label"} htmlFor={"pass"}>Mật khẩu
+                                                <span className={"text-danger"}>*</span></label>
+                                            <Field type="password" className="form-control"
+                                                   name={"password"} id={"pass"}/>
+                                        </div>
+                                        <div className="form-group">
+                                            <button type={"submit"} className="btn btn-primary btn-block">Đăng nhập
+                                            </button>
+                                        </div>
+                                        <div className="form-group">
+                                            <div className="text-center">Bạn chưa có tài khoản? <Link to={"/register"}>Đăng
+                                                ký
+                                                ngay </Link></div>
+                                        </div>
+                                    </Form>
+                                </div>
+                                <div className="col-sm-6 hide-on-mobile">
+                                    <div id="demo" className="carousel slide" data-ride="carousel">
+                                        <div className="carousel-inner">
+                                            <div className="carousel-item active">
+                                                <div className="slider-feature-card">
+                                                    <img
+                                                        src="/title_1.jpg"
+                                                        alt=""/>
+                                                    <h3 className="slider-title">Thiết kế bo mạch</h3>
+                                                    <p className="slider-description">Kinh nghiệm thiết kế mạch, hàn
+                                                        linh kiện của dân chuyên nghiệp.</p>
                                                 </div>
-                                                <div className="form-outline form-white mb-4">
-                                                    <Field
-                                                        type="password"
-                                                        id="password"
-                                                        name={"pass"}
-                                                        className="form-control form-control-lg"
-                                                    />
-                                                    <div style={{height: "15px"}}></div>
-                                                    <label className="form-label" htmlFor="password">
-                                                        Mật khẩu <span className="text-danger">*</span>
-                                                    </label>
-                                                </div>
-                                                <p className="small mb-5 pb-lg-2">
-                                                    <a className="text-white-50" href="src/component#!">
-                                                        Bạn quên mật khẩu?
-                                                    </a>
-                                                </p>
-                                                <button
-                                                    className="btn btn-outline-light btn-lg px-5"
-                                                    type="submit"
-                                                >
-                                                    Đăng nhập
-                                                </button>
-                                            </div>
-                                            <div>
-                                                <p className="mb-0">
-                                                    Bạn chưa có tài khoảng?{" "}
-                                                    <Link to={'/register'} className="text-white-50 fw-bold">
-                                                        Đăng ký
-                                                    </Link>
-                                                </p>
                                             </div>
                                         </div>
+
+                                        <a className="carousel-control-prev" href="#demo" data-slide="prev">
+                                            <span className="carousel-control-prev-icon"></span>
+                                        </a>
+                                        <a className="carousel-control-next" href="#demo" data-slide="next">
+                                            <span className="carousel-control-next-icon"></span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </section>
-                </Form>
+                    </div>
+                </section>
             </Formik>
         </>
     )

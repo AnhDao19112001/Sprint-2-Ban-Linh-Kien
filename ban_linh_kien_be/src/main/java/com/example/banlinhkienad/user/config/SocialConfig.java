@@ -1,4 +1,4 @@
-package com.example.retro_care.user.config;
+package com.example.banlinhkienad.user.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

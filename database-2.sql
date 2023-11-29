@@ -128,7 +128,6 @@ BEGIN
         INSERT INTO user_role (app_user_id, app_role_id)
         VALUES (id, role_id);
     ELSE
-        -- Handle the case where user_id is not found
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'User not found';
     END IF;

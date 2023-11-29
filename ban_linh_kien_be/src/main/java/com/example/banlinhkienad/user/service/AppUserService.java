@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.text.Format;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,7 +63,7 @@ public class AppUserService implements IAppUserService {
     }
 
     @Override
-    public AppUser findAppUserIdByUserName(String userName) {
+    public Long findAppUserIdByUserName(String userName) {
         return appUserRepository.findIdByUserName(userName);
     }
 
@@ -76,5 +77,13 @@ public class AppUserService implements IAppUserService {
     @Override
     public AppUser findByIdCustomer(Long id) {
         return appUserRepository.findCustomerById(id);
+    }
+
+    @Override
+    public void saveCustomerForAppUser(Long id) {
+        AppUser appUser = new AppUser();
+        appUser.setFlagDeleted(false);
+        appUserRepository.createNewAppUser(appUser.getFullName(), appUser.getEmail(), appUser.getUserName(),
+                appUser.getPassword(), appUser.getAddress(), appUser.getPhone(), appUser.getImage());
     }
 }

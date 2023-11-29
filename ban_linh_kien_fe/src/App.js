@@ -1,25 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import {Route, Routes} from "react-router-dom";
+import Login from "./component/user/Login";
+import Home from "./component/home/Home";
+import {EnumAppUserRole} from "./component/user/EnumAppUserRoles";
+import Authentication from "./component/user/Authentication";
+import AuthorOfCustomer from "./component/user/AuthorOfCustomer";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Routes>
+            <Route path="/login" element={<Login/>}/>
+            <Route path="/home" element={<Home/>}/>
+            <Route element={
+                <Authentication
+                    allowedRoles={[
+                        EnumAppUserRole.ROLE_ADMIN,
+                        EnumAppUserRole.ROLE_CUSTOMER,
+                    ]}
+                />
+            }>
+                <Route element={<AuthorOfCustomer />}>
+                    <Route path="/home" element={<Home/>}/>
+                    <Route path="/login" element={<Login/>}/>
+                </Route>
+            </Route>
+        </Routes>
+    );
 }
 
 export default App;

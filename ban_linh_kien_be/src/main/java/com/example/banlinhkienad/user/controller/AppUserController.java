@@ -1,7 +1,9 @@
 package com.example.banlinhkienad.user.controller;
+import com.example.banlinhkienad.user.common.RandomStringGenerator;
 import com.example.banlinhkienad.user.common.ValidateAppUser;
 import com.example.banlinhkienad.user.config.JwtTokenUtil;
 import com.example.banlinhkienad.user.dto.AppUserDto;
+import com.example.banlinhkienad.user.dto.FacebookMailRequest;
 import com.example.banlinhkienad.user.model.AppUser;
 import com.example.banlinhkienad.user.model.JwtResponse;
 import com.example.banlinhkienad.user.service.IAppUserService;
@@ -118,7 +120,7 @@ public class AppUserController {
     }
     @GetMapping("/id-user/{userName}")
     public ResponseEntity<Object> getIdAppUser(@PathVariable String userName){
-        AppUser appUser = appUserService.findAppUserIdByUserName(userName);
+        Long appUser = appUserService.findAppUserIdByUserName(userName);
         if (appUser == null){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Không có dữ liệu!");
         }
@@ -157,5 +159,28 @@ public class AppUserController {
             appUserService.updateCustomer(appUser);
         }
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping("/login-by-facebook")
+    public ResponseEntity<Object> loginFacebook(@RequestBody FacebookMailRequest facebookMailRequest){
+        if (facebookMailRequest == null ||
+        facebookMailRequest.getFacebookMail() == null ||
+        facebookMailRequest.getFacebookMail().trim().equals("")){
+            return ResponseEntity.badRequest().body(LOGIN_FAILED);
+        }
+        String facebookMail = facebookMailRequest.getFacebookMail();
+        boolean checkExitAppUser = appUserService.existsByUsername(facebookMail);
+        if (!checkExitAppUser){
+            AppUser appUser = new AppUser();
+            appUser.setUserName(facebookMail);
+            String randomPass = RandomStringGenerator.generateRandomString();
+            appUser.setPassword(passwordEncoder.encode(randomPass));
+            appUserService.createNewAppUser(appUser,"ROLE_CUSTOMER");
+            Long appUserId = appUserService.findAppUserIdByUserName(appUser.getUserName());
+            appUserService.saveCustomerForAppUser(appUserId);
+        }
+        UserDetails userDetails = appUserService.loadUserByUsername(facebookMail);
+        String jwtToken = jwtTokenUtil.generateToken(userDetails);
+        return ResponseEntity.ok().body(new JwtResponse(jwtToken));
     }
 }

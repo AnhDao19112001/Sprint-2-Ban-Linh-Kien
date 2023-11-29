@@ -1,10 +1,5 @@
-package com.example.retro_care.user.dto;
-/**
- * class: FacebookMailRequest
- * Creater: NhatNHH
- * Date: 15-09-2023
- * Function: input data from facebook developer
- */
+package com.example.banlinhkienad.user.dto;
+
 public class FacebookMailRequest {
     private String facebookMail;
 

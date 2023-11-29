@@ -4,7 +4,7 @@ import com.example.banlinhkienad.product.model.Product;
 import javax.persistence.*;
 
 @Entity
-public class OrderDetail {
+public class OrdersDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,10 +18,10 @@ public class OrderDetail {
     @JoinColumn(name = "id_product",referencedColumnName = "idProduct")
     private Product product;
 
-    public OrderDetail() {
+    public OrdersDetail() {
     }
 
-    public OrderDetail(Long id, Integer quantity, Float price, Boolean flagDeleted, Orders orders, Product product) {
+    public OrdersDetail(Long id, Integer quantity, Float price, Boolean flagDeleted, Orders orders, Product product) {
         this.id = id;
         this.quantity = quantity;
         this.price = price;

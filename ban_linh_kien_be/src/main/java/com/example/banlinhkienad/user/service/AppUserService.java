@@ -20,8 +20,8 @@ public class AppUserService implements IAppUserService {
     private IAppUserRepository appUserRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        AppUser appUser = appUserRepository.findAppUserByName(username);
+    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+        AppUser appUser = appUserRepository.findAppUserByName(userName);
         if (appUser == null) {
             throw new UsernameNotFoundException("User name or password is wrong");
         }

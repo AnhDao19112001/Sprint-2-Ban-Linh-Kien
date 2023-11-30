@@ -20,8 +20,8 @@ function App() {
                 />
             }>
                 <Route element={<AuthorOfCustomer />}>
-                    <Route path="/home" element={<Home/>}/>
-                    <Route path="/login" element={<Login/>}/>
+                    {/*<Route path="/home" element={<Home/>}/>*/}
+                    {/*<Route path="/login" element={<Login/>}/>*/}
                 </Route>
             </Route>
         </Routes>

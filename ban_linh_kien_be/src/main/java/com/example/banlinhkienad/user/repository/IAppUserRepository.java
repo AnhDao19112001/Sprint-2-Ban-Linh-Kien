@@ -9,8 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 public interface IAppUserRepository extends JpaRepository<AppUser, Long> {
     @Transactional
     @Query(value = "SELECT * FROM ban_linh_kien.app_user WHERE " +
-            "user_name = :name and flag_deleted = 0",nativeQuery = true)
-    AppUser findAppUserByName(@Param("name") String userName);
+            "user_name = :userName and flag_deleted = false",nativeQuery = true)
+    AppUser findAppUserByName(@Param("userName") String userName);
 
     @Modifying
     @Transactional
@@ -40,7 +40,7 @@ public interface IAppUserRepository extends JpaRepository<AppUser, Long> {
     @Transactional
     @Query(value =  " CALL insert_acc_use ( :password, :userName, :roleId, :address, :email, :fullName, " +
             ":image, :phone)" ,nativeQuery = true)
-    void findAppRoleIdByNameUser(@Param("pass") String pass, @Param("userName") String userName,
+    void findAppRoleIdByNameUser(@Param("password") String password, @Param("userName") String userName,
                              @Param("roleId") Long roleId, @Param("address") String address,
                                  @Param("email") String email, @Param("fullName") String fullName,
                                  @Param("image") String image, @Param("phone") String phone);

@@ -4,7 +4,6 @@ import * as userService from "../../service/user/UserService"
 import {Field, Form, Formik} from "formik";
 import {Link, useNavigate} from "react-router-dom";
 import Swal from "sweetalert2"
-
 function Login() {
     const navigate = useNavigate();
 
@@ -12,11 +11,14 @@ function Login() {
         try {
             const result = await userService.loginUser(appUser);
             userService.addJwtTokenToLocalStorage(result.data.jwtToken)
+            console.log(result);
             const tempURL = localStorage.getItem("tempURL");
             localStorage.removeItem("tempURL");
             if (tempURL) {
                 navigate(tempURL);
+                console.log("chưa vào được home!" + tempURL);
             } else {
+                console.log("đã vào được else");
                 navigate(`/home`);
             }
         } catch (err) {
@@ -57,17 +59,17 @@ function Login() {
                                     <br/>
                                     <h3 className="header-title">Đăng nhập</h3>
                                     <Form className="login-form">
-                                        <label className={"form-label"} htmlFor={"username"}>Tên đăng nhập
+                                        <label className={"form-label"} htmlFor={"userName"}>Tên đăng nhập
                                             <span className={"text-danger"}>*</span></label>
                                         <div className="form-group">
                                             <Field type="text" className="form-control"
-                                                   id={"username"} name={"userName"}/>
+                                                   id={"userName"} name={"userName"}/>
                                         </div>
                                         <div className="form-group">
-                                            <label className={"form-label"} htmlFor={"pass"}>Mật khẩu
+                                            <label className={"form-label"} htmlFor={"password"}>Mật khẩu
                                                 <span className={"text-danger"}>*</span></label>
                                             <Field type="password" className="form-control"
-                                                   name={"password"} id={"pass"}/>
+                                                   name={"password"} id={"password"}/>
                                         </div>
                                         <div className="form-group">
                                             <button type={"submit"} className="btn btn-primary btn-block">Đăng nhập

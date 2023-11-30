@@ -6,6 +6,11 @@ export const loginUser = async (appUser) => {
     return result;
 }
 
+export const loginFacebook = async (facebookMail) => {
+    const result = await axios.post(`http://localhost:8080/api/user/login-by-facebook`,facebookMail);
+    return result;
+}
+
 export const addJwtTokenToLocalStorage = (jwtToken) => {
     localStorage.setItem("JWT", jwtToken);
 }

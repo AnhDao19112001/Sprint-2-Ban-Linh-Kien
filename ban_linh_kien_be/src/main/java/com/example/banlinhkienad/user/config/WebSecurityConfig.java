@@ -52,7 +52,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/api/user/login-by-username/**",
                         "/api/user/logout/{userName}/**",
                         "/api/home/**",
-                        "/api/home/search/**"
+                        "/api/home/search/**",
+                        "/api/user/**"
                 ).permitAll()
                 .antMatchers(
 

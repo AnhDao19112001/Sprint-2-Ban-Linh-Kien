@@ -4,8 +4,50 @@ import * as userService from "../../service/user/UserService"
 import {Field, Form, Formik} from "formik";
 import {Link, useNavigate} from "react-router-dom";
 import Swal from "sweetalert2"
-function Login() {
+import {LoginSocialFacebook} from "reactjs-social-login";
+import {FacebookLoginButton} from "react-social-login-buttons";
+
+const Login = () => {
     const navigate = useNavigate();
+
+    const handleLoginFb = async (resolve) => {
+        try {
+
+            const result = await userService.loginFacebook({facebookMail: resolve.data.email});
+            userService.addJwtTokenToLocalStorage(result.data.jwtToken);
+            const tempURL = localStorage.getItem("tempURL");
+            localStorage.removeItem("tempURL");
+            if (tempURL) {
+                navigate(tempURL);
+            } else {
+                navigate('/home');
+
+            }
+        } catch (e) {
+            Swal.fire({
+                icon: 'error',
+                title: e.response.data,
+            })
+        }
+    }
+
+    const loginWithFacebook = async (resolve) => {
+        console.log(resolve);
+        Swal.fire({
+            text: 'Chào ' + resolve.data.name + ', bạn có muốn đăng nhập thông qua facebook ' + resolve.data.email + " không?",
+            showDenyButton: true,
+            confirmButtonText: 'Xác nhận',
+            denyButtonText: `Thoát`,
+        }).then((result) => {
+
+            if (result.isConfirmed) {
+                handleLoginFb(resolve)
+            } else if (result.isDenied) {
+
+            }
+        })
+
+    }
 
     const handleLogin = async (appUser) => {
         try {
@@ -74,6 +116,20 @@ function Login() {
                                         <div className="form-group">
                                             <button type={"submit"} className="btn btn-primary btn-block">Đăng nhập
                                             </button>
+                                            <div>
+                                                <LoginSocialFacebook
+                                                    className="btn border-0"
+                                                    appId="652683827079181"
+                                                    onResolve={(resolve) => {
+                                                        loginWithFacebook(resolve);
+                                                        console.log(resolve);
+                                                    }}
+                                                    onReject="0d064982ef3aebe4cc4a1ac5f4115ad2"
+                                                >
+                                                    <FacebookLoginButton/>
+                                                    {/*<BsFacebook color="blue" size={30} />*/}
+                                                </LoginSocialFacebook>
+                                            </div>
                                         </div>
                                         <div className="form-group">
                                             <div className="text-center">Bạn chưa có tài khoản? <Link to={"/register"}>Đăng

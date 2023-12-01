@@ -36,7 +36,7 @@ public class Login_facebook {
     @Test
     public void loginByFacebook_18() throws Exception {
         FacebookMailRequest facebookMailRequest = new FacebookMailRequest();
-        facebookMailRequest.setFacebookMail("phantaanhdao@gmail.com");
+        facebookMailRequest.setFacebookMail("anhdao19112k1@gmail.com");
         this.mockMvc.perform(MockMvcRequestBuilders
                         .post("/api/user/login-by-facebook")
                         .content(this.objectMapper.writeValueAsString(facebookMailRequest))

@@ -48,8 +48,8 @@ public class ValidateAppUser {
         }
     }
 
-    public static boolean checkVerificationPassword(String pass, String confirmPassword) {
-        return pass.equals(confirmPassword);
+    public static boolean checkVerificationPassword(String password, String confirmPassword) {
+        return password.equals(confirmPassword);
     }
 
     public static String checkValidateOnlyAppUserName(String name) {

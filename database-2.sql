@@ -84,20 +84,21 @@ foreign key(id_product) references product(id_product)
 );
 
 DELIMITER //
-CREATE PROCEDURE insert_acc_use(
-    -- IN pass VARCHAR(255),
-    IN user_name VARCHAR(255),
-    IN role_id BIGINT,
-    IN address VARCHAR(255),
-    IN email VARCHAR(255),
-    IN full_name VARCHAR(255),
-    IN image VARCHAR(255),
-    IN phone VARCHAR(255),
-    IN flag_deleted BIT
-    -- IN flag_online BIT
+
+CREATE PROCEDURE insert_acc_users(
+    IN p_password VARCHAR(255),
+    IN p_user_name VARCHAR(255),
+    IN p_role_id bigint,
+    IN p_address VARCHAR(255),
+    IN p_email VARCHAR(255),
+    IN p_full_name VARCHAR(255),
+    IN p_image VARCHAR(255),
+    IN p_phone VARCHAR(255),
+    IN p_flag_deleted bit,
+    IN p_flag_online bit
 )
 BEGIN
-    DECLARE id INT;
+    DECLARE v_id bigint;
 
     INSERT INTO app_user (
         flag_deleted,
@@ -111,25 +112,26 @@ BEGIN
         flag_online
     )
     VALUES (
-        flag_deleted,
-        `password`,
-        user_name,
-        address,
-        email,
-        full_name,
-        image,
-        phone,
-        flag_online
-    );
+               0,
+               p_password,
+               p_user_name,
+               p_address,
+               p_email,
+               p_full_name,
+               p_image,
+               p_phone,
+               0
+           );
 
-    SELECT id FROM app_user WHERE user_name = user_name LIMIT 1;
+    SELECT id INTO v_id FROM app_user WHERE user_name = p_user_name LIMIT 1;
 
-    IF id IS NOT NULL THEN
+    IF v_id IS NOT NULL THEN
         INSERT INTO user_role (app_user_id, app_role_id)
-        VALUES (id, role_id);
+        VALUES (v_id, p_role_id);
     ELSE
         SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'User not found';
+            SET MESSAGE_TEXT = 'User not found';
     END IF;
 END //
+
 DELIMITER ;

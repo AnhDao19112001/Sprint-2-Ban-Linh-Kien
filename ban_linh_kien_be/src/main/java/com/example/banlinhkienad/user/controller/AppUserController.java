@@ -176,8 +176,8 @@ public class AppUserController {
             String randomPass = RandomStringGenerator.generateRandomString();
             appUser.setPassword(passwordEncoder.encode(randomPass));
             appUserService.createNewAppUser(appUser,"ROLE_CUSTOMER");
-            Long appUserId = appUserService.findAppUserIdByUserName(appUser.getUserName());
-            appUserService.saveCustomerForAppUser(appUserId);
+//            Long appUserId = appUserService.findAppUserIdByUserName(appUser.getUserName());
+//            appUserService.saveCustomerForAppUser(appUserId);
         }
         UserDetails userDetails = appUserService.loadUserByUsername(facebookMail);
         String jwtToken = jwtTokenUtil.generateToken(userDetails);

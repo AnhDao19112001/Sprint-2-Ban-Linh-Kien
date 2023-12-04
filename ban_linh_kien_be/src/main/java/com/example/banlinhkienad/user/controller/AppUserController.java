@@ -1,4 +1,5 @@
 package com.example.banlinhkienad.user.controller;
+
 import com.example.banlinhkienad.user.common.RandomStringGenerator;
 import com.example.banlinhkienad.user.common.ValidateAppUser;
 import com.example.banlinhkienad.user.config.JwtTokenUtil;
@@ -103,7 +104,7 @@ public class AppUserController {
         AppUser appUser = new AppUser();
         BeanUtils.copyProperties(appUserDto, appUser);
         appUser.setPassword(passwordEncoder.encode(appUser.getPassword()));
-         appUserService.createNewAppUser(appUser, "ROLE_CUSTOMER");
+        appUserService.createNewAppUser(appUser, "ROLE_CUSTOMER");
 
         return ResponseEntity.ok("Đăng ký thành công, vui lòng bấm nút đăng nhập");
     }
@@ -118,43 +119,44 @@ public class AppUserController {
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body("Đăng xuất thất bại, vui lòng chờ trong giây lát");
     }
+
     @GetMapping("/id-user/{userName}")
-    public ResponseEntity<Object> getIdAppUser(@PathVariable String userName){
+    public ResponseEntity<Object> getIdAppUser(@PathVariable String userName) {
         Long appUser = appUserService.findAppUserIdByUserName(userName);
-        if (appUser == null){
+        if (appUser == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Không có dữ liệu!");
         }
         return ResponseEntity.ok().body(appUser);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getIdCustomer(@PathVariable Long id){
+    public ResponseEntity<Object> getIdCustomer(@PathVariable Long id) {
         AppUser appUser = appUserService.findByIdCustomer(id);
-        if (appUser == null){
+        if (appUser == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Không có dữ liệu!");
         }
         return ResponseEntity.ok().body(appUser);
     }
 
     @PatchMapping("/update/{id}")
-    public ResponseEntity<Map<String,String>> updateCustomer(@Valid @RequestBody AppUserDto appUserDto,
-                                                             @PathVariable Long id,
-                                                             BindingResult bindingResult){
+    public ResponseEntity<Map<String, String>> updateCustomer(@Valid @RequestBody AppUserDto appUserDto,
+                                                              @PathVariable Long id,
+                                                              BindingResult bindingResult) {
         AppUser appUser = appUserService.findByIdCustomer(id);
-        new AppUserDto().validate(appUserDto,bindingResult);
-        Map<String,String> errors = new HashMap<>();
-        if (bindingResult.hasErrors()){
-            for (FieldError e: bindingResult.getFieldErrors()) {
-                errors.put(e.getField(),e.getDefaultMessage());
+        new AppUserDto().validate(appUserDto, bindingResult);
+        Map<String, String> errors = new HashMap<>();
+        if (bindingResult.hasErrors()) {
+            for (FieldError e : bindingResult.getFieldErrors()) {
+                errors.put(e.getField(), e.getDefaultMessage());
             }
         }
-        if (errors.size() != 0){
-            return new ResponseEntity<>(errors,HttpStatus.NOT_ACCEPTABLE);
+        if (errors.size() != 0) {
+            return new ResponseEntity<>(errors, HttpStatus.NOT_ACCEPTABLE);
         }
-        if (appUser == null){
+        if (appUser == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {
-            BeanUtils.copyProperties(appUserDto,appUser);
+            BeanUtils.copyProperties(appUserDto, appUser);
             appUser.setId(id);
             appUserService.updateCustomer(appUser);
         }
@@ -162,22 +164,20 @@ public class AppUserController {
     }
 
     @PostMapping("/login-by-facebook")
-    public ResponseEntity<Object> loginFacebook(@RequestBody FacebookMailRequest facebookMailRequest){
+    public ResponseEntity<Object> loginFacebook(@RequestBody FacebookMailRequest facebookMailRequest) {
         if (facebookMailRequest == null ||
-        facebookMailRequest.getFacebookMail() == null ||
-        facebookMailRequest.getFacebookMail().trim().equals("")){
+                facebookMailRequest.getFacebookMail() == null ||
+                facebookMailRequest.getFacebookMail().trim().equals("")) {
             return ResponseEntity.badRequest().body(LOGIN_FAILED);
         }
         String facebookMail = facebookMailRequest.getFacebookMail();
         boolean checkExitAppUser = appUserService.existsByUsername(facebookMail);
-        if (!checkExitAppUser){
+        if (!checkExitAppUser) {
             AppUser appUser = new AppUser();
             appUser.setUserName(facebookMail);
             String randomPass = RandomStringGenerator.generateRandomString();
             appUser.setPassword(passwordEncoder.encode(randomPass));
-            appUserService.createNewAppUser(appUser,"ROLE_CUSTOMER");
-//            Long appUserId = appUserService.findAppUserIdByUserName(appUser.getUserName());
-//            appUserService.saveCustomerForAppUser(appUserId);
+            appUserService.createNewAppUser(appUser, "ROLE_CUSTOMER");
         }
         UserDetails userDetails = appUserService.loadUserByUsername(facebookMail);
         String jwtToken = jwtTokenUtil.generateToken(userDetails);

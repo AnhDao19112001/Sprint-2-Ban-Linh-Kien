@@ -5,14 +5,15 @@ import {Field, Form, Formik} from "formik";
 import {Link, useNavigate} from "react-router-dom";
 import Swal from "sweetalert2"
 import {LoginSocialFacebook} from "reactjs-social-login";
-import {FacebookLoginButton} from "react-social-login-buttons";
-
+import {BsFacebook} from "react-icons/bs";
+import {LuScanFace} from "react-icons/lu";
+import { FaSquareGithub } from "react-icons/fa6";
+import { FcGoogle } from "react-icons/fc";
 const Login = () => {
     const navigate = useNavigate();
 
     const handleLoginFb = async (resolve) => {
         try {
-
             const result = await userService.loginFacebook({facebookMail: resolve.data.email});
             userService.addJwtTokenToLocalStorage(result.data.jwtToken);
             const tempURL = localStorage.getItem("tempURL");
@@ -21,7 +22,6 @@ const Login = () => {
                 navigate(tempURL);
             } else {
                 navigate('/home');
-
             }
         } catch (e) {
             Swal.fire({
@@ -39,14 +39,12 @@ const Login = () => {
             confirmButtonText: 'Xác nhận',
             denyButtonText: `Thoát`,
         }).then((result) => {
-
             if (result.isConfirmed) {
                 handleLoginFb(resolve)
             } else if (result.isDenied) {
 
             }
         })
-
     }
 
     const handleLogin = async (appUser) => {
@@ -58,9 +56,7 @@ const Login = () => {
             localStorage.removeItem("tempURL");
             if (tempURL) {
                 navigate(tempURL);
-                console.log("chưa vào được home!" + tempURL);
             } else {
-                console.log("đã vào được else");
                 navigate(`/home`);
             }
         } catch (err) {
@@ -114,21 +110,41 @@ const Login = () => {
                                                    name={"password"} id={"password"}/>
                                         </div>
                                         <div className="form-group">
-                                            <button type={"submit"} className="btn btn-primary btn-block">Đăng nhập
+                                            <button type={"submit"}
+                                                    className="btn btn-primary btn-block">Đăng
+                                                nhập
                                             </button>
-                                            <div>
-                                                <LoginSocialFacebook
-                                                    className="btn border-0"
-                                                    appId="652683827079181"
-                                                    onResolve={(resolve) => {
-                                                        loginWithFacebook(resolve);
-                                                        console.log(resolve);
-                                                    }}
-                                                    onReject="0d064982ef3aebe4cc4a1ac5f4115ad2"
-                                                >
-                                                    <FacebookLoginButton/>
-                                                    {/*<BsFacebook color="blue" size={30} />*/}
-                                                </LoginSocialFacebook>
+                                            <div className={"row"}>
+                                                <div className="col-3">
+                                                    <LoginSocialFacebook
+                                                        className="btn border-0"
+                                                        appId="652683827079181"
+                                                        onResolve={(resolve) => {
+                                                            loginWithFacebook(resolve);
+                                                            console.log(resolve);
+                                                        }}
+                                                        onReject="0d064982ef3aebe4cc4a1ac5f4115ad2">
+                                                        <BsFacebook color="blue" size={30}/>
+                                                    </LoginSocialFacebook>
+                                                </div>
+                                                <div className="col-3">
+                                                    <Link className="btn"
+                                                    to="/face">
+                                                    <LuScanFace size={30} />
+                                                    </Link>
+                                                </div>
+                                                <div className="col-3">
+                                                    <Link className="btn"
+                                                          to="/face">
+                                                        <FaSquareGithub size={30} />
+                                                    </Link>
+                                                </div>
+                                                <div className="col-3">
+                                                    <Link className="btn"
+                                                          to="/face">
+                                                        <FcGoogle  size={30} />
+                                                    </Link>
+                                                </div>
                                             </div>
                                         </div>
                                         <div className="form-group">

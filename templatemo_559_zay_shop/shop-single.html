@@ -13,921 +13,285 @@
     <link rel="stylesheet" href="assets/css/templatemo.css">
     <link rel="stylesheet" href="assets/css/custom.css">
 
-    <!-- Load fonts style after rendering the layout styles -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
 
-    <!-- Slick -->
+
     <link rel="stylesheet" type="text/css" href="assets/css/slick.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css">
-<!--
-    
-TemplateMo 559 Zay Shop
 
-https://templatemo.com/tm-559-zay-shop
-
--->
 </head>
 
 <body>
-    <!-- Start Top Nav -->
-    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
-        <div class="container text-light">
-            <div class="w-100 d-flex justify-content-between">
-                <div>
-                    <i class="fa fa-envelope mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>
-                    <i class="fa fa-phone mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+
+
+<section class="bg-light">
+    <div class="container pb-5">
+        <div class="row">
+            <div class="col-lg-5 mt-5">
+                <div class="card mb-3">
+                    <img class="card-img img-fluid"
+                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAABtlBMVEX///8AAAD8/Pzh4eHe3t7k5OTs7OzZ2dno6OjS0tLr6+v19fXT09PKysr4+PjPz8+4uLjAwMD09/uysrLGxsb2xwDz9vtfvv9LIwC9vb2srKw7r/80q/5NJwOcnJyjo6FfpOBLqflmnMhQtf+bmY02nfRcwf9RpOhPuf9rx/5SqvROHwBLGADJ0Nq1wda4xdOfvNlxp95XnOBdmM6fstLHxL13st9Hn+lXkNKkpp90eXq4z+FxsehsgZdNdY+9zdJ3stI7erSUp7WrqZmHcWNiQTtPRkdTgKZ2m6JpRDtpOSteNSlGMS5XjLeCjYxlZmdXIRZIXHBPrulcjapae4NEKyrZ5OxdLRMvl91ch7xtiJRWMDFxOiRMJSFSnc0ulOgslfl1Z2dtMCZuq+930P15eIJ3Qzpkm6pOWWB1scWBl6v++urr25aes6SAur5xTUHEuV48Rl7ix0DVwESstIGd1vBaVGK6uHMsgtk4QENttuRuWFUuTlsAFBU4faClsIQfLS45Zn1TmbowUFYZNUoVGQ29t25IgJQzZ5EmTW4MDhdyXEVOTEQkVXhQOSQAJDi04fU8AAAGBvkvAAALmklEQVR4nN2d+3fTVhLHxdXTlvWwpViR7TiSVVmWk4BjF8sNDk3a8ghpKHXY1MCunVIvDXT7WCjb1mW3L7rQ7WN3/+Odq4Ru28M5nNPgo6P5koQE+GE+zL0zc+/cKzEMVmXsHC8lbcQsldN5DjdgnuX4pI2YoYimsznUgHrJFDEDMrataKjnYEbnOC5pI2YpzRZRBxlGzCuimLQRs5SYFzncgDAHUQNyeo7LJW3ELJUzTBa1B3O6ImaSNmKWUow8ixtQ13KoAbWSwmpJGzFLKXpORA2YM1hWSdqIWUozcjzyOZgRNZK0FTOUZmuighpQF5EDGhyHOoqK+QyHOopyOgBiHqKczkk2akBDQe7BvJ7TMQOyNpcx1aStmKHYUkYy5aStmKH4kiIqmD0ogQd1zB5k7QyvYAbMVvMsakBBV3J5zIBySZPyQtJWzFCCYbJmNmkrZih1UWFtzB1QtZSXcmzSVsxQasnmTMweJIslAXeL1y6xuI9Z5HQxj7p/xtmsmE/aiFlK1Dke97aaLbKo56BpsLjPkWhVUUG9MapUORE1IFsSedRDVLI53D1s1uBwd0AFPcOjPurE5TncTXrWMHH3sNmqiLv7IpfErIka0M4JqLsvQsnUUAPKhqLYqHd+jTzu/hkpKZKCeWtbLikCbsDFvKBhBlR1hc2gbk5UzayIeWtbLWkSbg/amopqa5sc6cnP6qJJNESA5P86+gPDFBBtjJIC1dFXisswuslIeBqEBOBI/CX+hsrMMwIewMKvpapENs0sj+eSa6FYiJ33RLKsKjkJ0y1emHTSyslTK3I8AekcVEwJV3NCaq06QbvdefGoAD1tSDk0lQyNnCvdIIjgI4p6J+FH+aU1zqRpgsQfaRYdjxA5z/SDpgtqNptBtJrNrp9VTsd5UCZETjdiQaWEL2/0Pdc9QmxG7drmK68eBpnU+xBCqMrwr507d/6C5zbdSjnG9KPaRZPI4DwiQ56M/1lqOcF8cevSpe3tpdd3vEq57PpUUdSiEbVAP+C/oJDiPTYgUF+4fPmN169sby+/OShXQBRxHJyBvyzGeIR6MbUiBfmV3d3dq1fXbly59NYfdhplrxG7cezsUfwiSTthgaz0aXC5dvX6G1du3nzrzWkd/AiM42FfLVA8pgi+JOkNN6Sw0uoH1GvXrq/fuHnpj38agRc9iDXjqMXQaQqxhlGLaZ6JfNfp9cb7rj/evfg2IC6PLKveACdGTjFp256L9rrvNN2oPR5PJn7n4p9vbN+6MQ3Duj8eRzTYpF8xICgYRmG4D4hXtm6dn0ws6sOgm7R1z0F7q04MWC43o8HE2u+9e+fmrVsHkzKkDCBM8eQ7ElSjlA8SvVeujKdhxd+8fWfr1q1HZd93ERC+95f3p65PASHNlyvlqA0xdeeDxa0Pf+pQwHY3vaVarPfmQB994NIyhnrR8yPH8/3dD97euvRXKMGD4Ey6AZm7dyni3L0NCgg5sOKWg4lXiXav39jersEqqpvmUga0B7VM8DFl/Nj3rEajUmk0vNX7rtt7dLC9/bd3BlC2pVp7qzTI+M4ngHh3AwDLjYbVCDqDinvt+rmtc7VByrPh3mEUdSv+Bh2st/2wAaWM53+6GbnR2Te2t9dTD9g8BATV71FEAAxDiKW9juv31ra2qkmbeDy99NmDC0HM51caXow4rYehR9e+vcCN1j//PN0t3xdOUD0IypAIvbplVWjAmVgNKGRc1+k0exfW0n3+8PTfv40RT/yjXIHBaUEoBcR7nrtPd6Kc1dVr6+luVhS7A2fnQYz4VaMOnrPAjRBSv9j3aZ7v7l5YT3c/TX2R7ox6oy8p4jdho0yDaBjeowEV1hj9M5KU7lJGbtHVRBmqtK9ixEaj3oAo6k1hnIIL30l5kmAYods8zBIwBb+OEev1+iT0vP33wYkIAJUvH/7YOwSsNOobNOI8CMPQ8vZ9Z27uk/QD6nF8+a4JfGULnDeiiN9M6nQ56P9zbi71gOTsj4dpYtMrQxS1yuGAIj5qAGDTvT13N2kDjyvSGjSbj2PEh0G9bkGyr08p4nCfdmRWP0rawOMKAAd0Sf9dzLhTp2kinGxQ3jjTt5I28Ng6VRs5Ed112vwXRXwc1mmxXd+luJAIUw4ovPbh92u713baAQ0yQZztz8IgDWFpD3Pzs2azle40Ly4szy8tzZ91NntD12tY9YfxQIU0AVG0Sb9N+daouAB8CwsLy+c77c1RH1xnxZNxWnfpagKKm+vp9qDamo4u/DA/P7+wtHAh6HWm9bpn0ZrtoUcBm6MT36b7VInc6kOWCEbnlynjQTPqDGixfZbmRZ9G0f6J00nbeCypMWDTLXs74MOFpR8cvzeAgTqhXmzSRNhN9cEnUmj1gyZdTdDexMESHak70Wg6mVgWhJvHsCDsp7mJRghpOYMgOtp0KjceLcwvzM/vjDfuhw13DE50m91UAxYKp0ZOEEVQV1f8smdZVg0QF+Y7bRi5Ps2Ej/tp3vclxcJezXGG4/HY932otaGIaewsA+FP0eYwcssdCKdpBmRUFcYoEA6B0a9QwLDhh7uAuHQQfBoFzeDEicWkjTym5O4IatFhNBgELpSgYVhpWOG7ywvzy7VeJwiCf6d43/fwKLp8uwbldhBMJ4MgnNDNCkiEk+uA+IOz4wTdlaTNPIYOe5tyq7u66jhRcH8ymE7CAQzUOoAeLC0sr3c66Y2iBfKEkLS6fSB02sFgOhpNgZB60hpAQP2pVktte7BQKKpMsVCgACvdfr/vtCHcREOKOLl/P7Qa/jVw4lp6jxvGZ7SKKv2tAMO026c+7ABiB0bqfyaWB+nx/PzC92k+yHX4GZ+4W9mghIDYo4hQrVmeO3bdEQzTpO38/YrpVIYpMvTWxMnWatsJxtEY0mJnNJgOArqv1jz476tJ2/n7pcb+iw+HFuJwGpc1UQCIQ2cwjOhR7uDqa0mbeQzRQFM4OuBbUMneRtsZftpz2u1hEA03hwFV/2W5kOLjhiQ+DUriT/hyZ6PT7kE4bbcD6kfgazr3n9QEGHRq93anDQLEXhB0oMJxnJRvrP1a5sWL79+p1WqrHQipnaA9cgZ9VIDcC7ZpZ9WTtVoXiptOxxnVcHlQtjXRoMcq9u7Uut3VTmf0dS3tp9V+IUKyZo6zBQILRXqee6NW69RaqV7y/la8zUm6rKrq4ZXC4t7KXjG9KeIpknVJNmV627Vw9IkoRVDJ1axAnyWuHl3uja++Jm3U8xRbEtX4iTI/X0CH6Zi0Uc9TUlXnDx+Zc0gHv1Dx0WeJy/bPp+8IMjoQsXO/AEQo1UD+TCD6NIs8mnvYT5NRkrV0n598hvKLgpLuE7DPkGZkcT/mVyxlcb+LVyyxuN+mLJUk3A+JFUo5wU7aiFlK0kUN9QsLhBIr2agWSL+RUOUEAzMgXxVZA/MjRtnLGRb1EJWqmpTHDMhfFnEDZqusjPoli1JVkkV0GxW/EJRqKupXTvCLkpzBPESFRTGL+k2ugs6KqCsZwRCzqKOobNDuS9JWzFDymiagBlR1kRiod35NTdYwBxkCHuQwD1Fi54iIeYgyMEQzmAGJohEOc/eFmDlZxPw8f0YzCYsaUFFUHvMcZBRd5ZB7kEEeZBTCp/sJMs+QbgoS7jmYlznUTXrFVLl037x+hjSbSKm+mPwsabqM6LUvT5FiCBzqcyQ5Q5ZQz8GcTQTkgIKEe4jaMovag6ItZ1EDcgYroM6DXJ5H9Hawp4izZdxRVMxzEou5xcvZPIs6TYg2K/LIPZhBPUQlHSoZzIC8kc2iHqK8LsmohyivC7gBubygcpgBxVJeRj0HWV3kMpgBeZ2XkacJmYiYm/SCLZAM5mMWgiEwqK9ISgav8pg9KFUVgjvI6JykoQ4yVY1hMQNKpazKYwaENMGgPqzGGzyD24O6RFDPQUj0BLUHszAHUXtQ0gVGwAzIXZYI6lKN0ZWsiBqQCnMtyjD/A8dRoGa6vpdsAAAAAElFTkSuQmCC"
+                         alt="Card image cap"
+                         id="product-detail">
                 </div>
-                <div>
-                    <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
-                    <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
-                    <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
-                    <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
-                </div>
-            </div>
-        </div>
-    </nav>
-    <!-- Close Top Nav -->
+                <div class="row">
+                    <div class="col-1 align-self-center">
+                        <a href="#multi-item-example" role="button" data-bs-slide="prev">
+                            <i class="text-dark fas fa-chevron-left"></i>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </div>
+                    <div id="multi-item-example" class="col-10 carousel slide carousel-multi-item"
+                         data-bs-ride="carousel">
+                        <div class="carousel-inner product-links-wap" role="listbox">
 
-
-    <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-light shadow">
-        <div class="container d-flex justify-content-between align-items-center">
-
-            <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
-                Zay
-            </a>
-
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
-                <div class="flex-fill">
-                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="shop.html">Shop</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="navbar align-self-center d-flex">
-                    <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
-                            <div class="input-group-text">
-                                <i class="fa fa-fw fa-search"></i>
+                            <div class="carousel-item active">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <a href="#">
+                                            <img class="card-img img-fluid" src="https://dientutuonglai.com/uploads/product/linh-kien-dien-tu-/dien-tro-/ha-1001-000.png"
+                                                 alt="Product Image 1">
+                                        </a>
+                                    </div>
+                                    <div class="col-4">
+                                        <a href="#">
+                                            <img class="card-img img-fluid" src="https://huynhlai.vn/wp-content/uploads/2022/12/nguyen-ly-hoat-dong-dien-tro.png"
+                                                 alt="Product Image 2">
+                                        </a>
+                                    </div>
+                                    <div class="col-4">
+                                        <a href="#">
+                                            <img class="card-img img-fluid" src="https://upload.wikimedia.org/wikipedia/vi/c/cc/Maudientro.jpg"
+                                                 alt="Product Image 3">
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
-                        <i class="fa fa-fw fa-search text-dark mr-2"></i>
-                    </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
-                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
-                    </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
-                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
-                    </a>
+                    <div class="col-1 align-self-center">
+                        <a href="#multi-item-example" role="button" data-bs-slide="next">
+                            <i class="text-dark fas fa-chevron-right"></i>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
                 </div>
             </div>
+            <div class="col-lg-7 mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="h2">Điện Trở 1 MOhm 1W 1% 5 Vòng Màu</h1>
+                        <p class="h3 py-2">số lượng (con): 1+ 460 vnđ</p>
+                        <p class="h3 py-2">số lượng (con): 50+ 450 vnđ</p>
+                        <p class="h3 py-2">số lượng (con): 100+ 440 vnđ</p>
 
-        </div>
-    </nav>
-    <!-- Close Header -->
+                        <h6>Mô tả:</h6>
+                        <p>Thương hiệu: OEM
+                            <br>
+                            Giá trị điện trở: 1 MOhm
+                            <br>
+                            Sai số: 1%
+                            <br>
+                            Công suất: 1W
+                            <br>
+                            Công nghệ: Metal Oxide
+                            <br>
+                            Nhiệt độ max: +155°C
+                            <br>
+                            Nhiệt độ min: -55°C</p>
 
-    <!-- Modal -->
-    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="w-100 pt-1 mb-5 text-right">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form action="" method="get" class="modal-content modal-body border-0 p-0">
-                <div class="input-group mb-2">
-                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
-                    <button type="submit" class="input-group-text bg-success text-light">
-                        <i class="fa fa-fw fa-search text-white"></i>
-                    </button>
+                        <form action="" method="GET">
+                            <input type="hidden" name="product-title" value="Activewear">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <ul class="list-inline pb-3">
+                                        <li class="list-inline-item text-right">
+                                            Số lượng
+                                            <input type="hidden" name="product-quanity" id="product-quanity" value="1">
+                                        </li>
+                                        <input type="number" value="1" class="text-center" style="width: 100px">
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row pb-3">
+                                <div class="col d-grid">
+                                    <button type="submit" class="btn btn-primary btn-lg" name="submit" value="buy">Mua
+                                    </button>
+                                </div>
+                                <div class="col d-grid">
+                                    <button type="submit" class="btn btn-primary btn-lg" name="submit"
+                                            value="addtocard">Thêm vào giỏ hàng
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
-
-
-
-    <!-- Open Content -->
-    <section class="bg-light">
-        <div class="container pb-5">
-            <div class="row">
-                <div class="col-lg-5 mt-5">
-                    <div class="card mb-3">
-                        <img class="card-img img-fluid" src="assets/img/product_single_10.jpg" alt="Card image cap" id="product-detail">
-                    </div>
-                    <div class="row">
-                        <!--Start Controls-->
-                        <div class="col-1 align-self-center">
-                            <a href="#multi-item-example" role="button" data-bs-slide="prev">
-                                <i class="text-dark fas fa-chevron-left"></i>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                        </div>
-                        <!--End Controls-->
-                        <!--Start Carousel Wrapper-->
-                        <div id="multi-item-example" class="col-10 carousel slide carousel-multi-item" data-bs-ride="carousel">
-                            <!--Start Slides-->
-                            <div class="carousel-inner product-links-wap" role="listbox">
-
-                                <!--First slide-->
-                                <div class="carousel-item active">
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_01.jpg" alt="Product Image 1">
-                                            </a>
-                                        </div>
-                                        <div class="col-4">
-                                            <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_02.jpg" alt="Product Image 2">
-                                            </a>
-                                        </div>
-                                        <div class="col-4">
-                                            <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_03.jpg" alt="Product Image 3">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/.First slide-->
-
-                                <!--Second slide-->
-                                <div class="carousel-item">
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_04.jpg" alt="Product Image 4">
-                                            </a>
-                                        </div>
-                                        <div class="col-4">
-                                            <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_05.jpg" alt="Product Image 5">
-                                            </a>
-                                        </div>
-                                        <div class="col-4">
-                                            <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_06.jpg" alt="Product Image 6">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/.Second slide-->
-
-                                <!--Third slide-->
-                                <div class="carousel-item">
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_07.jpg" alt="Product Image 7">
-                                            </a>
-                                        </div>
-                                        <div class="col-4">
-                                            <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_08.jpg" alt="Product Image 8">
-                                            </a>
-                                        </div>
-                                        <div class="col-4">
-                                            <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_09.jpg" alt="Product Image 9">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/.Third slide-->
-                            </div>
-                            <!--End Slides-->
-                        </div>
-                        <!--End Carousel Wrapper-->
-                        <!--Start Controls-->
-                        <div class="col-1 align-self-center">
-                            <a href="#multi-item-example" role="button" data-bs-slide="next">
-                                <i class="text-dark fas fa-chevron-right"></i>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
-                        <!--End Controls-->
-                    </div>
-                </div>
-                <!-- col end -->
-                <div class="col-lg-7 mt-5">
-                    <div class="card">
-                        <div class="card-body">
-                            <h1 class="h2">Active Wear</h1>
-                            <p class="h3 py-2">$25.00</p>
-                            <p class="py-2">
-                                <i class="fa fa-star text-warning"></i>
-                                <i class="fa fa-star text-warning"></i>
-                                <i class="fa fa-star text-warning"></i>
-                                <i class="fa fa-star text-warning"></i>
-                                <i class="fa fa-star text-secondary"></i>
-                                <span class="list-inline-item text-dark">Rating 4.8 | 36 Comments</span>
-                            </p>
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <h6>Brand:</h6>
-                                </li>
-                                <li class="list-inline-item">
-                                    <p class="text-muted"><strong>Easy Wear</strong></p>
-                                </li>
-                            </ul>
-
-                            <h6>Description:</h6>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse. Donec condimentum elementum convallis. Nunc sed orci a diam ultrices aliquet interdum quis nulla.</p>
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <h6>Avaliable Color :</h6>
-                                </li>
-                                <li class="list-inline-item">
-                                    <p class="text-muted"><strong>White / Black</strong></p>
-                                </li>
-                            </ul>
-
-                            <h6>Specification:</h6>
-                            <ul class="list-unstyled pb-3">
-                                <li>Lorem ipsum dolor sit</li>
-                                <li>Amet, consectetur</li>
-                                <li>Adipiscing elit,set</li>
-                                <li>Duis aute irure</li>
-                                <li>Ut enim ad minim</li>
-                                <li>Dolore magna aliqua</li>
-                                <li>Excepteur sint</li>
-                            </ul>
-
-                            <form action="" method="GET">
-                                <input type="hidden" name="product-title" value="Activewear">
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <ul class="list-inline pb-3">
-                                            <li class="list-inline-item">Size :
-                                                <input type="hidden" name="product-size" id="product-size" value="S">
-                                            </li>
-                                            <li class="list-inline-item"><span class="btn btn-success btn-size">S</span></li>
-                                            <li class="list-inline-item"><span class="btn btn-success btn-size">M</span></li>
-                                            <li class="list-inline-item"><span class="btn btn-success btn-size">L</span></li>
-                                            <li class="list-inline-item"><span class="btn btn-success btn-size">XL</span></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-auto">
-                                        <ul class="list-inline pb-3">
-                                            <li class="list-inline-item text-right">
-                                                Quantity
-                                                <input type="hidden" name="product-quanity" id="product-quanity" value="1">
-                                            </li>
-                                            <li class="list-inline-item"><span class="btn btn-success" id="btn-minus">-</span></li>
-                                            <li class="list-inline-item"><span class="badge bg-secondary" id="var-value">1</span></li>
-                                            <li class="list-inline-item"><span class="btn btn-success" id="btn-plus">+</span></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="row pb-3">
-                                    <div class="col d-grid">
-                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="buy">Buy</button>
-                                    </div>
-                                    <div class="col d-grid">
-                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">Add To Cart</button>
-                                    </div>
-                                </div>
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+</section>
+<section class="py-5">
+    <div class="container">
+        <div class="row text-left p-2 pb-3">
+            <h4>Sản phẩm cùng loại</h4>
         </div>
-    </section>
-    <!-- Close Content -->
 
-    <!-- Start Article -->
-    <section class="py-5">
-        <div class="container">
-            <div class="row text-left p-2 pb-3">
-                <h4>Related Products</h4>
+        <div id="carousel-related-product">
+
+            <div class="p-2 pb-3">
+                <div class="product-wap card rounded-0">
+                    <div class="card rounded-0">
+                        <img style="height: 406.4px" class="card-img rounded-0 img-fluid" src="https://maydochuyendung.com/img/uploads/images/ampe-kim/dien-tro-min.jpg">
+                        <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                            <ul class="list-unstyled">
+                                <li><a class="btn btn-primary text-white mt-2" href="shop-single.html"><i
+                                        class="far fa-eye"></i></a></li>
+                                <li><a class="btn btn-primary text-white mt-2" href="shop-single.html"><i
+                                        class="fas fa-cart-plus"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <b class="h3 text-decoration-none text-center">Trở Vạch 1/4W 5% 2M (50c)</b>
+                        <br>
+                        <span>Dùng trong các thiết bị điện tử và mạch điện</span>
+                        <p class="text-center mb-0">4600 vnđ</p>
+                    </div>
+                </div>
             </div>
 
-            <!--Start Carousel Wrapper-->
-            <div id="carousel-related-product">
-
-                <div class="p-2 pb-3">
-                    <div class="product-wap card rounded-0">
-                        <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="assets/img/shop_08.jpg">
-                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                <ul class="list-unstyled">
-                                    <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <a href="shop-single.html" class="h3 text-decoration-none">Red Clothing</a>
-                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                <li>M/L/X/XL</li>
-                                <li class="pt-2">
-                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                </li>
+            <div class="p-2 pb-3">
+                <div class="product-wap card rounded-0">
+                    <div class="card rounded-0">
+                        <img style="height: 406.4px" class="card-img rounded-0 img-fluid" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw8SEBESEhMVFRIVFRAQDxASFxMWEhUQFREXFhUSFRcYHSkgGBolHRUVITEhJSktLi4uFx8zODMtNygtLisBCgoKDg0NFRAQFy0dFR0tKystKy0tLSstLS0tLSstLS0tLSstLS0tKy03KystLSs3Kys3Ny0tLS03Ky0rLSsrLf/AABEIAOEA4QMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAAAwUBAgQGB//EAEQQAAIBAgIGBAkJBQkAAAAAAAABAgMRBCEFEjFBUZETYXGhFBUiMkKBksHRM1JTcoKDorHTBlRik+EjQ3OUsrPD0vH/xAAXAQEBAQEAAAAAAAAAAAAAAAAAAQID/8QAGhEBAQEAAwEAAAAAAAAAAAAAAAERAhIhMf/aAAwDAQACEQMRAD8A+4gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABcAAAAAAAAADWTNiqxU8RKcoRjBQ2a7l5VntajbPmZ53wbT01RUtVuSf1J25pWJY6Vo/O7pfAUsFFbiZUY8DPqtFpGj8+PM3pYuEleMk+xpmyprgRVMLB7Un6h6JHi6aV3KKWy91a/A3hVi9jT7Dklg4WtqqxqsDTtlG3Zkyy0WFxcqvBGs1Oa6taXvJsLUs2nJv61h2osAawZsbiAAAAAAAAAAAAACGvhoTzkrtZJ5ppdTWZH4BDjU/m1vy1jqAHI8E91SovtKX+pMeCVPp6nrVH9M6wTBx9DXWyrH7VO77pox0eK+kpfyp/qnaCjjtiV9FL24/E1dTF/R0X97UX/EzuAHFTrYi61qUEsruNRysuNnBG9fJp52vm0m/wAietfVlbbZtdpR+O5rbBeq6OfOLFtDFwbtd364yX5o2eIp/PjzRUrTUd8OT/obLTFPfGXcTsLdST2NPsM2KqOlKHBrjdGVi8M87pPsa9xews7GNUrumoP0/wAU17yRShuqv2/ixo7NRFZpXRiqWtJxfVsy2NnWm91R/gfuJIxd7t35Eo2wFHUpxje9lZvi75vmdBwT0ZSm3Nupd7dWrWgssvNjJLdwMPQ1HjW/zGJ/7nSfEWAK/wAUU9mvW4/LVnn65GfFi+krL7yXvA7wcPi57q9ZeuD/ADizHi+p+81uVD30ijvBXvR9X96r8sN+kdeHpOMbOUpvPypWu7v+FJdwEoAAAAAAAAAAAAAAAB5PE07SkuDZ6wqdJ6L13rRk4t7bW96M8popVAdGTS0ZWWyb9aj7ka+CV1vj7L+Jm8aqPox0RJ0NZbovmviNSr8xe1/Qz1qouiMdGdEKVV/3cucbd7R1UtHVJbUo9ru+7ImCt6MxGDvZNl7DRUPSk32ZE8MLSjsik+O194w11YanqxjHgkiUhoPdyJjtPjIACgAAAAAAAAAAAAAAAAAAAAAAjrSsvWROoZtwTPV/8I3GPDmRubNHUWeay87qyvn6szOqlcY9Q8ncisqaZoqOHnF61PESpwpVY2cP7SDlTk23kpWST4yS3lhcDfXZq5GAQZuYZhsxrASQkdRwxZrWx1SNlGhUqZbYOklznJGuNFgCsWKxb83Dxj1VaqX+2pmyjjZb6NPsU6vvga1FiDg8DrvzsRJf4cIRX49YytGR9KdWT66ko90LIDtcka06sZX1WnbJ2d7dpBHR1H6OLfGS1pc5XZ0xikrJWXBFGQAAAAAAAAAAAAAAAaVl5L58szjbO6TS2nAzHIeQ09o6vPE1HKlWxFBwpypQeJ6DCU5pSjONVKd5XtGXmSWbJpyqKDxWGpzpqv0kcTHVjUnFUqNSnRxNOCb17uFKySk5xcLIvcfozD19XpqUKmrfUVRKUU3a71XlfJHTCKSSSSSVklkklsSW4ary+jtFYyMsLe0KUXRqypQl/Z02sNOnVo6lk5Qc3GceEr3tZX9ZrGlzWVRLeS3RK5mLnK8XHcm31JmKleaV3qwXGbSIOq5q5riVNfS9CO2o5PhTTfe8ivrftDFeZS9dR37kB6Tp1uu31HTRqWee/d2Hh6mmsRL09VcIJLv2956b9nsJKMNebbnPPNttR3beO3kak9F2pmyMRRsbQAAAAAAAABrUmoq7dlxZX1NPYRPV6aDl8yLTn7KzAsgVXjrW+SoV6n3bpd9bVXeOmx0tlKlTXGdRymu2EY2/EBamGyr8X4mXymKkuqhCEFbh5eu+TRnxDhn56lU4qrUqTj7Enqr1ICTFacwlN6s61NT3Q1k5vsis2QePdb5LD4ip926a9TraqfM78Nh6NKOrThCEd0YRjFckjd1kBWeE6Ql5tClTXGtVbmvsU4yT9o1eBxsvlMXGC4YejGLX2qspp8kWbqsiqzdhgrZ6Bw7+VlWrO1mqtWo4Ptpxah+EnjGFOEYxSjCKUYxikoxiskklsWQqSZW6Sxc6cdaPrTV11WJyng7/AAtPzU5diNKtdrOco01/E1c8hidMYiW2o0uEfJ/Ir51N7d3xe0xivXV9MYeO2pKb4QWXN5HBW/aNehSS65tt8keYrYuEdrS7WcdTS0N15fVTffsLivS19OYiXp6q4QSj37TgnWbd5Nt8W7vvKV4+rLzYW65PPkviI0a89s32RVl8S9RbTxEVtZB4yh6N5P8AhV+/YRYfQ17Npt8ZZvmy+wGhdmRrqmo9DRlUnG8bRvd32vqsj6Jhbsp9GaLtbI9DSp2QzEbgAAAAAAAAACLEYenUWrUhGcbp6s0pK62Oz3m1OnGKtFJLckkl3G4A1bZjM3AEdmNQkAEfRjokSADTo0YdFEgAglhosqNLYBuMki+NJwTA+SaQwuJi2lGK63d92RXz0bXl505di8n8sz6xi9GRluOKWiFwLJF18ypaDz2XfF5vmWFDQr4HvYaHjwOqjoxcAjxuG0F1FphtBrgeqp4FInjh4oaKPDaIS3FpQwCR2qKMjRrCCRsAQAAAAAAAAAAAAAAAAAAAAAAAAAAAMWRkAYsZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//Z">
+                        <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                            <ul class="list-unstyled">
+                                <li><a class="btn btn-primary text-white mt-2" href="shop-single.html"><i
+                                        class="far fa-eye"></i></a></li>
+                                <li><a class="btn btn-primary text-white mt-2" href="shop-single.html"><i
+                                        class="fas fa-cart-plus"></i></a></li>
                             </ul>
-                            <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                <li>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                </li>
-                            </ul>
-                            <p class="text-center mb-0">$20.00</p>
                         </div>
                     </div>
-                </div>
-
-                <div class="p-2 pb-3">
-                    <div class="product-wap card rounded-0">
-                        <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="assets/img/shop_09.jpg">
-                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                <ul class="list-unstyled">
-                                    <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <a href="shop-single.html" class="h3 text-decoration-none">White Shirt</a>
-                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                <li>M/L/X/XL</li>
-                                <li class="pt-2">
-                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                </li>
-                            </ul>
-                            <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                <li>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                </li>
-                            </ul>
-                            <p class="text-center mb-0">$25.00</p>
-                        </div>
+                    <div class="card-body">
+                        <a href="shop-single.html" class="h3 text-decoration-none">Trở sứ 5w</a>
+                        <br>
+                        <span>Dùng trong các thiết bị điện tử và mạch điện</span>
+                        <p class="text-center mb-0">2400 vnđ</p>
                     </div>
                 </div>
-
-                <div class="p-2 pb-3">
-                    <div class="product-wap card rounded-0">
-                        <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="assets/img/shop_10.jpg">
-                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                <ul class="list-unstyled">
-                                    <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <a href="shop-single.html" class="h3 text-decoration-none">Oupidatat non</a>
-                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                <li>M/L/X/XL</li>
-                                <li class="pt-2">
-                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                </li>
-                            </ul>
-                            <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                <li>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                </li>
-                            </ul>
-                            <p class="text-center mb-0">$45.00</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-2 pb-3">
-                    <div class="product-wap card rounded-0">
-                        <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="assets/img/shop_11.jpg">
-                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                <ul class="list-unstyled">
-                                    <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <a href="shop-single.html" class="h3 text-decoration-none">Black Fashion</a>
-                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                <li>M/L/X/XL</li>
-                                <li class="pt-2">
-                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                </li>
-                            </ul>
-                            <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                <li>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                </li>
-                            </ul>
-                            <p class="text-center mb-0">$60.00</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-2 pb-3">
-                    <div class="product-wap card rounded-0">
-                        <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="assets/img/shop_08.jpg">
-                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                <ul class="list-unstyled">
-                                    <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <a href="shop-single.html" class="h3 text-decoration-none">Oupidatat non</a>
-                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                <li class="">M/L/X/XL</li>
-                                <li class="pt-2">
-                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                </li>
-                            </ul>
-                            <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                <li>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                </li>
-                            </ul>
-                            <p class="text-center mb-0">$80.00</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-2 pb-3">
-                    <div class="product-wap card rounded-0">
-                        <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="assets/img/shop_09.jpg">
-                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                <ul class="list-unstyled">
-                                    <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <a href="shop-single.html" class="h3 text-decoration-none">Oupidatat non</a>
-                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                <li>M/L/X/XL</li>
-                                <li class="pt-2">
-                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                </li>
-                            </ul>
-                            <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                <li>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                </li>
-                            </ul>
-                            <p class="text-center mb-0">$110.00</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-2 pb-3">
-                    <div class="product-wap card rounded-0">
-                        <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="assets/img/shop_10.jpg">
-                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                <ul class="list-unstyled">
-                                    <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <a href="shop-single.html" class="h3 text-decoration-none">Oupidatat non</a>
-                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                <li>M/L/X/XL</li>
-                                <li class="pt-2">
-                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                </li>
-                            </ul>
-                            <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                <li>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                </li>
-                            </ul>
-                            <p class="text-center mb-0">$125.00</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-2 pb-3">
-                    <div class="product-wap card rounded-0">
-                        <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="assets/img/shop_11.jpg">
-                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                <ul class="list-unstyled">
-                                    <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <a href="shop-single.html" class="h3 text-decoration-none">Oupidatat non</a>
-                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                <li>M/L/X/XL</li>
-                                <li class="pt-2">
-                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                </li>
-                            </ul>
-                            <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                <li>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                </li>
-                            </ul>
-                            <p class="text-center mb-0">$160.00</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-2 pb-3">
-                    <div class="product-wap card rounded-0">
-                        <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="assets/img/shop_08.jpg">
-                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                <ul class="list-unstyled">
-                                    <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <a href="shop-single.html" class="h3 text-decoration-none">Oupidatat non</a>
-                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                <li>M/L/X/XL</li>
-                                <li class="pt-2">
-                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                </li>
-                            </ul>
-                            <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                <li>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                </li>
-                            </ul>
-                            <p class="text-center mb-0">$180.00</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-2 pb-3">
-                    <div class="product-wap card rounded-0">
-                        <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="assets/img/shop_09.jpg">
-                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                <ul class="list-unstyled">
-                                    <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <a href="shop-single.html" class="h3 text-decoration-none">Oupidatat non</a>
-                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                <li>M/L/X/XL</li>
-                                <li class="pt-2">
-                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                </li>
-                            </ul>
-                            <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                <li>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                </li>
-                            </ul>
-                            <p class="text-center mb-0">$220.00</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-2 pb-3">
-                    <div class="product-wap card rounded-0">
-                        <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="assets/img/shop_10.jpg">
-                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                <ul class="list-unstyled">
-                                    <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <a href="shop-single.html" class="h3 text-decoration-none">Oupidatat non</a>
-                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                <li>M/L/X/XL</li>
-                                <li class="pt-2">
-                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                </li>
-                            </ul>
-                            <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                <li>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                </li>
-                            </ul>
-                            <p class="text-center mb-0">$250.00</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-2 pb-3">
-                    <div class="product-wap card rounded-0">
-                        <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="assets/img/shop_11.jpg">
-                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                <ul class="list-unstyled">
-                                    <li><a class="btn btn-success text-white" href="shop-single.html"><i class="far fa-heart"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="far fa-eye"></i></a></li>
-                                    <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <a href="shop-single.html" class="h3 text-decoration-none">Oupidatat non</a>
-                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                <li>M/L/X/XL</li>
-                                <li class="pt-2">
-                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                    <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                </li>
-                            </ul>
-                            <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                <li>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-warning fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                    <i class="text-muted fa fa-star"></i>
-                                </li>
-                            </ul>
-                            <p class="text-center mb-0">$300.00</p>
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
-
-        </div>
-    </section>
-    <!-- End Article -->
-
-
-    <!-- Start Footer -->
-    <footer class="bg-dark" id="tempaltemo_footer">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-4 pt-5">
-                    <h2 class="h2 text-success border-bottom pb-3 border-light logo">Zay Shop</h2>
-                    <ul class="list-unstyled text-light footer-link-list">
-                        <li>
-                            <i class="fas fa-map-marker-alt fa-fw"></i>
-                            123 Consectetur at ligula 10660
-                        </li>
-                        <li>
-                            <i class="fa fa-phone fa-fw"></i>
-                            <a class="text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
-                        </li>
-                        <li>
-                            <i class="fa fa-envelope fa-fw"></i>
-                            <a class="text-decoration-none" href="mailto:info@company.com">info@company.com</a>
-                        </li>
-                    </ul>
+            <div class="p-2 pb-3">
+                <div class="product-wap card rounded-0">
+                    <div class="card rounded-0">
+                        <img style="height: 406.4px" class="card-img rounded-0 img-fluid" src="data:image/jpeg;base64,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">
+                        <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                            <ul class="list-unstyled">
+                                <li><a class="btn btn-primary text-white mt-2" href="shop-single.html"><i
+                                        class="far fa-eye"></i></a></li>
+                                <li><a class="btn btn-primary text-white mt-2" href="shop-single.html"><i
+                                        class="fas fa-cart-plus"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <a href="shop-single.html" class="h3 text-decoration-none">Trở 0603 5% 680R (50c)</a>
+                        <br>
+                        <span>Dùng trong các thiết bị điện tử và mạch điện</span>
+                        <p class="text-center mb-0">4500 vnđ</p>
+                    </div>
                 </div>
-
-                <div class="col-md-4 pt-5">
-                    <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
-                    <ul class="list-unstyled text-light footer-link-list">
-                        <li><a class="text-decoration-none" href="#">Luxury</a></li>
-                        <li><a class="text-decoration-none" href="#">Sport Wear</a></li>
-                        <li><a class="text-decoration-none" href="#">Men's Shoes</a></li>
-                        <li><a class="text-decoration-none" href="#">Women's Shoes</a></li>
-                        <li><a class="text-decoration-none" href="#">Popular Dress</a></li>
-                        <li><a class="text-decoration-none" href="#">Gym Accessories</a></li>
-                        <li><a class="text-decoration-none" href="#">Sport Shoes</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-md-4 pt-5">
-                    <h2 class="h2 text-light border-bottom pb-3 border-light">Further Info</h2>
-                    <ul class="list-unstyled text-light footer-link-list">
-                        <li><a class="text-decoration-none" href="#">Home</a></li>
-                        <li><a class="text-decoration-none" href="#">About Us</a></li>
-                        <li><a class="text-decoration-none" href="#">Shop Locations</a></li>
-                        <li><a class="text-decoration-none" href="#">FAQs</a></li>
-                        <li><a class="text-decoration-none" href="#">Contact</a></li>
-                    </ul>
-                </div>
-
             </div>
 
-            <div class="row text-light mb-4">
-                <div class="col-12 mb-3">
-                    <div class="w-100 my-3 border-top border-light"></div>
+            <div class="p-2 pb-3">
+                <div class="product-wap card rounded-0">
+                    <div class="card rounded-0">
+                        <img style="height: 406.4px" class="card-img rounded-0 img-fluid" src="data:image/jpeg;base64,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">
+                        <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                            <ul class="list-unstyled">
+                                <li><a class="btn btn-primary text-white mt-2" href="shop-single.html"><i
+                                        class="far fa-eye"></i></a></li>
+                                <li><a class="btn btn-primary text-white mt-2" href="shop-single.html"><i
+                                        class="fas fa-cart-plus"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <a href="shop-single.html" class="h3 text-decoration-none">Điện Trở Xả Vỏ Nhôm</a>
+                        <br>
+                        <span>Dùng trong các thiết bị điện tử và mạch điện</span>
+                        <p class="text-center mb-0">60000 vnđ</p>
+                    </div>
                 </div>
-                <div class="col-auto me-auto">
-                    <ul class="list-inline text-left footer-icons">
-                        <li class="list-inline-item border border-light rounded-circle text-center">
-                            <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
-                        </li>
-                        <li class="list-inline-item border border-light rounded-circle text-center">
-                            <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
-                        </li>
-                        <li class="list-inline-item border border-light rounded-circle text-center">
-                            <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i class="fab fa-twitter fa-lg fa-fw"></i></a>
-                        </li>
-                        <li class="list-inline-item border border-light rounded-circle text-center">
-                            <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-auto">
-                    <label class="sr-only" for="subscribeEmail">Email address</label>
-                    <div class="input-group mb-2">
-                        <input type="text" class="form-control bg-dark border-light" id="subscribeEmail" placeholder="Email address">
-                        <div class="input-group-text btn-success text-light">Subscribe</div>
+            </div>
+            <div class="p-2 pb-3">
+                <div class="product-wap card rounded-0">
+                    <div class="card rounded-0">
+                        <img style="height: 406.4px" class="card-img rounded-0 img-fluid" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTExMWFhUXFxgWFxgYFRUVFxgVFRUXGBcXGBUZHSggGBolHhUVITEiJSkrLi4uFx8zODMtNygtLisBCgoKDg0OFxAQGi0dHyUtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLf/AABEIAOEA4QMBIgACEQEDEQH/xAAcAAEAAgMBAQEAAAAAAAAAAAAAAwQBAgUGBwj/xABCEAACAQIEAgcFBQUHBAMAAAAAAQIDEQQSITFBUQUTYXGBkbEGIqHR8BQyQsHhByNScsIVU2KCktLxY3Oy4hYkM//EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/EABwRAQEBAQEAAwEAAAAAAAAAAAARASExAkFREv/aAAwDAQACEQMRAD8A+4gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANXNc0aPER5+oEoK7xce34D7WuT+HzAsAr/a1yfw+Zn7XHt8gJwRLER5/kbxmns0BsAAAAAAAAAAAAAAAAAAAAAAgqYlcNfT9StUqN7vw/T5gW6mIiuJXljXwXqyFRX1r+hnNy+vEitnWm+zyNZX4v68TDv3fXNmll9XYGW1zCty+BHGtF3Sd7b2sZlP6bCpM31cxKaIr9i+JHXoxmssoprk7kom6yJnOuZGora3xIIYGKlnWe7vf3m1r2C6cXMy5mfEp4jDOUbRk4vTW1zFDDyjFJzzNcdrikX4za2b+uwljipd/12HIhOqpNOPu8JXT80S1Mao/faV9PHxH9EdeGMXFWJoVU9mcqNVMzctSOuDmwxMkWaWLT30KiyAmAAAAAAAAYlKyuBipNJXZQrV3Lu5cP1ZpiKzk/rRcu9mifw48u7tJVb/Xb4vgM3Bfp+ppFX02RvQnGSvHa9vIKzlvuV6eMTqSppP3Vq+F+XxN8HQcL5pOTbb7uxFjL4epO6cUOkcNUmo5J5Nfe5td/mWYx8Saoklfc1hK6vsIVWw+BhTvlVr822TtLjr4DI73vpyMSjcuZhu6xmXI1c9bce4w2o6G0r2KyymzVNkUJ3duwzUk0FwqymmsquuOuxJJvvNKcrpMhp4i7atxsRW2BxfWJ3g4tO2vzJKuRvLKzvwdmKlZRV3exrPCwnKM2tVqnsTsPttLDq1lpy4peBBhadSKam1LXRpWuu1cGWcUpZXk+9wN6N8qzb217xOl4rYfFxk5JNNxdpLkyZo1UIS99Ja6ZktXba/Pia6rdq3Br8wLFLEuPd9fVzo0aqkro5CqK7XFcOx7Pu0fkb0qjg7r6/QtSOwDWnNNXRsVAAACj0pXaVlu9u97F44fSMlKtFN/dTnbnZZfhcmrhRhlSV7vi+cnq2ZbvZc9u5by+uZpGWtuUU33zb+XxIqdZOrV1+4lG3JWTv538jNajoQlZtcElb43/IzTjwSsiPCPMk3xV0WYxd229OC+vEqNYvW1vEzOldp8jaT0bNaMm0yozmV7FbE1mnoS0qTTuS/Zru7QFeez7iOine9tzoRw2huqKXBFSuXUpZvq5MqTtazOhl5Ic+4Fc2ng7O6Tu+1G0sJJ7r4o5mLmpzcteSabTSW1mtVzJVjKlPL72bM8tpau1rtqS187gq7HCSSSS+KIvsLTuovz4lmn0lH8Sce37y+GvwLOGxEZr3JKS5ppgrmV8M2rWa8CSlC0UuR1jWVNPdBa4mCveSd+y5P1yzZbF6eGXAqVMNaWb/ggjjSUI2itN7d7IaslF6/dk7dze3mWG/ea4WKXSy/dyd9kn5SRN8az0q31trKKzRXGUeMfhbvsSxqpq61usy7Vx/IqyxGlOr/iyy7pPL6qPmb58sorh1jj4Tg5pehnNXcdLo+rZ2vdPb8jpHl+jquWMY32qzpr/K52/wDFHp4u5vNrG5GQAVA87j4fv5W3lSqJd8ZL/cj0RxMfD3sy3hLMu53Ul4pvxsTVxU63eXBqhLwc9fgjhdGVH/amLpPZ0lJeNn/UejqwjbXWDTT/AJJ8fD0Od0lh1Sr08V+L3aNR/wCF5rSfjJfAxv63n47WAkskXyivTX0LUneJWw6tpwd7dz19Wy9SpaG8Y1HShpYmp0bEqVjJUYUbGQRYipbS+r2/MDzntv7ULAYaeKfvW92EL2U5N6a207zzns7+2no+vaNbNhpv+NZoX/7kdl32PDft16a+0Yulgaco5aV3NuUYxU2vxSbsrJP4HjKGFoV7xUYvqo56teFsPCTs4wowjJZE5TcVnlFO13l93UP1bg8fSrRU6VSFSL2lCSkvNFT2h6SjQpXbtmkoLvle/wAEz8u0cBiMNVcsNXlRcIRlVvVjDqpynKCo1JxeWUnluttHqlZ2+lfsz9pMX0jUq4bHKnXpUVGWfRTjVvaFp03aV0p6rzKj6DgsRCWsZJ7bO9vAkqSzVXbaCyr+Z6yfovBkT9l6NX95RlOm02lfX7r4NNSWvaZjgcRRVsnWLnF3finq34EG+Jk9lx9OJA6SvtrzWjXc+BWqdJRz+/GUe9f07ryLDxKySnFqVlok07yekV4toiu37P1pSU7ycoxllTbu7pe9rxV2l4M6xU6KwnVUoU+KWr5yesn4tstlAw0ZAFWvh+KOD7Qp/Zqlt7JLzR6CtW4LzOXWnGVSNJrS0nL/AENJfEz8vGvi5HRCdTDW/l880W/Qk6Sm+soJL7+Kt4U6FS786Z0MJhVShkguPnJ7vuX5ESpKVRSWqppwh21Jffl4JW8ZGcyZGqqwj71L/FiK0/BdbZ92q80esp7LuRxadJXT/hWSP9XnZeR3EazGd0ABpkOTipWnLss/gjrHJ6WTjOMlxaT+K/NAaKNtOHz3XczTqk04SV4tW14r+F9qNk22tstnfvv/AMkqRGlXDZovJLWP4JcWv4ZcpL4nWoYjhLzKbXA1jGytdtdu/wCvqTw3rrg51LENbaliGMXHQtSLJyum+hViMrc5QlC+VxtvK2rXhwaOlCqns0blR8j9p/2VRqylUlT6yUm26lKWSo295ShP3W/Fs+ddL/s1r07wo1bptSdKpmpSbimouz0k1mlrpuz9QkWJw0KiyzhGa5SSkvJgfkzFVsRhqkq2Iws1Wn1l5uUlSn1t7qcNYzSv91NKyV0+P2H9kXQzwvRkajj+8rvre15rRpLys/8AMz2uO9kaUk+rlKnfeL/eU33wnw7mjPQ3RuIpzVOoqbpQWaEoNpt7KLg/upXvppsB28HQyQjDkrX5vi/F3ZMABHXw8Jq04xkuTSfqcr/4zQVaFWKcXF3yp+63wbT89OR13NLiiGpjILiBYFyjLH32RFOcmk293a35kqxdniEu0glUcu4jpaa7mFyAxVquOi1lw/UrYbCWbnJ3nLd8uxFtR8Bbw9f0JFRSjwXc3yXJdojT4LgrLsXzJbcjR3TW2WzvzvwLBrKVk9LW0OscaMnKpk4ZU/OT+R2SsgAAEOLo5o9q1RMAPNUJSg6rn91SzL+Vr53LOGppOUk7qdn2Xtuu/Qt9K4DPCS4Si07dqtdHAxWJeEw0W/eyZYvtV8t/T9QrpUMfCVSdJXzQs2mraPiuf6otlPCVYzjGql9+KafG0knb0IcXGt1tOVOS6taTi+K5p81+RnxXRsYt4lfE4uNODnN2jFXb39DbD4yE4qcXeLV00UZnR1utPrmZj1ii5Keq/C+XYyRSXMyIKsel6idmk+HiK/Ssou04zi+70JpwvuvgmQV6Ck25ZW3vdNPzuTpxH/bX/Ut3wfzNX0xL+9h/pl8h9ih/DHXfVv4amj6Lg+D8H/6k6vGf7Un/AH0Pj8jWWOb3rLwv8jZdGRStZ271/sMx6Mgt4v8A1P5IdOMdfTy//rJy8cvoZo4immnq+y2nqSrDQ/gXi/myaFNLZRXcr+iA0jiLttRbu77WS05E0cz4JGyv2/BfMz4r19So2UDeKIaleMU3J2S3bdkjNOqpJNNNPZrYolbIquJinGLdnL7q4u2/qvMq4WdZ1J54xjDaGt5NLi+/kWakYr32leKettbLXQUZrUruLzNKLvZaJ9/cU+kqspUW6erbUV4ySf5mmB6QWJoznT45ox71HR+bLnQfRzp0owk72vd8222/UqL2Do297wLQAQAAAAACh0j0bCrFxcU094vZl8AeX6S6P/8ArSoQTVqeSK46KyK/sxGsqGWu25xlKN3xirZX5HralJS3RTq4J/h19Qrz2E6WpYiUqNk3aV1dSVoySd7ap3a0aRfo0IwjlhFRiuC2OZgfZiGHxMq8HJZ1LNF6q8pZrp8Nb6dpy/bijiW6UsOm3HPd6afdy6vVap7akHXlh6/X51UXVNK8HfS29u0tYnEuEJSSbypuy42I+jJydCk5XzOnByvvmyq9+255/oH2tjiKqpWWa0ndKcbZeDUlZ8dU3sItd3orph1oZlFx1s1JfnxLNbpWMLZ2o321tcqY3HQppObaTdlaMpa2b2im9kyD9ziI30nFNrirNbp8Uydhyuu8XF7+iZr1keUfGFvQppLRLRJWS7Fscyp0LfERxCrVI21cFbLKytZ3vZdxR3ZVeUaT8Wv6TDrzW1OHg4/MqNHP6JoYmObr6kJr8Ljo992uAHcjiKv8FvrvKGO6ddOcacoycpW2jok3bcmpU29FvwubwrN6Xe7XinZ+hNv0ZPtZ6xvdlPArEdZJ1XDJ+FRd+OmtrnCre1tOOJWHss/WKnq5X1e9lFpc9WjsdOY2VLDVasb3hByVtG7cFo9fBiDpYjCQqxyVI3jdO12tVtsR1sbSopQ5WSS4ZnZXb01afacH2Ex9auqs6sZx96KipOb0tus3bfZJaFzpb2X+0YqFaU7KChlilduUZuWrey2+JZnqL/tJjZ0cPOpBXkstkt3mnFW07zHQMak8KlVTU5Kalo7rM2lo23tbdnZhhXLdadvZ2FunSSKih0R0RCjBQgssVw4t82zppAAAAAAAAAAAAAAAGJRT3VytUwMXtddxaAHLq9HS4NP4HnMP7H0qFZVqdOUZKLjprFqXNc99e09uAPnftd0E8VSjTUlBxmp3avtGStb/ADGPZboqph6HV1GpNTk7p3unaz7Nj6JKKe6uQTwVN7wXhp6BXxX25oYzr5OjTbh1cVmUYN5vevZv3tFbb1PeU37q7l6Hp59E03tmXc/ncgn0IuE/NJkHx72Y9p8TUxcKM5ScZTqJ3y6qMZuP4b/hWz4HtOnekXQoTq/wK+qvpdX0ur6X4nfl7NJNNRp3WqdrNOzV1ppo2vEhx3s/KpBwnBSi91mWvEDzvsn7Qfa1JpL3ZKL91x1avs2+DXHiehoYdrRu+snpfjJv8yv0Z7ORw7fV0XBSabUUkrrjaKtft7EeySA8HD2Louu8R1c5VHPPdtpJq1rLa2h6WHRkmrSStyevwOwCoqUcClu/LRFmFNLZGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//2Q==">
+                        <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                            <ul class="list-unstyled">
+                                <li><a class="btn btn-primary text-white mt-2" href="shop-single.html"><i
+                                        class="far fa-eye"></i></a></li>
+                                <li><a class="btn btn-primary text-white mt-2" href="shop-single.html"><i
+                                        class="fas fa-cart-plus"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <a href="shop-single.html" class="h3 text-decoration-none">Trở 2512 5% 7R5-7.5R 1W</a>
+                        <br>
+                        <span>Dùng trong các thiết bị điện tử và mạch điện</span>
+                        <p class="text-center mb-0">6000 vnđ</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="w-100 bg-black py-3">
-            <div class="container">
-                <div class="row pt-2">
-                    <div class="col-12">
-                        <p class="text-left text-light">
-                            Copyright &copy; 2021 Company Name 
-                            | Designed by <a rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-    </footer>
-    <!-- End Footer -->
-
-    <!-- Start Script -->
-    <script src="assets/js/jquery-1.11.0.min.js"></script>
-    <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/templatemo.js"></script>
-    <script src="assets/js/custom.js"></script>
-    <!-- End Script -->
-
-    <!-- Start Slider Script -->
-    <script src="assets/js/slick.min.js"></script>
-    <script>
-        $('#carousel-related-product').slick({
-            infinite: true,
-            arrows: false,
-            slidesToShow: 4,
-            slidesToScroll: 3,
-            dots: true,
-            responsive: [{
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 3
-                    }
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 3
-                    }
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 3
-                    }
+    </div>
+</section>
+<script src="assets/js/jquery-1.11.0.min.js"></script>
+<script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/templatemo.js"></script>
+<script src="assets/js/custom.js"></script>
+<script src="assets/js/slick.min.js"></script>
+<script>
+    $('#carousel-related-product').slick({
+        infinite: true,
+        arrows: false,
+        slidesToShow: 4,
+        slidesToScroll: 3,
+        dots: true,
+        responsive: [{
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3
+            }
+        },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 3
                 }
-            ]
-        });
-    </script>
-    <!-- End Slider Script -->
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 3
+                }
+            }
+        ]
+    });
+</script>
 
 </body>
 

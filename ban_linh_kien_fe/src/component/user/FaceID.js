@@ -131,43 +131,10 @@ function FaceID() {
     }
 
     return (
-        <div className="face-authentication-by-trungquandev flex fdc jcfc aic">
+        <div className="face-authentication-by-anhdao flex fdc jcfc aic">
             <h1>Face Authentication using ReactJS & FaceIO</h1>
             <button className="action face-registration" onClick={faceRegistration}>Face Registration</button>
             <button className="action face-sign-in" onClick={faceSignIn}>Face Sign In</button>
-
-            {/*<div className="trungquandev-author">*/}
-            {/*    <div className="flex aic gap-10 mb-7 author">*/}
-            {/*        <img className="icon basis-10" alt="trungquandev" src="https://trungquandev.com/wp-content/uploads/2022/09/trungquandev-account-icon-80-80.png" />*/}
-            {/*        <span className="basis-20">Author:</span>*/}
-            {/*        <div className="basis-70">Trung Quân (aka Trungquandev)</div>*/}
-            {/*    </div>*/}
-            {/*    <div className="flex aic gap-10 mb-7 blog">*/}
-            {/*        <img className="icon basis-10" alt="trungquandev" src="https://trungquandev.com/wp-content/uploads/2021/05/logo-trungquandev-transparent-bg-192x192-1.png" />*/}
-            {/*        <span className="basis-20">Blog:</span>*/}
-            {/*        <div className="basis-70"><a href="https://trungquandev.com" target="_blank" rel="noopener noreferrer">https://trungquandev.com</a></div>*/}
-            {/*    </div>*/}
-            {/*    <div className="flex aic gap-10 mb-7 cv">*/}
-            {/*        <img className="icon basis-10" alt="trungquandev" src="https://trungquandev.com/wp-content/uploads/2022/09/trungquandev-resume-icon-80-80.png" />*/}
-            {/*        <span className="basis-20">CV:</span>*/}
-            {/*        <div className="basis-70"><a href="https://cv.trungquandev.com" target="_blank" rel="noopener noreferrer">https://cv.trungquandev.com</a></div>*/}
-            {/*    </div>*/}
-            {/*    <div className="flex aic gap-10 mb-7 youtube">*/}
-            {/*        <img className="icon basis-10" alt="trungquandev" src="https://trungquandev.com/wp-content/uploads/2022/09/trungquandev-youtube-icon-96-96.png" />*/}
-            {/*        <span className="basis-20">YouTube:</span>*/}
-            {/*        <div className="basis-70"><a href="https://www.youtube.com/c/TrungquandevOfficial" target="_blank" rel="noopener noreferrer">Trungquandev Official</a></div>*/}
-            {/*    </div>*/}
-            {/*    <div className="flex aic gap-10 mb-7 facebook">*/}
-            {/*        <img className="icon basis-10" alt="trungquandev" src="https://trungquandev.com/wp-content/uploads/2022/09/trungquandev-facebook-icon-96-96.png" />*/}
-            {/*        <span className="basis-20">Facebook:</span>*/}
-            {/*        <div className="basis-70"><a href="https://facebook.com/trungquandev" target="_blank" rel="noopener noreferrer">Trung Quân Dev</a></div>*/}
-            {/*    </div>*/}
-            {/*    <div className="flex aic gap-10 mb-7 refer-link">*/}
-            {/*        <img className="icon basis-10" alt="trungquandev" src="https://trungquandev.com/wp-content/uploads/2022/09/trungquandev-link-icon-94-94.png" />*/}
-            {/*        <span className="basis-20">FaceIO:</span>*/}
-            {/*        <div className="basis-70"><a href="https://faceio.net/" target="_blank" rel="noopener noreferrer">https://faceio.net</a></div>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
         </div>
     )
 }

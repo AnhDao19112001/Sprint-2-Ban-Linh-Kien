@@ -22,7 +22,7 @@ function FaceID() {
     const faceIoScriptLoaded = () => {
         console.log(faceIO)
         if (faceIO && !faceioInstance) {
-            faceioInstance = new faceIO('fioa918f')
+            faceioInstance = new faceIO('fioa5cc3')
         }
     }
 
@@ -32,9 +32,9 @@ function FaceID() {
             const userInfo = await faceioInstance.enroll({
                 locale: "auto",
                 payload: {
-                    email: "phantaanhdao@gmail.com",
-                    userId: "19112903-id-anhdao",
-                    username: "anhdao29",
+                    email: "daoben188@gmail.com",
+                    userId: "19112903-id-anhdao11",
+                    username: "anhdao99",
                     // website: "https://trungquandev.com"
                 },
             })
@@ -56,15 +56,14 @@ function FaceID() {
             const userData = await faceioInstance.authenticate({
                 locale: "auto",
             })
+            navigate(`/home`)
             console.log(userData)
-
             console.log('Unique Facial ID: ', userData.facialId)
             console.log('PayLoad: ', userData.payload)
         } catch (errorCode) {
             console.log(errorCode)
             handleError(errorCode)
         }
-        navigate(`/home`)
     }
 
     const handleError = (errCode) => {

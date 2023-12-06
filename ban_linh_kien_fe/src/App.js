@@ -8,6 +8,7 @@ import AuthorOfCustomer from "./component/user/AuthorOfCustomer";
 import FaceID from "./component/user/FaceID";
 import Footer from "./component/home/Footer";
 import Header from "./component/home/Header";
+import "bootstrap/dist/css/bootstrap.css"
 
 function App() {
     return (

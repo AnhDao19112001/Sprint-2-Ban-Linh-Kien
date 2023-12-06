@@ -55,7 +55,7 @@ public interface HomeRepository extends JpaRepository<Product, Long> {
             "SUM(od.quantity) AS productSaleQuantity " +
             "FROM product p " +
             "JOIN " +
-            "order_detail od ON p.id_product = od.id_product " +
+            "orders_detail od ON p.id_product = od.id_product " +
             "LEFT JOIN image im ON p.id_product = im.id_product " +
             "JOIN " +
             "type_product t ON p.id_type = t.id_type " +

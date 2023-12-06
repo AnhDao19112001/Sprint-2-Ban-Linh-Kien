@@ -24,7 +24,7 @@ public interface IOrderRepository extends JpaRepository<Orders, Long> {
 
     @Transactional
     @Modifying
-    @Query(value = "INSERT INTO order_detail(flag_deleted,current_price,quantity,id_order,id_product) " +
+    @Query(value = "INSERT INTO orders_detail(flag_deleted,current_price,quantity,id_order,id_product) " +
             "VALUES (false,:price,:quantity,:idOrder,:idProduct)", nativeQuery = true)
     void createOderDetail(@Param("price") Float price,
                           @Param("idOrder") Long idOrder,
@@ -40,7 +40,7 @@ public interface IOrderRepository extends JpaRepository<Orders, Long> {
     @Query(value = "SELECT max(id) FROM orders", nativeQuery = true)
     Long getIdMaxOrder();
 
-    @Query(value = "SELECT o.id FROM order_detail od " +
+    @Query(value = "SELECT o.id FROM orders_detail od " +
             "JOIN orders o ON od.id_order = o.id " +
             "WHERE o.app_user_id = :appUserId AND " +
             "od.id_product = :idProduct LIMIT 1", nativeQuery = true)
@@ -48,7 +48,7 @@ public interface IOrderRepository extends JpaRepository<Orders, Long> {
 
     @Query(value = "SELECT o.date_time, sum(current_price) as price " +
             "FROM orders o " +
-            "JOIN order_detail od ON od.id_order = o.id " +
+            "JOIN orders_detail od ON od.id_order = o.id " +
             "WHERE o.app_user_id = :id " +
             "GROUP BY o.date_time", nativeQuery = true)
     Page<IOderDto> getOrderDto(Long id, Pageable pageable);
@@ -76,7 +76,7 @@ public interface IOrderRepository extends JpaRepository<Orders, Long> {
             "            LEFT JOIN app_user app on app.id = o.app_user_id\n" +
             "            LEFT JOIN user_role ur on app.id = ur.app_user_id\n" +
             "            LEFT OUTER JOIN app_role ar on ar.id = ur.app_role_id\n" +
-            "            LEFT JOIN order_detail od on o.id = od.id_order\n" +
+            "            LEFT JOIN orders_detail od on o.id = od.id_order\n" +
             "GROUP BY o.code, o.date_time, o.id ", nativeQuery = true)
     Page<IOrderProjection> getAllListOrder(Pageable pageable);
 
@@ -96,7 +96,7 @@ public interface IOrderRepository extends JpaRepository<Orders, Long> {
             "            LEFT JOIN app_user app on app.id = o.app_user_id " +
             "            LEFT JOIN user_role ur on app.id = ur.app_user_id " +
             "            LEFT OUTER JOIN app_role ar on ar.id = ur.app_role_id " +
-            "            LEFT JOIN order_detail od on od.id_order = o.id " +
+            "            LEFT JOIN orders_detail od on od.id_order = o.id " +
             "             where o.flag_deleted = false " +
             "             and o.date_time >= :startDateTime AND o.date_time <= :endDateTime " +
             "GROUP BY o.code, o.date_time, od.id", nativeQuery = true)

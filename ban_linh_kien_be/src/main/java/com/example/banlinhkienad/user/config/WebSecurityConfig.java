@@ -53,7 +53,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/api/user/logout/{userName}/**",
                         "/api/home/**",
                         "/api/home/search/**",
-                        "/api/user/**"
+                        "/api/user/**",
+                        "/api/type/**",
+                        "/api/type/favorite",
+                        "/api/product/**"
                 ).permitAll()
                 .antMatchers(
 

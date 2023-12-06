@@ -1,7 +1,12 @@
 import {BsFacebook} from "react-icons/bs";
 import {FaSquareGithub} from "react-icons/fa6";
-import { FcGoogle } from "react-icons/fc";
-import { FaTiktok } from "react-icons/fa";
+import {FcGoogle} from "react-icons/fc";
+import {FaTiktok} from "react-icons/fa";
+import { FaRegAddressCard } from "react-icons/fa";
+import { TfiEmail } from "react-icons/tfi";
+import { MdOutlinePhonelinkRing } from "react-icons/md";
+import { FaFax } from "react-icons/fa";
+
 function Footer() {
     return (
         <>
@@ -24,17 +29,20 @@ function Footer() {
                                     - Mua hàng tại cửa hàng: 0931.997.293
                                 </p>
                                 <div className="mt-4">
-                                    <a type="button" className="btn btn-light btn-warning btn-lg">
-                                    <BsFacebook color="blue" size={30}/>
+                                    <a type="button" href="https://www.facebook.com/profile.php?id=100093966319718"
+                                       className="btn btn-light btn-warning btn-lg">
+                                        <BsFacebook color="blue" size={30}/>
+                                    </a>
+                                    <a type="button" href="https://github.com/AnhDao19112001/Sprint-2-Ban-Linh-Kien"
+                                       className="btn btn-light btn-warning btn-lg ms-2">
+                                        <FaSquareGithub size={30}/>
                                     </a>
                                     <a type="button" className="btn btn-light btn-warning btn-lg ms-2">
-                                    <FaSquareGithub size={30} />
+                                        <FcGoogle size={30}/>
                                     </a>
-                                    <a type="button" className="btn btn-light btn-warning btn-lg ms-2">
-                                        <FcGoogle size={30} />
-                                    </a>
-                                    <a type="button" className="btn btn-light btn-warning btn-lg ms-2">
-                                        <FaTiktok  size={30} />
+                                    <a type="button" href="https://www.tiktok.com/@verussad1911"
+                                       className="btn btn-light btn-warning btn-lg ms-2">
+                                        <FaTiktok size={30}/>
                                     </a>
                                 </div>
                             </div>
@@ -62,28 +70,30 @@ function Footer() {
                                         <div className="form-notch-trailing"/>
                                     </div>
                                 </div>
-                                <ul className="fa-ul" style={{marginLeft: "1.65em"}}>
+                                <ul className="fa-ul">
                                     <li className="mb-3">
                   <span className="fa-li">
-                    <i className="fas fa-home"/>
+                    <FaRegAddressCard size={25}/>
                   </span>
                                         <span className="ms-2">280 Trần Hưng Đạo, Sơn Trà, Đà Nẵng</span>
                                     </li>
                                     <li className="mb-3">
                   <span className="fa-li">
-                    <i className="fas fa-envelope"/>
+                    <TfiEmail size={25}/>
+
                   </span>
                                         <span className="ms-2">phantaanhdao@gmail.com</span>
                                     </li>
                                     <li className="mb-3">
                   <span className="fa-li">
-                    <i className="fas fa-phone"/>
+                    <MdOutlinePhonelinkRing size={25}/>
+
                   </span>
                                         <span className="ms-2">0931.997.293</span>
                                     </li>
                                     <li className="mb-3">
                   <span className="fa-li">
-                    <i className="fas fa-print"/>
+                    <FaFax size={25}/>
                   </span>
                                         <span className="ms-2">0931.997.293</span>
                                     </li>

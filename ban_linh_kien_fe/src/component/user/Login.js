@@ -11,7 +11,7 @@ import { FaSquareGithub } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 const Login = () => {
     const navigate = useNavigate();
-
+    let faceioInstance = null
     const handleLoginFb = async (resolve) => {
         try {
             const result = await userService.loginFacebook({facebookMail: resolve.data.email});
@@ -46,6 +46,30 @@ const Login = () => {
             }
         })
     }
+
+    // const faceSignIn = async () => {
+    //     try {
+    //         const userData = await faceioInstance.authenticate({
+    //             locale: "auto",
+    //         })
+    //         console.log(userData);
+    //         const result = await userService.loginUser(userData);
+    //         userService.addJwtTokenToLocalStorage(result.data.jwtToken)
+    //         const tempURL = localStorage.getItem("tempURL");
+    //         localStorage.removeItem("tempURL");
+    //         if (tempURL) {
+    //             navigate(tempURL);
+    //         } else {
+    //             navigate(`/home`);
+    //         }
+    //         console.log(userData)
+    //         console.log('Unique Facial ID: ', userData.facialId)
+    //         console.log('PayLoad: ', userData.payload)
+    //     } catch (errorCode) {
+    //         console.log(errorCode);
+    //         Swal.fire("Lỗi xác thực","","error");
+    //     }
+    // }
 
     const handleLogin = async (appUser) => {
         try {
@@ -129,7 +153,7 @@ const Login = () => {
                                                 </div>
                                                 <div className="col-3">
                                                     <Link className="btn"
-                                                    to="/face">
+                                                    to={`/face`}>
                                                     <LuScanFace size={30} />
                                                     </Link>
                                                 </div>

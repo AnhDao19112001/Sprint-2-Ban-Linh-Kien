@@ -2,14 +2,12 @@ import {Link, NavLink, useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
 import * as userService from "../../service/user/UserService"
 import Swal from "sweetalert2";
-// import {AiOutlineShoppingCart} from "react-icons/ai";
 import * as typeProduct from "../../service/type/TypeProduct";
 import {CiSearch} from "react-icons/ci";
 import { MdOutlineManageHistory } from "react-icons/md";
-// import {useDispatch, useSelector} from "react-redux";
-// import {getAllCarts} from "../order/reduce/cartAction";
-import {BiCog, BiLogOutCircle, BiUserCircle} from "react-icons/bi";
+import { BiLogOutCircle, BiUserCircle} from "react-icons/bi";
 import "../../css/Home.css";
+import {AiOutlineShoppingCart} from "react-icons/ai";
 const Header = ({ inputSearch, onInputChange }) => {
     const navigate = useNavigate();
     const [JwtToken, setJwtToken] = useState(localStorage.getItem("JWT"));
@@ -17,24 +15,13 @@ const Header = ({ inputSearch, onInputChange }) => {
     const [nameProduct, setNameProduct] = useState("");
     const [userId, setUserId] = useState("");
     const [nameType, setNameType] = useState([]);
-    // const carts = useSelector((state) => state.cartReducer);
     const roleAdmin = userService.checkRollAppUser("ROLE_ADMIN");
-    // const dispatch = useDispatch();
-
 
     const getUserName = async () => {
         const result = await userService.infoAppUserByJwtToken();
         setUserName(result);
     }
-    // const getAppUserId = async () => {
-    //     const isLoggedIn = userService.infoAppUserByJwtToken();
-    //     if (isLoggedIn) {
-    //         const id = await userService.getIdByUserName(isLoggedIn.sub);
-    //         setUserId(id.data);
-    //         dispatch(getAllCarts(isLoggedIn.sub));
-    //
-    //     }
-    // }
+
     const getTypeProduct = async () => {
         const result = await typeProduct.getAllType();
         setNameType(result);
@@ -73,7 +60,6 @@ const Header = ({ inputSearch, onInputChange }) => {
         event.preventDefault();
         handleProduct(nameProduct);
     }
-
 
     return (
         <>
@@ -151,11 +137,11 @@ const Header = ({ inputSearch, onInputChange }) => {
                             </button>
                         </form>
 
-                        {/*{userName && (*/}
-                        {/*    <Link to={`/cart`} href="" className="header-btn header-cart">*/}
-                        {/*        <AiOutlineShoppingCart size="2em"/><span className="cart-number">{carts.length}</span>*/}
-                        {/*    </Link>*/}
-                        {/*)}*/}
+                        {userName && (
+                            <Link to={`/cart`} href="" className="header-btn header-cart">
+                                <AiOutlineShoppingCart size="2em"/><span className="cart-number">{3}</span>
+                            </Link>
+                        )}
 
                         <a href="#" className="user">
                             <img

@@ -2,7 +2,7 @@
 import React, {useEffect} from 'react'
 import "../../css/Face.css";
 import {useNavigate} from "react-router-dom";
-
+import * as userService from '../../service/user/UserService';
 function FaceID() {
     let faceioInstance = null
     const navigate = useNavigate();
@@ -27,27 +27,27 @@ function FaceID() {
     }
 
     // Đăng ký khuôn mặt mới vào hệ thống
-    const faceRegistration = async () => {
-        try {
-            const userInfo = await faceioInstance.enroll({
-                locale: "auto",
-                payload: {
-                    email: "daoben188@gmail.com",
-                    userId: "19112903-id-anhdao11",
-                    username: "anhdao99",
-                    // website: "https://trungquandev.com"
-                },
-            })
-            console.log(userInfo)
-            console.log('Unique Facial ID: ', userInfo.facialId)
-            console.log('Enrollment Date: ', userInfo.timestamp)
-            console.log('Gender: ', userInfo.details.gender)
-            console.log('Age Approximation: ', userInfo.details.age)
-        } catch (errorCode) {
-            console.log(errorCode)
-            handleError(errorCode)
-        }
-    }
+    // const faceRegistration = async () => {
+    //     try {
+    //         const userInfo = await faceioInstance.enroll({
+    //             locale: "auto",
+    //             payload: {
+    //                 email: "daoben188@gmail.com",
+    //                 userId: "19112903-id-anhdao11",
+    //                 username: "anhdao99",
+    //                 // website: "https://trungquandev.com"
+    //             },
+    //         })
+    //         console.log(userInfo)
+    //         console.log('Unique Facial ID: ', userInfo.facialId)
+    //         console.log('Enrollment Date: ', userInfo.timestamp)
+    //         console.log('Gender: ', userInfo.details.gender)
+    //         console.log('Age Approximation: ', userInfo.details.age)
+    //     } catch (errorCode) {
+    //         console.log(errorCode)
+    //         handleError(errorCode)
+    //     }
+    // }
 
     // Xác thực một khuôn mặt đã có vào hệ thống
     const faceSignIn = async () => {
@@ -55,8 +55,21 @@ function FaceID() {
             console.log(faceioInstance)
             const userData = await faceioInstance.authenticate({
                 locale: "auto",
+                payload: {
+                    userName: "anhdao99",
+                    // userId: ""
+                }
             })
-            navigate(`/home`)
+            const result = await userService.loginUser(userData);
+            userService.addJwtTokenToLocalStorage(result.data.jwtToken);
+            console.log(result);
+            const tempURL = localStorage.getItem("tempURL");
+            localStorage.removeItem("tempURL");
+            if (tempURL){
+                navigate(tempURL);
+            } else {
+                navigate(`/home`)
+            }
             console.log(userData)
             console.log('Unique Facial ID: ', userData.facialId)
             console.log('PayLoad: ', userData.payload)
@@ -132,7 +145,7 @@ function FaceID() {
     return (
         <div className="face-authentication-by-anhdao flex fdc jcfc aic">
             <h1>Face Authentication using ReactJS & FaceIO</h1>
-            <button className="action face-registration" onClick={faceRegistration}>Face Registration</button>
+            {/*<button className="action face-registration" onClick={faceRegistration}>Face Registration</button>*/}
             <button className="action face-sign-in" onClick={faceSignIn}>Face Sign In</button>
         </div>
     )

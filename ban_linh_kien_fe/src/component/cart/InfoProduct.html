@@ -1,0 +1,254 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"
+            integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+        .text-bold {
+            font-weight: 800;
+        }
+
+        text-color {
+            color: #0093c4;
+        }
+
+        /* Main image - left */
+        .main-img img {
+            width: 100%;
+        }
+
+        /* Preview images */
+        .previews img {
+            width: 100%;
+            height: 140px;
+        }
+
+        .main-description .category {
+            text-transform: uppercase;
+            color: #0093c4;
+        }
+
+        .main-description .product-title {
+            font-size: 2.5rem;
+        }
+
+        .old-price-discount {
+            font-weight: 600;
+        }
+
+        .new-price {
+            font-size: 2rem;
+        }
+
+        .details-title {
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #757575;
+        }
+
+        .buttons .block {
+            margin-right: 5px;
+        }
+
+        .quantity input {
+            border-radius: 0;
+            height: 40px;
+
+        }
+
+
+        .custom-btn {
+            text-transform: capitalize;
+            background-color: #0093c4;
+            color: white;
+            width: 150px;
+            height: 40px;
+            border-radius: 0;
+        }
+
+        .custom-btn:hover {
+            background-color: #0093c4 !important;
+            font-size: 18px;
+            color: white !important;
+        }
+
+        .similar-product img {
+            height: 400px;
+        }
+
+        .similar-product {
+            text-align: left;
+        }
+
+        .similar-product .title {
+            margin: 17px 0px 4px 0px;
+        }
+
+        .similar-product .price {
+            font-weight: bold;
+        }
+
+        .questions .icon i {
+            font-size: 2rem;
+        }
+
+        .questions-icon {
+            font-size: 2rem;
+            color: #0093c4;
+        }
+
+
+        /* Small devices (landscape phones, less than 768px) */
+        @media (max-width: 767.98px) {
+
+            /* Make preview images responsive  */
+            .previews img {
+                width: 100%;
+                height: auto;
+            }
+
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="main-img">
+                <img class="img-fluid" style="width: 526px; height: 769.75px" src="https://product.hstatic.net/1000069225/product/rpi-wavego-acce-1_1_2_ca5caa9885d040778fbd3a224e53fc5c_grande.jpg"
+                     alt="ProductS">
+                <div class="row my-3 previews">
+                    <div class="col-md-3">
+                        <img class="w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbsr5782e0pWlqny29qPC_uc4r4_6oqH__Recupuo7dW2wPCEqZlQMmCJgUvdbptasUNE&usqp=CAU"
+                             alt="Sale">
+                    </div>
+                    <div class="col-md-3">
+                        <img class="w-100" src="data:image/jpeg;base64,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"
+                             alt="Sale">
+                    </div>
+                    <div class="col-md-3">
+                        <img class="w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqu6b09UzmArEvRA_cxTNsdtXPuRLv9fdB-w&usqp=CAU"
+                             alt="Sale">
+                    </div>
+                    <div class="col-md-3">
+                        <img class="w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlZZwcKBZU2DO9sOLP1iQ12sf2eDqT5G67bQ&usqp=CAU"
+                             alt="Sale">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="main-description px-2">
+                <div class="category text-bold">
+                    Loại sản phẩm: Robot
+                </div>
+                <div class="product-title text-bold my-3">
+                    WAVEGO, 12-DOF Bionic Dog-Like Robot Powered By Raspberry Pi 4
+                </div>
+
+
+                <div class="price-area my-4">
+                    <p class="old-price mb-1">
+                        <del>7000000 vnđ</del>
+                        <span class="old-price-discount text-danger">(giảm 20%)</span></p>
+                    <p class="new-price text-bold mb-1">6800000</p>
+                    <p class="text-secondary mb-1">(Thuế bổ sung có thể được áp dụng khi thanh toán)</p>
+
+                </div>
+
+
+                <div class="buttons d-flex my-5">
+                    <div class="block">
+                        <button class="shadow btn custom-btn">Mua</button>
+                    </div>
+
+                    <div class="block quantity">
+                        <input type="number" class="form-control" id="cart_quantity" value="1" min="0" max="5"
+                               placeholder="Enter email" name="cart_quantity">
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="product-details my-4">
+                <p class="details-title text-color mb-1">Chi tiết sản phẩm</p>
+                <p class="description">
+                    <b>Lưu ý:</b> robot không đi kèm mạch Raspberry Pi 4, Quý Khách cần mua thêm phiên bản Raspberry Pi 4 tương thích dưới đây để có thể sử dụng:
+                    <br>
+                    - Máy tính Raspberry Pi 4 Model B (Made in UK) – Hshop.vn <br>
+                    - WAVEGO, 12-DOF Bionic Dog-Like Robot Powered by Raspberry Pi 4 là một robot chó mô phỏng sinh học với 12 khớp chuyển động linh hoạt được điều khiển với bộ xử lý chính là máy tính Raspberry Pi 4 kèm theo bộ điều khiển thứ cấp sử dụng vi điều khiển ESP32
+                    <br>
+                    2. Bộ sản phẩm bao gồm: <br>
+                    - WAVEGO EX - WAVEGO body case x1 - WAVEGO basic parts x1 <br>
+                    - Raspberry Pi extension holder x1 - 5MP wide angle camera x1 - Cooling fan x1<br>
+                    - Semi-transparent acrylic panel x1 - Double-sided sticker x1<br>
+                    - Micro thrust bearing x14 - Micro ball flange bearing x30 - WAVEGO base board x1<br>
+                    - 2MP camera x1 <br>
+                    - 2.4G antenna x1 <br>
+                    - 0.91inch OLED display x1 - Plus screwdriver x1 - Cross wrench sleeve x1 <br>
+                    - 4PIN PH2.0 cable x1 <br>
+                    - IPEX 1 to SMA cable (~17cm) x1 <br>
+                    - Jumper wire (~20cm) x4 - USB cable (~1m) x1 - Servo pack x1 <br>
+                    - [OPTIONS] 8.4V 2A battery charger x1 <br>
+                    - Screws and standoffs x1 <br>
+                    - Portable bag x1
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container similar-products my-4">
+    <hr>
+    <p class="display-5">Sản phẩm khác</p>
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="similar-product">
+                <img class="w-100" src="https://product.hstatic.net/1000069225/product/wireless-ac8265-1_77f48921d3f84fc3a8f242974579ed01_grande.jpg" alt="Preview">
+                <p class="title">Mạch AC8265 Wireless NIC For Jetson Nano, WiFi / Bluetooth</p>
+                <p class="price">430000 vnđ</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="similar-product">
+                <img class="w-100" src="https://product.hstatic.net/1000069225/product/sen0098-v2-detail-004_49c80aaca2b74fafabd31b78d0f43ff5_grande.jpg" alt="Preview">
+                <p class="title">Cảm Biến Dòng Điện DFRobot Gravity: Analog Current Sensor 50A (AC/DC) V2</p>
+                <p class="price">420000 vnđ</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="similar-product">
+                <img class="w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWVFzaPWHAhjYGH9JRTXrUBoS0ur-MMWRIVA&usqp=CAU" alt="Preview">
+                <p class="title">Encoder 1000 Xung Omron E6B2-CWZ6C Chính Hãng</p>
+                <p class="price">980000 vnđ</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="similar-product">
+                <img class="w-100" src="https://product.hstatic.net/1000069225/product/sen0328_3f57d13441a94fcfb7de6f8c088c39b3_grande.jpg" alt="Preview">
+                <p class="title">Cảm Biến Khoảng Cách DFRobot TF03 ToF Single-Point Ranging Solid State LiDAR Sensor (100m, UART / CAN, IP67)</p>
+                <p class="price">8275000 vnđ</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

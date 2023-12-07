@@ -49,14 +49,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(
                         //All role
-                        "/api/user/login-by-username/**",
-                        "/api/user/logout/{userName}/**",
-                        "/api/home/**",
-                        "/api/home/search/**",
-                        "/api/user/**",
-                        "/api/type/**",
-                        "/api/type/favorite",
-                        "/api/product/**"
+//                        "/api/user/login-by-username/**",
+//                        "/api/user/logout/{userName}/**",
+//                        "/api/home/**",
+//                        "/api/home/search/**",
+//                        "/api/user/**",
+//                        "/api/type/**",
+//                        "/api/type/favorite",
+//                        "/api/product/**"
+                        "/api/**"
                 ).permitAll()
                 .antMatchers(
 

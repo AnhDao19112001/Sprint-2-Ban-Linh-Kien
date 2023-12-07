@@ -181,7 +181,7 @@ function Home() {
                                             </button>
                                         </div>
                                         <div className="product-info">
-                                            <p className="product-short-description">
+                                            <p className="product-short-description text-center">
                                                 {el.nameProduct}
                                             </p>
                                             <div className="d-flex justify-content-center">
@@ -193,7 +193,7 @@ function Home() {
                             </span>
 
                                             </div>
-                                            <div>
+                                            <div className="text-center">
                             <span className="actual-price">
                               {actualPrice.toLocaleString("en-US", {
                                   minimumFractionDigits: 0, maximumFractionDigits: 0,
@@ -262,7 +262,7 @@ function Home() {
                                             > Mua </button>
                                         </div>
                                         <div className="product-info">
-                                            <p className="product-short-description">
+                                            <p className="product-short-description text-center">
                                                 {el.nameProduct}
                                             </p>
                                             <div className="d-flex justify-content-center">
@@ -273,7 +273,7 @@ function Home() {
                                 VNĐ
                             </span>
                                             </div>
-                                            <div>
+                                            <div className="text-center">
                             <span className="actual-price">
                               {actualPrice.toLocaleString("en-US", {
                                   minimumFractionDigits: 0, maximumFractionDigits: 0,

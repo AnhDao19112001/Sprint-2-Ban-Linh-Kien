@@ -14,7 +14,7 @@ function CartDetail() {
                 <div className="container h-100 py-5">
                     <div className="row d-flex justify-content-center align-items-center h-100">
                         <div className="col-10">
-                            <div className="d-flex justify-content-between align-items-center mb-4">
+                            <div className="d-flex justify-content-center align-items-center mb-4">
                                 <h3 className="fw-normal mb-0 text-black">Giỏ hàng của bạn</h3>
                             </div>
                             <div className="card rounded-3 mb-4">
@@ -120,7 +120,7 @@ function CartDetail() {
                                 <div className="card-body">
                                     <button type="button" className="btn btn-outline-warning btn-block btn-lg float-end">Thanh toán
                                     </button>
-                                    <b className="float-end mx-5 mt-2 h4">Tổng tiền: 378000 vnđ</b>
+                                    <b className="float-end mx-5 mt-2 h4">Tổng tiền: 378.000 vnđ</b>
                                     <Link to="/home" className="btn btn-outline-primary btn-lg">Quay về shop</Link>
                                 </div>
                             </div>

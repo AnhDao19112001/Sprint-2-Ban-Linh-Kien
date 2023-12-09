@@ -15,7 +15,7 @@ import 'swiper/css/pagination';
 // import {getIdByUserName, infoAppUserByJwtToken} from "../../service/user/UserService";
 // import { getAllCarts } from "../order/reduce/cartAction";
 // import Swal from "sweetalert2";
-// import {createCartDetail} from "../../service/cart/CartDetail";
+// import {createCartDetail} from "../../service/cart/Cart";
 import Header from "./Header";
 import Footer from "./Footer";
 

@@ -82,18 +82,18 @@ export const SearchPage = () => {
         <>
             <Header inputSearch={nameProduct} onInputChange={handleInputChange}/>
             <section
-                className="our-menu bg-light repeat-img pb-5"
-                style={{padding: "7rem 0 0"}}
+                className="our-menu bg-light repeat-img pb-5 p-3"
+                // style={{padding: "7rem 0 0"}}
             >
                 {isNoContent ? (
                     <HavingNoResults/>
                 ) : (
                     <>
-                        <div className="container min-vh-100">
+                        <div className="container">
                             <div className="row">
                                 <div className="col-lg-12">
                                     <div className="sec-title text-center mt-4">
-                                        <p className="sec-sub-title">Kết quả tìm kiếm</p>
+                                        <p className="sec-sub-title">Có phải đây là thứ bạn cần tìm ?</p>
                                     </div>
                                     <div className="border border-warning rounded-2 py-2 mb-4">
                                         <div
@@ -104,16 +104,18 @@ export const SearchPage = () => {
                                             {displayKeyword}"
                                         </div>
                                         <div className="d-flex ms-5 gap-3 fs-6 align-items-center">
-                                            <span>Sắp xếp theo: </span>
-                                            <select value={sortBy} onChange={handleSortByChange}>
+                                            <b>Sắp xếp theo: </b>
+                                            <select value={sortBy} onChange={handleSortByChange}
+                                                    className="form-select form-select-ms" style={{width: "30%"}}>
                                                 <option value="price">Giá</option>
                                                 <option value="nameProduct">Tên sản phẩm</option>
                                             </select>
 
-                                            <span>Cách sắp xếp: </span>
-                                            <select
-                                                value={sort}
-                                                onChange={handleSortDirectionChange}
+                                            <b className="ms-5 float-end">Cách sắp xếp: </b>
+                                            <select className="form-select form-select-ms"
+                                                    style={{width: "30%"}}
+                                                    value={sort}
+                                                    onChange={handleSortDirectionChange}
                                             >
                                                 <option value="asc">Tăng dần</option>
                                                 <option value="desc">Giảm dần</option>
@@ -158,10 +160,10 @@ export const SearchPage = () => {
                                                     </button>
                                                 </div>
                                                 <div className="product-info">
-                                                    <p className="product-short-description">
+                                                    <p className="product-short-description text-center">
                                                         {el.nameProduct}
                                                     </p>
-                                                    <div className="d-flex justify-content-between">
+                                                    <div className="d-flex justify-content-center">
                             <span className="price">
                               {parseFloat(el.price).toLocaleString(
                                   "en-US",
@@ -173,7 +175,7 @@ export const SearchPage = () => {
                                 VNĐ
                             </span>
                                                     </div>
-                                                    <div>
+                                                    <div className="text-center">
                             <span className="actual-price">
                               {actualPrice.toLocaleString("en-US", {
                                   minimumFractionDigits: 0,

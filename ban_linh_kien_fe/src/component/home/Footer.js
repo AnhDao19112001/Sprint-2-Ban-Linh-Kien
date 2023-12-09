@@ -101,7 +101,7 @@ function Footer() {
                             </div>
                             <div className="col-lg-4 col-md-6 mb-4 mb-md-0">
                                 <h5 className="text-uppercase mb-4">Giờ làm việc</h5>
-                                <table className="table text-center text-white">
+                                <table className="table text-center text-white form-control">
                                     <tbody className="font-weight-normal">
                                     <tr>
                                         <td>Thứ 2 - 5:</td>

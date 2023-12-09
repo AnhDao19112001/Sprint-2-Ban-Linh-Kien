@@ -6,10 +6,13 @@ import {EnumAppUserRole} from "./component/user/EnumAppUserRoles";
 import Authentication from "./component/user/Authentication";
 import AuthorOfCustomer from "./component/user/AuthorOfCustomer";
 import FaceID from "./component/user/FaceID";
-import Footer from "./component/home/Footer";
-import Header from "./component/home/Header";
 import "bootstrap/dist/css/bootstrap.css"
-import CartDetail from "./component/cart/CartDetail";
+import Cart from "./component/order/Cart";
+import ProductWithKind from "./component/home/ProductWithKind";
+import SearchPage from "./component/search/SearchPage";
+import DetailProduct from "./component/order/DetailProduct";
+import ListOrder from "./component/order/ListOrder";
+import OrderDetail from "./component/order/OrderDetail";
 
 function App() {
     return (
@@ -17,9 +20,13 @@ function App() {
             <Route path="/login" element={<Login/>}/>
             <Route path="/home" element={<Home/>}/>
             <Route path="/face" element={<FaceID/>}/>
-            <Route path="/1" element={<Header/>}/>
-            <Route path="/2" element={<Footer/>}/>
-            <Route path="/cart" element={<CartDetail/>}/>
+            <Route path="/cart" element={<Cart/>}/>
+            <Route path='/details/:idProduct' element={<DetailProduct/>}/>
+            <Route path='/home/list-product/:nameType' element={<ProductWithKind/>}/>
+            <Route path='/home/search/' element={<SearchPage/>}/>
+            <Route path={`/home/search/:nameProduct`} element={<SearchPage />} />
+            <Route path={`/home/list-order`} element={<ListOrder />} />
+            <Route path={`/order-detail/:idOrder`} element={<OrderDetail />} />
             <Route element={
                 <Authentication
                     allowedRoles={[

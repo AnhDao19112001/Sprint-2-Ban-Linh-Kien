@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap"
 import {Link, useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
-// import {useDispatch, useSelector} from "react-redux";
 import * as homeService from "../../service/home/HomeService";
 import {Swiper, SwiperSlide} from "swiper/react";
 import 'swiper/css/navigation';

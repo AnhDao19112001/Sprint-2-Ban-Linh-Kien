@@ -15,7 +15,7 @@ public interface HomeRepository extends JpaRepository<Product, Long> {
             "p.name_product AS nameProduct, " +
             "p.price AS price, " +
             "t.name_type AS nameType, " +
-            "MIN(im.image_path) AS imageProduct " +
+            " MIN(im.image_path) AS imageProduct " +
             "FROM product p " +
             "JOIN " +
             "type_product t ON p.id_type = t.id_type " +
@@ -26,7 +26,7 @@ public interface HomeRepository extends JpaRepository<Product, Long> {
             "AND p.name_product LIKE CONCAT('%', :nameProduct ,'%') " +
             "AND t.name_type LIKE CONCAT('%', :nameType ,'%') " +
             "GROUP BY " +
-            "P.id_product, p.name_product, p.price, t.name_type ORDER BY p.id_product DESC LIMIT 10",nativeQuery = true)
+            "p.id_product, p.name_product, p.price, t.name_type ORDER BY p.id_product DESC LIMIT 10",nativeQuery = true)
     List<ProductForHomePageDto> findProductForHomePage(@Param("nameProduct") String nameProduct, @Param("nameType") String nameType);
 
     @Query(value = "SELECT " +
@@ -34,14 +34,16 @@ public interface HomeRepository extends JpaRepository<Product, Long> {
             "p.name_product AS nameProduct, " +
             "p.price AS price, " +
             "t.name_type AS nameType, " +
-            "im.image_path AS imageProduct " +
+            " MIN(im.image_path) AS imageProduct " +
             "FROM product p " +
             "JOIN type_product t ON p.id_type = t.id_type " +
             "JOIN image im ON p.id_product = im.id_product " +
             "WHERE " +
             "p.flag_deleted = false " +
             "AND p.name_product LIKE CONCAT('%', :nameProduct ,'%') " +
-            "AND t.name_type LIKE CONCAT('%', :nameType ,'%')",nativeQuery = true)
+            "AND t.name_type LIKE CONCAT('%', :nameType ,'%')" +
+            " GROUP BY p.id_product, p.name_product, p.price, t.name_type " +
+            " order by p.id_product",nativeQuery = true)
     Page<ProductForHomePageDto> getListProductWithPagination(@Param("nameProduct") String nameProduct,
                                                               @Param("nameType") String nameType,
                                                               Pageable pageable);

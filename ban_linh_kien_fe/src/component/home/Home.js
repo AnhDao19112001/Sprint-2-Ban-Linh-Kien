@@ -12,20 +12,41 @@ import * as utils from "../../service/utils/Utils";
 import arrow from "../../img/arrow.png"
 import 'swiper/css';
 import 'swiper/css/pagination';
-// import {getIdByUserName, infoAppUserByJwtToken} from "../../service/user/UserService";
-// import { getAllCarts } from "../order/reduce/cartAction";
-// import Swal from "sweetalert2";
-// import {createCartDetail} from "../../service/cart/Cart";
 import Header from "./Header";
 import Footer from "./Footer";
+import Swal from "sweetalert2";
+import {infoAppUserByJwtToken} from "../../service/user/UserService";
+import {getAllCarts} from "../order/reduce/cartAction";
+import {useDispatch, useSelector} from "react-redux";
+import {createCartDetail} from "../../service/cart/CartDetail";
 
 function Home() {
     const [productList, setProductList] = useState([]);
     const [favoriteList, setFavoriteList] = useState([]);
-
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const carts = useSelector((state) => state.cartReducer)
     const getProductList = async () => {
         const result = await homeService.findProductForHomePage("", "");
         setProductList(result.data);
+    }
+
+    const addCartDetail = async (a) => {
+        const result = infoAppUserByJwtToken();
+        if (result != null) {
+            const response = await createCartDetail(1, result.sub, a.idProduct);
+            Swal.fire({
+                title: "Thêm sản phẩm thành công!",
+                icon: "success",
+            })
+            dispatch(getAllCarts(result.sub));
+        } else {
+            Swal.fire({
+                title: "Vui lòng đăng nhập!!",
+                icon: "warning",
+            });
+            navigate(`/login`)
+        }
     }
 
     useEffect(() => {
@@ -174,7 +195,8 @@ function Home() {
                                                     alt=""
                                                 />
                                             </Link>
-                                            <button className="card-btn">
+                                            <button className="card-btn"
+                                            onClick={() => addCartDetail(el)}>
                                                 Thêm vào giỏ hàng
                                             </button>
                                         </div>
@@ -256,7 +278,7 @@ function Home() {
                                             </Link>
                                             <button
                                                 className="card-btn"
-                                                // onClick={() => addCartDetail(el)}
+                                                onClick={() => addCartDetail(el)}
                                             > Thêm vào giỏ hàng
                                             </button>
                                         </div>

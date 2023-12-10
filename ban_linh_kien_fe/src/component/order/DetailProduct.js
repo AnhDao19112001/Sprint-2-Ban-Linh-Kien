@@ -5,6 +5,10 @@ import {getIdProduct} from "../../service/product/ProductService";
 import Swal from "sweetalert2";
 import Header from "../home/Header";
 import Footer from "../home/Footer";
+import {getIdByUserName, infoAppUserByJwtToken} from "../../service/user/UserService";
+import {checkQuantity, createCartDetail} from "../../service/cart/CartDetail";
+import {getAllCarts} from "./reduce/cartAction";
+import {useDispatch} from "react-redux";
 
 function DetailProduct() {
     const navigate = useNavigate();
@@ -14,7 +18,7 @@ function DetailProduct() {
     const [activeIndex, setActiveIndex] = useState(0);
     const [appUserId, setAppUserId] = useState(null);
     const {idProduct} = useParams();
-
+    const dispatch = useDispatch();
     const getProductDetail = async () => {
         try {
             const result = await getIdProduct(idProduct);
@@ -28,6 +32,34 @@ function DetailProduct() {
             }
         }
     };
+
+    const addToCarts = async (idProduct) => {
+        const isLogged = infoAppUserByJwtToken();
+        if (isLogged == null) {
+            Swal.fire("Vui lòng đăng nhập!", "", "warning");
+            localStorage.setItem("tempURL", window.location.pathname);
+            navigate(`/login`);
+        } else {
+            const user = await getIdByUserName(isLogged.sub);
+            setAppUserId(user.sub);
+            const quantity = document.getElementById("quantity-value").value;
+            if (parseInt(quantity) <= 0) {
+                Swal.fire("Vui lòng thêm ít nhất 1 sản phẩm!", "", "warning")
+            } else {
+                try {
+                    const result = await checkQuantity(
+                        idProduct,
+                        parseInt(quantity));
+                    console.log(result);
+                    const res = await createCartDetail(quantity, isLogged.sub, idProduct);
+                    dispatch(getAllCarts(user.sub));
+                    Swal.fire("Thêm mới sản phẩm thành công!", "", "success");
+                } catch {
+                    Swal.fire("Sản phẩm vượt quá số lượng cho phép!", "", "warning");
+                }
+            }
+        }
+    }
 
     const currency = (money) => {
         return new Intl.NumberFormat("vi-VN").format(money);
@@ -95,7 +127,9 @@ function DetailProduct() {
                                 </div>
                                 <div className="buttons d-flex my-5">
                                     <div className="block">
-                                        <button className="shadow btn custom-btn">Mua</button>
+                                        <button className="shadow btn custom-btn"
+                                                onClick={() => addToCarts(product.idProduct)}
+                                        >Thêm vào giỏ hàng</button>
                                     </div>
                                     <div className="block quantity">
                                         <input type="number" className="form-control" id="cart_quantity"

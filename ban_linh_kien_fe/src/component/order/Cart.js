@@ -17,6 +17,10 @@ import {
 import Swal from "sweetalert2";
 import {TiDelete} from "react-icons/ti";
 import {Paypal} from "./Paypal";
+import swal from "sweetalert2";
+import {ErrorMessage, Field, Form, Formik} from "formik";
+import {useSelector} from "react-redux";
+import * as yup from "yup"
 
 const currency = (number) => {
     const roundedNumber = Math.floor(number);
@@ -28,7 +32,7 @@ const currency = (number) => {
 };
 
 function Cart() {
-
+    const carts = useSelector((state) => state.cartReducer);
     const [checkout, setCheckout] = useState(false);
     const [cartDetail, setCartDetail] = useState([]);
     const [customer, setCustomer] = useState({});
@@ -37,6 +41,7 @@ function Cart() {
         try {
             const use = await getIdByUserName(infoAppUserByJwtToken(localStorage.getItem('JWT')).sub)
             setCustomer(use.data);
+            console.log(use.data)
         } catch (error) {
             console.log(error);
         }
@@ -177,7 +182,7 @@ function Cart() {
                                                        disabled
                                                        className="form-control form-control-sm text-center"/>
                                                 <button
-                                                    onClick={() => handleIncrease(c)}
+                                                    onClick={() => handleIncrease(c.idProduct, c.quantity)}
                                                     className="btn btn-outline-dark px-2 ms-2">
                                                     <FaPlus/>
                                                 </button>
@@ -192,12 +197,15 @@ function Cart() {
                                     </div>
                                 </div>
                             ))}
-                            <div className="card">
+                            <div className="card row">
                                 <div className="card-body">
-                                    <div>
+                                    <Link to="/home" className="btn btn-outline-primary col-2">Quay về shop</Link>
+                                    <b className="mt-2 h4 col-4" style={{margin: "0 0 0 37%"}}>Tổng
+                                        tiền: {currency(total)}</b>
+                                    <div className="float-end col-3">
                                         {cartDetail && cartDetail.length > 0 ? (
                                             checkout ? (
-                                                <Paypal propData1={total} proData2={cartDetail} />
+                                                <Paypal propData1={total} proData2={cartDetail}/>
                                             ) : (
                                                 <button
                                                     onClick={() => setCheckout(true)}
@@ -209,9 +217,6 @@ function Cart() {
                                             )
                                         ) : null}
                                     </div>
-
-                                    <b className="float-end mx-5 mt-2 h4">Tổng tiền: {currency(total)}</b>
-                                    <Link to="/home" className="btn btn-outline-primary btn-lg">Quay về shop</Link>
                                 </div>
                             </div>
                         </div>

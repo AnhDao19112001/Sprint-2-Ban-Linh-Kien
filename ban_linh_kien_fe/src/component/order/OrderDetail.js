@@ -2,7 +2,6 @@ import {Link, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {getOrderDetails} from "../../service/cart/Orders";
 import {getIdByUserName, infoAppUserByJwtToken} from "../../service/user/UserService";
-import {getIdProduct} from "../../service/product/ProductService";
 import Header from "../home/Header";
 import Footer from "../home/Footer";
 

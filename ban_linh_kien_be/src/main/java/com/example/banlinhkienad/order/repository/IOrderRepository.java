@@ -24,7 +24,7 @@ public interface IOrderRepository extends JpaRepository<Orders, Long> {
 
     @Transactional
     @Modifying
-    @Query(value = "INSERT INTO orders_detail(flag_deleted,current_price,quantity,id_order,id_product) " +
+    @Query(value = "INSERT INTO orders_detail(flag_deleted,price,quantity,id_order,id_product) " +
             "VALUES (false,:price,:quantity,:idOrder,:idProduct)", nativeQuery = true)
     void createOderDetail(@Param("price") Float price,
                           @Param("idOrder") Long idOrder,
@@ -46,7 +46,7 @@ public interface IOrderRepository extends JpaRepository<Orders, Long> {
             "od.id_product = :idProduct LIMIT 1", nativeQuery = true)
     Integer checkOrderDetail(Long appUserId, Long idProduct);
 
-    @Query(value = "SELECT o.date_time, sum(current_price) as price " +
+    @Query(value = "SELECT o.date_time, sum(price) as price " +
             "FROM orders o " +
             "JOIN orders_detail od ON od.id_order = o.id " +
             "WHERE o.app_user_id = :id " +
@@ -68,9 +68,9 @@ public interface IOrderRepository extends JpaRepository<Orders, Long> {
             "            o.date_time AS orderDate,\n" +
             "            CASE\n" +
             "            WHEN app.id IS NULL THEN\n" +
-            "            sum(od.current_price * od.quantity)\n" +
+            "            sum(od.price * od.quantity)\n" +
             "            WHEN app.id IS NOT NULL THEN\n" +
-            "            sum(od.current_price * od.quantity) END AS orderDetailPrice\n" +
+            "            sum(od.price * od.quantity) END AS orderDetailPrice\n" +
             "             FROM\n" +
             "             orders o\n" +
             "            LEFT JOIN app_user app on app.id = o.app_user_id\n" +
@@ -88,9 +88,9 @@ public interface IOrderRepository extends JpaRepository<Orders, Long> {
             "            o.date_time AS orderDate, " +
             "            CASE\n" +
             "            WHEN app.id IS NULL THEN " +
-            "            sum(od.current_price * od.quantity) " +
+            "            sum(od.price * od.quantity) " +
             "            WHEN app.id IS NOT NULL THEN " +
-            "            sum(od.current_price * od.quantity) END AS orderDetailPrice " +
+            "            sum(od.price * od.quantity) END AS orderDetailPrice " +
             "             FROM " +
             "             orders o " +
             "            LEFT JOIN app_user app on app.id = o.app_user_id " +

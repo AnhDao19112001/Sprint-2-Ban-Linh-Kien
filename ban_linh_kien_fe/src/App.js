@@ -1,18 +1,18 @@
 import './App.css';
-import {Route, Routes} from "react-router-dom";
 import Login from "./component/user/Login";
-import Home from "./component/home/Home";
-import {EnumAppUserRole} from "./component/user/EnumAppUserRoles";
-import Authentication from "./component/user/Authentication";
-import AuthorOfCustomer from "./component/user/AuthorOfCustomer";
-import FaceID from "./component/user/FaceID";
-import "bootstrap/dist/css/bootstrap.css"
 import Cart from "./component/order/Cart";
-import ProductWithKind from "./component/home/ProductWithKind";
-import SearchPage from "./component/search/SearchPage";
+import {Route, Routes} from "react-router-dom";
 import DetailProduct from "./component/order/DetailProduct";
+import Authentication from "./component/user/Authentication";
+import {EnumAppUserRole} from "./component/user/EnumAppUserRoles";
+import AuthorOfCustomer from "./component/user/AuthorOfCustomer";
+import "bootstrap/dist/css/bootstrap.css"
+import SearchPage from "./component/search/SearchPage";
 import ListOrder from "./component/order/ListOrder";
 import OrderDetail from "./component/order/OrderDetail";
+import FaceID from "./component/user/FaceID";
+import Home from "./component/home/Home";
+import ProductWithKind from "./component/home/ProductWithKind";
 
 function App() {
     return (

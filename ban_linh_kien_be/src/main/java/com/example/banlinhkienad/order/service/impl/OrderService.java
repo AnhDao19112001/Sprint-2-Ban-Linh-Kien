@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class OrderService implements IOrderService {
@@ -40,7 +41,7 @@ public class OrderService implements IOrderService {
             cartDetailRepository.deletedCart(o.getIdProduct(), appUser.getId());
             orderRepository.createOderDetail(o.getPrice(),isOrders,o.getQuantity(),o.getIdProduct());
             for (Product p: products) {
-                if (p.getIdProduct() == o.getIdProduct()){
+                if (Objects.equals(p.getIdProduct(), o.getIdProduct())){
                     orderRepository.updateProduct(p.getQuantity() - o.getQuantity(), o.getIdProduct());
                 }
             }

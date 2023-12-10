@@ -8,6 +8,8 @@ import { MdOutlineManageHistory } from "react-icons/md";
 import { BiLogOutCircle, BiUserCircle} from "react-icons/bi";
 import "../../css/Home.css";
 import {AiOutlineShoppingCart} from "react-icons/ai";
+import {getAllCarts} from "../order/reduce/cartAction";
+import {useDispatch, useSelector} from "react-redux";
 const Header = ({ inputSearch, onInputChange }) => {
     const navigate = useNavigate();
     const [JwtToken, setJwtToken] = useState(localStorage.getItem("JWT"));
@@ -16,6 +18,8 @@ const Header = ({ inputSearch, onInputChange }) => {
     const [userId, setUserId] = useState("");
     const [nameType, setNameType] = useState([]);
     const roleAdmin = userService.checkRollAppUser("ROLE_ADMIN");
+    const carts = useSelector((state) => state.cartReducer);
+    const dispatch = useDispatch();
 
     const getUserName = async () => {
         const result = await userService.infoAppUserByJwtToken();
@@ -25,7 +29,6 @@ const Header = ({ inputSearch, onInputChange }) => {
     const getTypeProduct = async () => {
         const result = await typeProduct.getAllType();
         setNameType(result);
-        console.log(result)
     }
 
     useEffect(() => {
@@ -33,9 +36,19 @@ const Header = ({ inputSearch, onInputChange }) => {
     }, []);
 
     useEffect(() => {
-        // getAppUserId();
+        getAppUserId();
         getTypeProduct();
     }, [])
+
+    const getAppUserId = async () => {
+        const isLoggedIn = userService.infoAppUserByJwtToken();
+        if (isLoggedIn) {
+            const id = await userService.getIdByUserName(isLoggedIn.sub);
+            setUserId(id.data);
+            dispatch(getAllCarts(isLoggedIn.sub));
+
+        }
+    }
 
     const handleLogout = () => {
         localStorage.removeItem("JWT");
@@ -87,14 +100,16 @@ const Header = ({ inputSearch, onInputChange }) => {
                             />
                         </NavLink>
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li className="nav-item">
-                                <Link className="nav-link" to={"/home"}>
-                                    Trang chủ
+                            <li className="nav-item category">
+                                <Link className="nav-link category-info" to={"/home"}>
+                                    <b>Trang chủ</b>
                                 </Link>
                             </li>
-                            <li className="nav-item ms-2">
-                                <a className="nav-link" href="src/component#">
-                                    Về chúng tôi
+                            <li className="nav-item category">
+                                <a className="nav-link category-info"
+                                   style={{overflow: "hidden"}}
+                                   href="src/component#">
+                                    <b>Về chúng tôi</b>
                                 </a>
                             </li>
                             <li>
@@ -102,7 +117,7 @@ const Header = ({ inputSearch, onInputChange }) => {
                                     <div
                                         className="category-info mt-2"
                                         style={{overflow: "hidden"}}>
-                                        Danh mục
+                                        <b>Danh mục</b>
                                     </div>
                                     <div className="category-dropdown-list float-start">
                                         {nameType?.map((type, index) => (
@@ -139,7 +154,7 @@ const Header = ({ inputSearch, onInputChange }) => {
 
                         {userName && (
                             <Link to={`/cart`} href="" className="header-btn header-cart">
-                                <AiOutlineShoppingCart size="2em"/><span className="cart-number">{3}</span>
+                                <AiOutlineShoppingCart size="2em"/><span className="cart-number">{carts.length}</span>
                             </Link>
                         )}
 

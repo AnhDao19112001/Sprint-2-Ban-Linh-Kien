@@ -60,27 +60,27 @@ public interface IOrderRepository extends JpaRepository<Orders, Long> {
             "ORDER BY o.date_time asc ", nativeQuery = true)
     List<Orders> listOrders(@Param("appUserId") Long appUserId);
 
-    @Query(value = "SELECT\n " +
+    @Query(value = "SELECT " +
             " od.id as idOrder, " +
             " o.id as id, " +
-            "            o.code AS code,\n" +
-            "            MAX(app.full_name) AS fullName,\n" +
-            "            o.date_time AS orderDate,\n" +
-            "            CASE\n" +
-            "            WHEN app.id IS NULL THEN\n" +
-            "            sum(od.price * od.quantity)\n" +
-            "            WHEN app.id IS NOT NULL THEN\n" +
-            "            sum(od.price * od.quantity) END AS orderDetailPrice\n" +
-            "             FROM\n" +
-            "             orders o\n" +
-            "            LEFT JOIN app_user app on app.id = o.app_user_id\n" +
-            "            LEFT JOIN user_role ur on app.id = ur.app_user_id\n" +
-            "            LEFT OUTER JOIN app_role ar on ar.id = ur.app_role_id\n" +
-            "            LEFT JOIN orders_detail od on o.id = od.id_order\n" +
+            "            o.code AS code," +
+            "            MAX(app.full_name) AS fullName," +
+            "            o.date_time AS orderDate," +
+            "            CASE" +
+            "            WHEN app.id IS NULL THEN" +
+            "            sum(od.price * od.quantity)" +
+            "            WHEN app.id IS NOT NULL THEN" +
+            "            sum(od.price * od.quantity) END AS orderDetailPrice" +
+            "             FROM" +
+            "             orders o" +
+            "            LEFT JOIN app_user app on app.id = o.app_user_id" +
+            "            LEFT JOIN user_role ur on app.id = ur.app_user_id" +
+            "            LEFT OUTER JOIN app_role ar on ar.id = ur.app_role_id" +
+            "            LEFT JOIN orders_detail od on o.id = od.id_order " +
             "GROUP BY o.code, o.date_time, o.id ", nativeQuery = true)
     Page<IOrderProjection> getAllListOrder(Pageable pageable);
 
-    @Query(value = "SELECT\n" +
+    @Query(value = "SELECT" +
             " od.id as idOrder , " +
             " o.id as id," +
             "            o.code AS code, " +

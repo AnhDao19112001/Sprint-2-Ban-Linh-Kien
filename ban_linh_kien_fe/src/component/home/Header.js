@@ -113,9 +113,9 @@ const Header = ({ inputSearch, onInputChange }) => {
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="category">
+                                <a className="category">
                                     <div
-                                        className="category-info mt-2"
+                                        className="nav-link category-info"
                                         style={{overflow: "hidden"}}>
                                         <b>Danh mục</b>
                                     </div>

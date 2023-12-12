@@ -1,5 +1,4 @@
 import {useNavigate, useParams} from "react-router-dom";
-// import {useDispatch} from "react-redux";
 import {useEffect, useState} from "react";
 import {getIdProduct} from "../../service/product/ProductService";
 import Swal from "sweetalert2";
@@ -12,18 +11,19 @@ import {useDispatch} from "react-redux";
 
 function DetailProduct() {
     const navigate = useNavigate();
-    // const dispatch = useDispatch();
     const [product, setProduct] = useState({});
     const [images, setImages] = useState([]);
     const [activeIndex, setActiveIndex] = useState(0);
     const [appUserId, setAppUserId] = useState(null);
     const {idProduct} = useParams();
     const dispatch = useDispatch();
+
     const getProductDetail = async () => {
         try {
             const result = await getIdProduct(idProduct);
             setProduct(result.data);
-            const res = result.data.imagePath.split("");
+            console.log(result);
+            const res = result.data.imagePath;
             setImages(res);
         } catch (error) {
             if (error.response && error.response.status === 406) {
@@ -60,7 +60,9 @@ function DetailProduct() {
             }
         }
     }
-
+    const createMarkup = () => {
+        return { __html: product.description };
+    };
     const currency = (money) => {
         return new Intl.NumberFormat("vi-VN").format(money);
     };
@@ -72,81 +74,87 @@ function DetailProduct() {
     return (
         product &&
         <>
+
             <Header/>
             <div className="container my-5">
-                {
+                {product.idProduct && (
                     <div className="row">
                         <div className="col-md-5">
                             <div className="images p-3">
                                 <div className="text-center p-4">
-                                    {images.length > 0 && images.map((el, index) => {
-                                        return (
-                                            <button type="button"
-                                                    data-bs-target="#carouselExampleIndicators"
-                                                    data-bs-slide-to={index}
-                                                    className={index === activeIndex ? "active" : ""}
-                                                    aria-current="true"
-                                                    aria-label={`Slide ${index + 1}`}
-                                                    style={{width: 70, height: 70}}>
-                                                <img src={el} alt=""
-                                                     id="main-image"
-                                                     width={250}/>
-                                            </button>
-                                        );
-                                    })}
+                                    {/*{images.length > 0 && images.map((el, index) => {*/}
+                                    {/*    return (*/}
+                                    {/*        <button type="button"*/}
+                                    {/*                data-bs-target="#carouselExampleIndicators"*/}
+                                    {/*                data-bs-slide-to={index}*/}
+                                    {/*                className={index === activeIndex ? "active" : ""}*/}
+                                    {/*                aria-current="true"*/}
+                                    {/*                aria-label={`Slide ${index + 1}`}*/}
+                                    {/*                style={{width: 70, height: 70}}>*/}
+                                    {/*            <img src={el} alt=""*/}
+                                    {/*                 id="main-image"*/}
+                                    {/*                 width={250}/>*/}
+                                    {/*        </button>*/}
+                                    {/*    );*/}
+                                    {/*})}*/}
+                                    <img src={images} alt=""
+                                         id="main-image"
+                                         width={250}/>
                                 </div>
                                 <div className="carousel-inner">
-                                    {images.length > 0 &&
-                                        images.map((el, index) => {
-                                            return (
-                                                <div
-                                                    className={`carousel-item ${
-                                                        index === activeIndex ? "active" : ""
-                                                    }`}
-                                                >
-                                                    <img src={el} className="d-block w-100" alt="..."/>
-                                                </div>
-                                            );
-                                        })}
+                                    {/*{images.length > 0 &&*/}
+                                    {/*    images.map((el, index) => {*/}
+                                    {/*        return (*/}
+                                    {/*            <div*/}
+                                    {/*                className={`carousel-item ${*/}
+                                    {/*                    index === activeIndex ? "active" : ""}`}>*/}
+                                    {/*                <img src={el} className="d-block w-100" alt=""/>*/}
+                                    {/*            </div>*/}
+                                    {/*        );*/}
+                                    {/*    })}*/}
                                 </div>
                             </div>
 
                         </div>
                         <div className="col-md-7">
                             <div className="main-description px-2">
-                                <div className="category text-bold">
-                                    Loại sản phẩm: {product.nameType}
+                                <div className=" text-bold">
+                                    <b>Loại sản phẩm:</b> {product.nameType}
                                 </div>
                                 <div className="product-title text-bold my-3">
-                                    Tên sản phẩm: {product.nameProduct}
+                                    <b>Tên sản phẩm:</b> {product.nameProduct}
                                 </div>
                                 <div className="price-area my-4">
-                                    <p className="new-price text-bold mb-1">{currency(product.price)} vnđ/1 {product.nameProduct}</p>
+                                    <p className="new-price text-bold mb-1"><b>Giá:</b> {currency(product.price)} vnđ
+                                    </p>
                                     <p className="text-secondary mb-1">(Thuế bổ sung có thể được áp dụng khi thanh
                                         toán)</p>
                                 </div>
                                 <div className="buttons d-flex my-5">
                                     <div className="block">
-                                        <button className="shadow btn custom-btn"
+                                        <button className="shadow btn btn-outline-primary custom-btn"
                                                 onClick={() => addToCarts(product.idProduct)}
-                                        >Thêm vào giỏ hàng</button>
+                                        >Thêm vào giỏ hàng
+                                        </button>
                                     </div>
-                                    <div className="block quantity">
-                                        <input type="number" className="form-control" id="cart_quantity"
+                                    <div className="block quantity ms-2">
+                                        <input type="number" className="form-control quantity fw-bold "
+                                               id="quantity-value"
                                                defaultValue={1}
-                                               min={0} max={5} placeholder="Enter email" name="cart_quantity"/>
+                                               min={1} max={99} name="quantity"/>
                                     </div>
                                 </div>
                             </div>
                             <div className="product-details my-3">
-                                <p className="details-title text-color mb-1">Chi tiết sản phẩm</p>
+                                <p className="details-title text-color mb-1">
+                                    <b>Chi tiết sản phẩm: </b></p>
                                 <p className="description">
-                                    {product.description}
+                                    <div dangerouslySetInnerHTML={createMarkup()}></div>
                                 </p>
                             </div>
                         </div>
                     </div>
-                }
+                )}
             </div>
             <Footer/>
         </>

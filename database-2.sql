@@ -135,3 +135,31 @@ BEGIN
 END //
 
 DELIMITER ;
+
+
+
+DELIMITER // 
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getCartDetailsForMail`(IN id_order BIGINT)
+BEGIN
+    SELECT
+        p.name_product as nameProduct,
+        (
+            SELECT image_path
+            FROM image im
+            WHERE im.id_product = p.id_product
+            ORDER BY im.id LIMIT 1
+        ) as imageProduct,
+        p.price as price,
+        od.quantity as quantityInCart
+    FROM
+        orders_detail as od
+            JOIN
+        orders o ON o.id = od.id_order
+            JOIN
+        product p ON p.id_product = od.id_product
+    WHERE
+            od.id_order = id_order; -- Sử dụng tham số trực tiếp ở đây
+END //
+
+DELIMITER ;

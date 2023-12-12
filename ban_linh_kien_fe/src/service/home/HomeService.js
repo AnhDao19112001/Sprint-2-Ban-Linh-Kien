@@ -7,7 +7,7 @@ export const findProductForHomePage = async (nameProduct, nameType) => {
         const result = await axios.get(`${baseURL}?nameProduct=${nameProduct}&nameType=${nameType}`);
         return result;
     } catch (error) {
-        console.log(error); 
+        console.log(error);
     }
 }
 

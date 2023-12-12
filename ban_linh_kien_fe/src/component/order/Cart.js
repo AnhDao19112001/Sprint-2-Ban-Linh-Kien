@@ -168,7 +168,7 @@ function Cart() {
                                             </div>
                                             <div className="col-md-3 col-lg-3 col-xl-3">
                                                 <p className="lead fw-normal mb-2">{c.nameProduct}</p>
-                                                <p><span className="text-muted">Loại sản phẩm: </span>{c.typeProduct}
+                                                <p><span className="text-muted">Đơn giá: </span>{c.price}
                                                 </p>
                                             </div>
                                             <div className="col-md-3 col-lg-3 col-xl-2 d-flex">

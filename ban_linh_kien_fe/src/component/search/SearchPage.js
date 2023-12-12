@@ -92,9 +92,9 @@ export const SearchPage = () => {
                         <div className="container">
                             <div className="row">
                                 <div className="col-lg-12">
-                                    <div className="sec-title text-center mt-4">
-                                        <p className="sec-sub-title">Có phải đây là thứ bạn cần tìm ?</p>
-                                    </div>
+                                    {/*<div className="sec-title text-center mt-4">*/}
+                                    {/*    <p className="sec-sub-title">Có phải đây là thứ bạn cần tìm ?</p>*/}
+                                    {/*</div>*/}
                                     <div className="border border-warning rounded-2 py-2 mb-4">
                                         <div
                                             className="ms-5 fs-6 mb-1"

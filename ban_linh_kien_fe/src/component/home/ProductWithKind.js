@@ -87,21 +87,21 @@ const ProductWithKind = () => {
             <Header onInputChange={() => {
             }}/>
             <section
-                className="our-menu bg-light repeat-img pb-5" style={{padding: "7rem 0 0"}}>
+                className="our-menu bg-light repeat-img pb-5" >
                 {isNoContent ? (<HavingNoResult/>) : (
                     <>
-                        <div className="container min-vh-100">
+                        <div className="container ">
                             <div className="row">
                                 <div className="col-lg-12">
-                                    <div className="sec-title text-center mt-4">
-                                        <p className="sec-sub-title">Danh mục {nameType}</p>
-                                    </div>
+                                    {/*<div className="sec-title text-center mt-4">*/}
+                                    {/*    <p className="sec-sub-title">Danh mục {nameType}</p>*/}
+                                    {/*</div>*/}
                                     <div className="border border-warning rounded-2 py-2 mb-4">
                                         <div
                                             className="ms-5 fs-6 mb-1"
                                             style={{color: "rgb(27, 65, 168)"}}
                                         >
-                                            Có {totalElements} sản phẩm thuộc danh mục
+                                            Có {totalElements} sản phẩm thuộc danh mục {nameType}
                                         </div>
                                         <div className="d-flex ms-5 gap-3 fs-6 align-items-center">
                                             <span>Sắp xếp theo: </span>

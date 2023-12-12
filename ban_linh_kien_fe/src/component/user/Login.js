@@ -9,9 +9,10 @@ import {BsFacebook} from "react-icons/bs";
 import {LuScanFace} from "react-icons/lu";
 import { FaSquareGithub } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
+import {useState} from "react";
 const Login = () => {
     const navigate = useNavigate();
-    let faceioInstance = null
+    const [isLoggingIn, setIsLoggingIn] = useState(false);
     const handleLoginFb = async (resolve) => {
         try {
             const result = await userService.loginFacebook({facebookMail: resolve.data.email});
@@ -71,26 +72,53 @@ const Login = () => {
     //     }
     // }
 
+    // const handleLogin = async (appUser) => {
+    //     try {
+    //         const result = await userService.loginUser(appUser);
+    //         userService.addJwtTokenToLocalStorage(result.data.jwtToken)
+    //         console.log(result);
+    //         const tempURL = localStorage.getItem("tempURL");
+    //         localStorage.removeItem("tempURL");
+    //         if (tempURL) {
+    //             navigate(tempURL);
+    //         } else {
+    //             navigate(`/home`);
+    //         }
+    //     } catch (err) {
+    //         Swal.fire({
+    //             icon: 'error',
+    //             title: err.response.data
+    //         })
+    //         console.log(err);
+    //     }
+    // }
+
     const handleLogin = async (appUser) => {
-        try {
-            const result = await userService.loginUser(appUser);
-            userService.addJwtTokenToLocalStorage(result.data.jwtToken)
-            console.log(result);
-            const tempURL = localStorage.getItem("tempURL");
-            localStorage.removeItem("tempURL");
-            if (tempURL) {
-                navigate(tempURL);
-            } else {
-                navigate(`/home`);
+        if (!isLoggingIn) {
+            try {
+                setIsLoggingIn(true);
+
+                const result = await userService.loginUser(appUser);
+                userService.addJwtTokenToLocalStorage(result.data.jwtToken)
+                console.log(result);
+                const tempURL = localStorage.getItem("tempURL");
+                localStorage.removeItem("tempURL");
+                if (tempURL) {
+                    navigate(tempURL);
+                } else {
+                    navigate(`/home`);
+                }
+            } catch (err) {
+                Swal.fire({
+                    icon: 'error',
+                    title: err.response.data
+                })
+                console.log(err);
+            } finally {
+                setIsLoggingIn(false);
             }
-        } catch (err) {
-            Swal.fire({
-                icon: 'error',
-                title: err.response.data
-            })
-            console.log(err);
         }
-    }
+    };
 
     return (
         <>

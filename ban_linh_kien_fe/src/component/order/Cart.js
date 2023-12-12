@@ -17,10 +17,7 @@ import {
 import Swal from "sweetalert2";
 import {TiDelete} from "react-icons/ti";
 import {Paypal} from "./Paypal";
-import swal from "sweetalert2";
-import {ErrorMessage, Field, Form, Formik} from "formik";
 import {useSelector} from "react-redux";
-import * as yup from "yup"
 
 const currency = (number) => {
     const roundedNumber = Math.floor(number);
@@ -178,7 +175,7 @@ function Cart() {
                                                     <FaMinus/>
                                                 </button>
                                                 <input id={`input-quantity${c.idProduct}`}
-                                                       min={0} name="quantity" defaultValue={c.quantity} type="number"
+                                                       min={1} name="quantity" defaultValue={c.quantity} type="number"
                                                        disabled
                                                        className="form-control form-control-sm text-center"/>
                                                 <button
@@ -202,7 +199,7 @@ function Cart() {
                                     <Link to="/home" className="btn btn-outline-primary col-2">Quay về shop</Link>
                                     <b className="mt-2 h4 col-4" style={{margin: "0 0 0 37%"}}>Tổng
                                         tiền: {currency(total)}</b>
-                                    <div className="float-end col-3">
+                                    <div className="float-end col-3-mg">
                                         {cartDetail && cartDetail.length > 0 ? (
                                             checkout ? (
                                                 <Paypal propData1={total} proData2={cartDetail}/>

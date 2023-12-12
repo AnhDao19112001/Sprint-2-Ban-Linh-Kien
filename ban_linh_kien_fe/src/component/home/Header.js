@@ -46,7 +46,6 @@ const Header = ({ inputSearch, onInputChange }) => {
             const id = await userService.getIdByUserName(isLoggedIn.sub);
             setUserId(id.data);
             dispatch(getAllCarts(isLoggedIn.sub));
-
         }
     }
 

@@ -12,4 +12,6 @@ public interface ICartDetailService {
     void increaseQuantity(String userName, Long idProduct);
     void reduceQuantity(String userName, Long idProduct);
     ProductProjection getProductToCheck(Long idProduct);
+
+    void updateQuantityForProduct(Integer quantity, String userName, Long idProduct);
 }

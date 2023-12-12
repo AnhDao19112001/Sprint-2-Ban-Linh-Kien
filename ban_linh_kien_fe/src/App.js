@@ -1,7 +1,7 @@
 import './App.css';
 import Login from "./component/user/Login";
 import Cart from "./component/order/Cart";
-import {Route, Routes} from "react-router-dom";
+import {Navigate, Route, Routes} from "react-router-dom";
 import DetailProduct from "./component/order/DetailProduct";
 import Authentication from "./component/user/Authentication";
 import {EnumAppUserRole} from "./component/user/EnumAppUserRoles";
@@ -13,14 +13,18 @@ import OrderDetail from "./component/order/OrderDetail";
 import FaceID from "./component/user/FaceID";
 import Home from "./component/home/Home";
 import ProductWithKind from "./component/home/ProductWithKind";
-
+import * as userService from "./service/user/UserService";
+const JwtToken = userService.infoAppUserByJwtToken();
+console.log(JwtToken);
 function App() {
     return (
         <Routes>
-            <Route path="/login" element={<Login/>}/>
+            {/*<Route path="/login" element={<Login/>}/>*/}
+            <Route path="/login" element={JwtToken ? <Navigate to="/home" /> : <Login />}/>
             <Route path="/home" element={<Home/>}/>
             <Route path="/face" element={<FaceID/>}/>
-            <Route path="/cart" element={<Cart/>}/>
+            {/*<Route path="/cart" element={<Cart/>}/>*/}
+            <Route path="/cart" element={JwtToken ? <Cart/> : <Navigate to={'/login'}/> }/>
             <Route path='/details/:idProduct' element={<DetailProduct/>}/>
             <Route path='/home/list-product/:nameType' element={<ProductWithKind/>}/>
             <Route path='/home/search/' element={<SearchPage/>}/>

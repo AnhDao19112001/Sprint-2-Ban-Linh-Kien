@@ -50,7 +50,6 @@ function DetailProduct() {
                     const result = await checkQuantity(
                         idProduct,
                         parseInt(quantity));
-                    console.log(result);
                     const res = await createCartDetail(quantity, isLogged.sub, idProduct);
                     dispatch(getAllCarts(user.sub));
                     Swal.fire("Thêm mới sản phẩm thành công!", "", "success");

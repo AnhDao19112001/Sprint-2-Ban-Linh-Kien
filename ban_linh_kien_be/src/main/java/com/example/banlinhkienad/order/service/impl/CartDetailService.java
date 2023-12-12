@@ -56,4 +56,10 @@ public class CartDetailService implements ICartDetailService {
     public ProductProjection getProductToCheck(Long idProduct) {
         return cartDetailRepository.getProduct(idProduct);
     }
+
+    @Override
+    public void updateQuantityForProduct(Integer quantity, String userName, Long idProduct) {
+        AppUser appUser = appUserRepository.findAppUserByName(userName);
+        cartDetailRepository.updateQuantityForProduct( quantity,  appUser.getId(),  idProduct);
+    }
 }

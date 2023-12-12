@@ -93,4 +93,11 @@ public interface ICartDetailRepository extends JpaRepository<CartDetail, Long> {
             "WHERE p.id_product = :idProduct " +
             "GROUP BY p.id_product", nativeQuery = true)
     ProductProjection getProduct(@Param("idProduct") Long idProduct);
+@Transactional
+@Modifying
+@Query(value = " UPDATE cart_detail c " +
+        " SET c.quantity = c.quantity + :quantity " +
+        " WHERE c.id_product = :idProduct " +
+        " AND c.app_user_id = :id ",nativeQuery = true)
+    void updateQuantityForProduct(Integer quantity, Long id, Long idProduct);
 }

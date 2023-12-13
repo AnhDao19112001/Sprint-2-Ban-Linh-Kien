@@ -6,7 +6,6 @@ import { FaRegAddressCard } from "react-icons/fa";
 import { TfiEmail } from "react-icons/tfi";
 import { MdOutlinePhonelinkRing } from "react-icons/md";
 import { FaFax } from "react-icons/fa";
-
 function Footer() {
     return (
         <>

@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap";
 import Header from "../home/Header";
 import Footer from "../home/Footer";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {FaPlus} from "react-icons/fa6";
 import {FaMinus} from "react-icons/fa6";
 import {useEffect, useState} from "react";
@@ -18,6 +18,7 @@ import Swal from "sweetalert2";
 import {TiDelete} from "react-icons/ti";
 import {Paypal} from "./Paypal";
 import {useSelector} from "react-redux";
+import * as userService from "../../service/user/UserService";
 
 const currency = (number) => {
     const roundedNumber = Math.floor(number);
@@ -33,6 +34,7 @@ function Cart() {
     const [checkout, setCheckout] = useState(false);
     const [cartDetail, setCartDetail] = useState([]);
     const [customer, setCustomer] = useState({});
+    const navigate = useNavigate();
 
     const fetchData = async () => {
         try {
@@ -141,6 +143,10 @@ function Cart() {
 
     useEffect(() => {
         fetchData();
+        const JwtToken = userService.infoAppUserByJwtToken();
+        if (!JwtToken) {
+            navigate("/login")
+        }
     }, []);
 
     return (

@@ -57,9 +57,9 @@ const Header = ({ inputSearch, onInputChange }) => {
         Swal.fire({
             title: "Đăng xuất thành công!",
             icon: "success",
+            timer: 2000,
         });
         navigate("/home");
-        window.location.reload();
     }
 
     const handleInputChange = (event) => {
@@ -118,16 +118,23 @@ const Header = ({ inputSearch, onInputChange }) => {
                                         style={{overflow: "hidden"}}>
                                         <b>Danh mục</b>
                                     </div>
-                                    <div className="category-dropdown-list float-start">
-                                        {nameType?.map((type, index) => (
-                                            <Link
-                                                key={index}
-                                                to={`/home/list-product/${type.nameType}`}
-                                                className="category-dropdown-item"
-                                            >
-                                                <div className="dropdown-text">{type.nameType}</div>
-                                            </Link>
-                                        ))}
+                                    <div className="category-dropdown-list float-start" style={{width: "35rem"}}>
+                                        <div className="row">
+                                            {nameType?.map((type, index) => (
+                                                <div className="col-3">
+                                                    <Link
+                                                        style={{width: "7rem", margin: "2%"}}
+                                                        key={index}
+                                                        to={`/home/list-product/${type.nameType}`}
+                                                        className="category-dropdown-item"
+                                                    >
+                                                        <div className="dropdown-text">{type.nameType}</div>
+                                                    </Link>
+                                                </div>
+
+                                            ))}
+                                        </div>
+
                                     </div>
                                 </a>
                             </li>
@@ -190,7 +197,7 @@ const Header = ({ inputSearch, onInputChange }) => {
                                             >
                                                 {/*<BiCog className="me-3 ms-0" size={25} />*/}
                                                 <MdOutlineManageHistory className="me-3 ms-0" size={25}/>
-                                                <div className="dropdown-text">Lịch sử bán</div>
+                                                <div className="dropdown-text">Lịch sử mua</div>
                                             </Link>
                                         }
                                         <Link className="user-dropdown-item">

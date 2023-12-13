@@ -6,10 +6,16 @@ import {ToastContainer} from "react-toastify";
 import * as utils from "../../service/utils/Utils";
 import Header from "../home/Header";
 import Footer from "../home/Footer";
+import {infoAppUserByJwtToken} from "../../service/user/UserService";
+import {createCartDetail} from "../../service/cart/CartDetail";
+import Swal from "sweetalert2";
+import {useDispatch} from "react-redux";
+import {getAllCarts} from "../order/reduce/cartAction";
 
 export const SearchPage = () => {
     const params = useParams();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [productList, setProductList] = useState([]);
     const [nameProduct, setNameProduct] = useState(params.nameProduct);
     const [nameType, setNameType] = useState("");
@@ -58,6 +64,23 @@ export const SearchPage = () => {
         }
     };
 
+    const addToCartDetail = (a) => {
+        const result = infoAppUserByJwtToken();
+        if (result != null) {
+            const res = createCartDetail(1, result.sub, a.idProduct);
+            Swal.fire({
+                title: "Thêm sản phẩm thành công!",
+                icon: "success",
+            });
+            dispatch(getAllCarts(result.sub));
+        } else {
+            Swal.fire({
+                title: "Vui lòng đăng nhập!",
+                icon: "warning",
+            });
+            navigate(`/login`)
+        }
+    }
 
     const handleInputChange = async (event) => {
         event.preventDefault();
@@ -83,7 +106,6 @@ export const SearchPage = () => {
             <Header inputSearch={nameProduct} onInputChange={handleInputChange}/>
             <section
                 className="our-menu bg-light repeat-img pb-5 p-3"
-                // style={{padding: "7rem 0 0"}}
             >
                 {isNoContent ? (
                     <HavingNoResults/>
@@ -92,9 +114,6 @@ export const SearchPage = () => {
                         <div className="container">
                             <div className="row">
                                 <div className="col-lg-12">
-                                    {/*<div className="sec-title text-center mt-4">*/}
-                                    {/*    <p className="sec-sub-title">Có phải đây là thứ bạn cần tìm ?</p>*/}
-                                    {/*</div>*/}
                                     <div className="border border-warning rounded-2 py-2 mb-4">
                                         <div
                                             className="ms-5 fs-6 mb-1"
@@ -155,8 +174,9 @@ export const SearchPage = () => {
                                                     </Link>
                                                     <button
                                                         className="card-btn"
+                                                        onClick={() => addToCartDetail(el)}
                                                     >
-                                                        Mua
+                                                        Thêm vào giỏ hàng
                                                     </button>
                                                 </div>
                                                 <div className="product-info">

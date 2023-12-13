@@ -31,6 +31,7 @@ public class CartDetailController {
                                            @RequestParam(required = false) String userName,
                                            @RequestParam(required = false) Long idProduct) {
         Long cartDetail = cartDetailService.findByIdCartDetail(userName, idProduct);
+        
         if (cartDetail != null) {
             if (quantity == null) {
                 cartDetailService.increaseQuantity(userName, idProduct);

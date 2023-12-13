@@ -8,10 +8,13 @@ import {infoAppUserByJwtToken} from "../../service/user/UserService";
 import {createCartDetail} from "../../service/cart/CartDetail";
 import Swal from "sweetalert2";
 import HavingNoResult from "../search/HavingNoResult";
+import {useDispatch} from "react-redux";
+import {getAllCarts} from "../order/reduce/cartAction";
 
 const ProductWithKind = () => {
     const params = useParams();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [productList, setProductList] = useState([]);
     const [nameProduct, setNameProduct] = useState("");
     const [nameType, setNameType] = useState(params.nameType);
@@ -62,7 +65,8 @@ const ProductWithKind = () => {
             Swal.fire({
                 title: "Thêm sản phẩm thành công!",
                 icon: "success",
-            })
+            });
+            dispatch(getAllCarts(result.sub));
         } else {
             Swal.fire({
                 title: "Vui lòng đăng nhập!",
@@ -87,15 +91,12 @@ const ProductWithKind = () => {
             <Header onInputChange={() => {
             }}/>
             <section
-                className="our-menu bg-light repeat-img pb-5" >
+                className="our-menu bg-light repeat-img pb-5">
                 {isNoContent ? (<HavingNoResult/>) : (
                     <>
                         <div className="container ">
                             <div className="row">
                                 <div className="col-lg-12">
-                                    {/*<div className="sec-title text-center mt-4">*/}
-                                    {/*    <p className="sec-sub-title">Danh mục {nameType}</p>*/}
-                                    {/*</div>*/}
                                     <div className="border border-warning rounded-2 py-2 mb-4">
                                         <div
                                             className="ms-5 fs-6 mb-1"
@@ -157,7 +158,7 @@ const ProductWithKind = () => {
                                                         className="card-btn"
                                                         onClick={() => addToCartDetail(el)}
                                                     >
-                                                        Mua
+                                                        Thêm vào giỏ hàng
                                                     </button>
                                                 </div>
                                                 <div className="product-info">

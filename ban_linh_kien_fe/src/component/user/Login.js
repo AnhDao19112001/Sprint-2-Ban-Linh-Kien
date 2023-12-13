@@ -9,7 +9,7 @@ import {BsFacebook} from "react-icons/bs";
 import {LuScanFace} from "react-icons/lu";
 import { FaSquareGithub } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 const Login = () => {
     const navigate = useNavigate();
     const [isLoggingIn, setIsLoggingIn] = useState(false);
@@ -31,6 +31,7 @@ const Login = () => {
             })
         }
     }
+
 
     const loginWithFacebook = async (resolve) => {
         console.log(resolve);
@@ -106,6 +107,11 @@ const Login = () => {
                 if (tempURL) {
                     navigate(tempURL);
                 } else {
+                    Swal.fire({
+                        title: "Đăng nhập thành công",
+                        icon: "success",
+                        timer: 2000
+                    })
                     navigate(`/home`);
                 }
             } catch (err) {
@@ -119,6 +125,12 @@ const Login = () => {
             }
         }
     };
+    useEffect(() => {
+        const JwtToken = userService.infoAppUserByJwtToken();
+        if (JwtToken) {
+            navigate(`/home`);
+        }
+    }, []);
 
     return (
         <>

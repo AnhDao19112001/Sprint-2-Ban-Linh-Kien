@@ -140,7 +140,7 @@ function DetailProduct() {
                                         <input type="number" className="form-control quantity fw-bold "
                                                id="quantity-value"
                                                defaultValue={1}
-                                               min={1} max={99} name="quantity"/>
+                                               min={1} max={product.quantity} name="quantity"/>
                                     </div>
                                 </div>
                             </div>

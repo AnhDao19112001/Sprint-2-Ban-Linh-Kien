@@ -113,7 +113,7 @@ const ListOrder = () => {
                                 <tr className="th-list">
                                     <th className="px-3 py-2" style={{width: "260px"}}>Tên khách hàng
                                     </th>
-                                    <th className="px-3 py-2" style={{width: "130px"}}>Ngày lập
+                                    <th className="px-3 py-2" style={{width: "130px"}}>Ngày đặt hàng
                                     </th>
                                     <th className="px-3 py-2" style={{width: "150px"}}>Tổng tiền (VNĐ)
                                     </th>

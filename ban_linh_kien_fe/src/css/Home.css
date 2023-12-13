@@ -286,7 +286,7 @@ ul {
 .category:hover,
 .category-info:hover,
 .category-dropdown-item:hover {
-  color: #ff8243;
+  color: #4285f4;
 }
 .category-info {
   color: #0d0d25;
@@ -307,15 +307,19 @@ ul {
 /* Menu dropdown list */
 .category-dropdown-list {
   position: absolute;
-  padding-top: 0.5rem;
+  /*padding-top: 0.5rem;*/
+  padding: 0.5rem;
   top: 100%;
-  max-width: 200px;
+  max-width: 50rem;
   width: 100%;
   color: #0d0d25;
   text-transform: capitalize;
   font-weight: 500;
   display: none;
   background-color: rgb(243, 243, 245);
+  border-radius: 10px;
+  border: black 1px;
+  z-index: 9999;
 }
 
 .category-dropdown-item {

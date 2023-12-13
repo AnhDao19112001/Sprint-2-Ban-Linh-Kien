@@ -34,7 +34,7 @@ public interface HomeRepository extends JpaRepository<Product, Long> {
             "p.name_product AS nameProduct, " +
             "p.price AS price, " +
             "t.name_type AS nameType, " +
-            " MIN(im.image_path) AS imageProduct " +
+            " im.image_path AS imageProduct " +
             "FROM product p " +
             "JOIN type_product t ON p.id_type = t.id_type " +
             "JOIN image im ON p.id_product = im.id_product " +
@@ -42,8 +42,7 @@ public interface HomeRepository extends JpaRepository<Product, Long> {
             "p.flag_deleted = false " +
             "AND p.name_product LIKE CONCAT('%', :nameProduct ,'%') " +
             "AND t.name_type LIKE CONCAT('%', :nameType ,'%')" +
-            " GROUP BY p.id_product, p.name_product, p.price, t.name_type " +
-            " order by p.id_product",nativeQuery = true)
+            " GROUP BY p.id_product, p.name_product, p.price, t.name_type " ,nativeQuery = true)
     Page<ProductForHomePageDto> getListProductWithPagination(@Param("nameProduct") String nameProduct,
                                                               @Param("nameType") String nameType,
                                                               Pageable pageable);

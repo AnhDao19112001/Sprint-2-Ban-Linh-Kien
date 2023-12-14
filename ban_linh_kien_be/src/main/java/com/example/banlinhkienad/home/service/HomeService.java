@@ -26,4 +26,32 @@ public class HomeService implements IHomeService{
     public List<ProductForHomePageDto> findFavoriteProductForHomepage() {
         return homeRepository.findFavoriteProductForHomepage();
     }
+
+    @Override
+    public Page<ProductForHomePageDto> searchByPriceWitchPrice(Float priceProduct, Pageable pageable) {
+        return homeRepository.searchWithGreaterThanOrEqualPriceHome(priceProduct, pageable);
+    }
+
+    @Override
+    public Page<ProductForHomePageDto> searchByPriceSmallPrice(Float priceProduct, Pageable pageable) {
+        return homeRepository.searchWithSmallerThanOrEqualPriceHome(priceProduct, pageable);
+    }
+
+    @Override
+    public Page<ProductForHomePageDto> searchByPrice(Pageable pageable, String search, String conditional) {
+        Float price = null;
+        try {
+            price = Float.parseFloat(search);
+            switch (conditional) {
+                case "greater":
+                    return searchByPriceWitchPrice(price,pageable);
+                case "small":
+                    return searchByPriceSmallPrice(price,pageable);
+                default:
+                    return getListProductWithPagination(search,conditional,pageable);
+            }
+        } catch (Exception e) {
+            return getListProductWithPagination(search,conditional,pageable);
+        }
+    }
 }

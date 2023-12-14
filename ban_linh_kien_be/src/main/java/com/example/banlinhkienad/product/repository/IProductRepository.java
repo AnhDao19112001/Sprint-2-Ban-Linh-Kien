@@ -18,7 +18,7 @@ public interface IProductRepository extends JpaRepository<Product, Long> {
             "       p.price        AS price,\n" +
             "       p.description  AS description,\n" +
             "       t.name_type    AS nameType\n" +
-            " FROM sprint_2_ad_racing.product p\n" +
+            " FROM ban_linh_kien.product p\n" +
             "         JOIN\n" +
             "     type_product t ON p.id_type = t.id_type ";
 

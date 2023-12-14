@@ -1,4 +1,5 @@
 package com.example.banlinhkienad.home.repository;
+
 import com.example.banlinhkienad.home.dto.ProductForHomePageDto;
 import com.example.banlinhkienad.product.model.Product;
 import org.springframework.data.domain.Page;
@@ -26,7 +27,7 @@ public interface HomeRepository extends JpaRepository<Product, Long> {
             "AND p.name_product LIKE CONCAT('%', :nameProduct ,'%') " +
             "AND t.name_type LIKE CONCAT('%', :nameType ,'%') " +
             "GROUP BY " +
-            "p.id_product, p.name_product, p.price, t.name_type ORDER BY p.id_product DESC LIMIT 10",nativeQuery = true)
+            "p.id_product, p.name_product, p.price, t.name_type ORDER BY p.id_product DESC LIMIT 10", nativeQuery = true)
     List<ProductForHomePageDto> findProductForHomePage(@Param("nameProduct") String nameProduct, @Param("nameType") String nameType);
 
     @Query(value = "SELECT " +
@@ -42,10 +43,40 @@ public interface HomeRepository extends JpaRepository<Product, Long> {
             "p.flag_deleted = false " +
             "AND p.name_product LIKE CONCAT('%', :nameProduct ,'%') " +
             "AND t.name_type LIKE CONCAT('%', :nameType ,'%')" +
-            " GROUP BY p.id_product, p.name_product, p.price, t.name_type " ,nativeQuery = true)
+            " GROUP BY p.id_product, p.name_product, p.price, t.name_type ", nativeQuery = true)
     Page<ProductForHomePageDto> getListProductWithPagination(@Param("nameProduct") String nameProduct,
-                                                              @Param("nameType") String nameType,
-                                                              Pageable pageable);
+                                                             @Param("nameType") String nameType,
+                                                             Pageable pageable);
+
+    @Query(value = "SELECT" +
+            "            p.id_product AS idProduct," +
+            "            p.name_product AS nameProduct," +
+            "            p.price AS price," +
+            "            t.name_type AS nameType," +
+            "            im.image_path AS imageProduct" +
+            "            FROM product p" +
+            "            JOIN type_product t ON p.id_type = t.id_type" +
+            "            JOIN image im ON p.id_product = im.id_product" +
+            "            WHERE" +
+            "            p.flag_deleted = false" +
+            "            AND p.price <= :priceProduct" +
+            "            GROUP BY p.id_product, p.name_product, p.price, t.name_type", nativeQuery = true)
+    Page<ProductForHomePageDto> searchWithGreaterThanOrEqualPriceHome(@Param("priceProduct") Float priceProduct, Pageable pageable);
+
+    @Query(value = "SELECT" +
+            "            p.id_product AS idProduct," +
+            "            p.name_product AS nameProduct," +
+            "            p.price AS price," +
+            "            t.name_type AS nameType," +
+            "            im.image_path AS imageProduct" +
+            "            FROM product p" +
+            "            JOIN type_product t ON p.id_type = t.id_type" +
+            "            JOIN image im ON p.id_product = im.id_product" +
+            "            WHERE" +
+            "            p.flag_deleted = false" +
+            "            AND p.price >= :priceProduct" +
+            "            GROUP BY p.id_product, p.name_product, p.price, t.name_type", nativeQuery = true)
+    Page<ProductForHomePageDto> searchWithSmallerThanOrEqualPriceHome(@Param("priceProduct") Float priceProduct, Pageable pageable);
 
     @Query(value = "SELECT " +
             "p.id_product AS idProduct, " +
@@ -62,6 +93,6 @@ public interface HomeRepository extends JpaRepository<Product, Long> {
             "type_product t ON p.id_type = t.id_type " +
             "GROUP BY " +
             "p.id_product, p.name_product, p.price, t.name_type " +
-            "ORDER BY SUM(od.quantity) DESC LIMIT 20",nativeQuery = true)
+            "ORDER BY SUM(od.quantity) DESC LIMIT 20", nativeQuery = true)
     List<ProductForHomePageDto> findFavoriteProductForHomepage();
 }

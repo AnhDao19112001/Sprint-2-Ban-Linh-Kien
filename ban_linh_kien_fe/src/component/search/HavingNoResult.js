@@ -1,3 +1,4 @@
+import ChatIcon from "../img/ChatIcon";
 
 const HavingNoResult = () => {
     return(
@@ -10,6 +11,7 @@ const HavingNoResult = () => {
                 <img src="https://static.vecteezy.com/ti/vecteur-libre/p3/2723693-aucun-resultats-trouves-illustration-rien-dans-la-boite-concept-gratuit-vectoriel.jpg" alt=""
                 style={{width:1500,height:600}}/>
             </div>
+            <ChatIcon/>
         </>
     )
 }

@@ -88,4 +88,9 @@ public class AppUserService implements IAppUserService {
         appUserRepository.createNewAppUser(appUser.getFullName(), appUser.getEmail(), appUser.getUserName(),
                 appUser.getPassword(), appUser.getAddress(), appUser.getPhone(), appUser.getImage());
     }
+
+    @Override
+    public List<AppUser> getAllUser() {
+        return appUserRepository.getAllUser();
+    }
 }

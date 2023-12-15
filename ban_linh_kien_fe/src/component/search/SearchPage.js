@@ -11,6 +11,7 @@ import {createCartDetail} from "../../service/cart/CartDetail";
 import Swal from "sweetalert2";
 import {useDispatch} from "react-redux";
 import {getAllCarts} from "../order/reduce/cartAction";
+import ChatIcon from "../img/ChatIcon";
 
 export const SearchPage = () => {
     const params = useParams();
@@ -262,6 +263,7 @@ export const SearchPage = () => {
             </section>
             <Footer/>
             <ToastContainer autoClose={2000} className="toast-position"/>
+            <ChatIcon/>
         </>
     );
 };

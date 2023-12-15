@@ -1,0 +1,38 @@
+/* ChatIcon.css */
+
+.chat-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #4285f4;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.chat-icon-content {
+    font-size: 24px;
+    color: white;
+}
+
+/* Hiển thị đoạn chat ngắn */
+.chat-popup {
+    display: none;
+    width: 145px;
+    position: absolute;
+    background-color: #bfbfbf;
+    padding: 10px;
+    border-radius: 5px;
+    bottom: 80px;
+    left: -70px;
+    z-index: 999;
+}
+
+.chat-icon:hover .chat-popup {
+    display: inline-block;
+}

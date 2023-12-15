@@ -59,6 +59,8 @@ public interface HomeRepository extends JpaRepository<Product, Long> {
             "            JOIN image im ON p.id_product = im.id_product" +
             "            WHERE" +
             "            p.flag_deleted = false" +
+            " AND p.name_product LIKE CONCAT('%', :nameProduct ,'%') " +
+            " AND t.name_type LIKE CONCAT('%', :nameType ,'%')" +
             "            AND p.price <= :priceProduct" +
             "            GROUP BY p.id_product, p.name_product, p.price, t.name_type", nativeQuery = true)
     Page<ProductForHomePageDto> searchWithGreaterThanOrEqualPriceHome(@Param("priceProduct") Float priceProduct, Pageable pageable);
@@ -74,6 +76,8 @@ public interface HomeRepository extends JpaRepository<Product, Long> {
             "            JOIN image im ON p.id_product = im.id_product" +
             "            WHERE" +
             "            p.flag_deleted = false" +
+            " AND p.name_product LIKE CONCAT('%', :nameProduct ,'%') " +
+            " AND t.name_type LIKE CONCAT('%', :nameType ,'%')" +
             "            AND p.price >= :priceProduct" +
             "            GROUP BY p.id_product, p.name_product, p.price, t.name_type", nativeQuery = true)
     Page<ProductForHomePageDto> searchWithSmallerThanOrEqualPriceHome(@Param("priceProduct") Float priceProduct, Pageable pageable);

@@ -4,6 +4,7 @@ import {getOrderDetails} from "../../service/cart/Orders";
 import {getIdByUserName, infoAppUserByJwtToken} from "../../service/user/UserService";
 import Header from "../home/Header";
 import Footer from "../home/Footer";
+import ChatIcon from "../img/ChatIcon";
 
 function OrderDetail() {
     const [orderDetails, setOrderDetails] = useState([]);
@@ -138,6 +139,7 @@ function OrderDetail() {
                 </div>
             </div>
             <Footer/>
+            <ChatIcon/>
         </>
     )
 }

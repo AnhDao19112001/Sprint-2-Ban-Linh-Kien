@@ -10,6 +10,7 @@ import Swal from "sweetalert2";
 import HavingNoResult from "../search/HavingNoResult";
 import {useDispatch} from "react-redux";
 import {getAllCarts} from "../order/reduce/cartAction";
+import ChatIcon from "../img/ChatIcon";
 
 const ProductWithKind = () => {
     const params = useParams();
@@ -236,6 +237,7 @@ const ProductWithKind = () => {
                 )}
             </section>
             <Footer/>
+            <ChatIcon/>
         </>
     )
 }

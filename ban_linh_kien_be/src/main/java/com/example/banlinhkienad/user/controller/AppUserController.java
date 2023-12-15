@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -183,4 +184,17 @@ public class AppUserController {
         String jwtToken = jwtTokenUtil.generateToken(userDetails);
         return ResponseEntity.ok().body(new JwtResponse(jwtToken));
     }
+
+    @GetMapping("/list")
+    public ResponseEntity<List<AppUser>> getAllUserList(){
+        List<AppUser> appUsers = appUserService.getAllUser();
+        if (appUsers.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            return new ResponseEntity<>(appUsers,HttpStatus.OK);
+        }
+    }
+
 }
+
+

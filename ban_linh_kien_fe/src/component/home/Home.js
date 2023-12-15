@@ -18,6 +18,7 @@ import {infoAppUserByJwtToken} from "../../service/user/UserService";
 import {getAllCarts} from "../order/reduce/cartAction";
 import {useDispatch, useSelector} from "react-redux";
 import {createCartDetail} from "../../service/cart/CartDetail";
+import ChatIcon from "../img/ChatIcon";
 
 function Home() {
     const [productList, setProductList] = useState([]);
@@ -195,7 +196,7 @@ function Home() {
                                                 />
                                             </Link>
                                             <button className="card-btn"
-                                            onClick={() => addCartDetail(el)}>
+                                                    onClick={() => addCartDetail(el)}>
                                                 Thêm vào giỏ hàng
                                             </button>
                                         </div>
@@ -312,6 +313,7 @@ function Home() {
         </section>
 
         <Footer/>
+        <ChatIcon/>
     </>)
 }
 

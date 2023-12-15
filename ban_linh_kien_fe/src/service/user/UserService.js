@@ -42,6 +42,15 @@ export const checkRollAppUser = (roleName) => {
     }
 }
 
+export const getAllUserList = async () => {
+    try {
+        const result = await axios.get(`http://localhost:8080/api/user/list`);
+        return result.data;
+    } catch (error){
+        console.log(error);
+    }
+}
+
 export const checkIdCustomers = async (id) => {
     try {
         const result = await axios.get(`http://localhost:8080/api/user/${id}`);

@@ -19,6 +19,7 @@ import {TiDelete} from "react-icons/ti";
 import {Paypal} from "./Paypal";
 import {useSelector} from "react-redux";
 import * as userService from "../../service/user/UserService";
+import ChatIcon from "../img/ChatIcon";
 
 const currency = (number) => {
     const roundedNumber = Math.floor(number);
@@ -227,6 +228,7 @@ function Cart() {
                 </div>
             </section>
             <Footer/>
+            <ChatIcon/>
         </>
     )
 }

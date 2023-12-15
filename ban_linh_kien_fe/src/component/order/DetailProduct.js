@@ -8,6 +8,7 @@ import {getIdByUserName, infoAppUserByJwtToken} from "../../service/user/UserSer
 import {checkQuantity, createCartDetail} from "../../service/cart/CartDetail";
 import {getAllCarts} from "./reduce/cartAction";
 import {useDispatch} from "react-redux";
+import ChatIcon from "../img/ChatIcon";
 
 function DetailProduct() {
     const navigate = useNavigate();
@@ -156,6 +157,7 @@ function DetailProduct() {
                 )}
             </div>
             <Footer/>
+            <ChatIcon/>
         </>
     )
 }

@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 public interface IAppUserRepository extends JpaRepository<AppUser, Long> {
     @Transactional
     @Query(value = "SELECT * FROM ban_linh_kien.app_user WHERE " +
@@ -59,4 +61,7 @@ public interface IAppUserRepository extends JpaRepository<AppUser, Long> {
 
     @Query(value = "SELECT * FROM app_user where id = :id AND flag_deleted = false",nativeQuery = true)
     AppUser findCustomerById(Long id);
+
+    @Query(value = "SELECT * FROM app_user WHERE flag_deleted = false",nativeQuery = true)
+    List<AppUser> getAllUser();
 }

@@ -190,7 +190,7 @@ const Header = ({ inputSearch, onInputChange }) => {
                                             <BiUserCircle className="me-3 ms-0" size={25} />
                                             <div className="dropdown-text">Thông tin</div>
                                         </Link>
-                                        {roleAdmin &&
+                                        {/*{roleAdmin &&*/}
                                             <Link
                                                 to={"/home/list-order"}
                                                 className="user-dropdown-item"
@@ -199,7 +199,7 @@ const Header = ({ inputSearch, onInputChange }) => {
                                                 <MdOutlineManageHistory className="me-3 ms-0" size={25}/>
                                                 <div className="dropdown-text">Lịch sử mua</div>
                                             </Link>
-                                        }
+                                        {/*}*/}
                                         <Link className="user-dropdown-item">
                                             <BiLogOutCircle className="me-3 ms-0" size={25} />
                                             <div

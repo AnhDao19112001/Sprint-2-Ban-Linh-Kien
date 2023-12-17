@@ -182,8 +182,8 @@ function Cart() {
                                                     <FaMinus/>
                                                 </button>
                                                 <input id={`input-quantity${c.idProduct}`}
-                                                       min={1} name="quantity" defaultValue={c.quantity} type="number"
-                                                       disabled
+                                                       min={1} name="quantity" value={c.quantity} type="number"
+                                                       readOnly={true}
                                                        className="form-control form-control-sm text-center"/>
                                                 <button
                                                     onClick={() => handleIncrease(c.idProduct, c.quantity)}

@@ -2,10 +2,11 @@ import {BsFacebook} from "react-icons/bs";
 import {FaSquareGithub} from "react-icons/fa6";
 import {FcGoogle} from "react-icons/fc";
 import {FaTiktok} from "react-icons/fa";
-import { FaRegAddressCard } from "react-icons/fa";
-import { TfiEmail } from "react-icons/tfi";
-import { MdOutlinePhonelinkRing } from "react-icons/md";
-import { FaFax } from "react-icons/fa";
+import {FaRegAddressCard} from "react-icons/fa";
+import {TfiEmail} from "react-icons/tfi";
+import {MdOutlinePhonelinkRing} from "react-icons/md";
+import {FaFax} from "react-icons/fa";
+
 function Footer() {
     return (
         <>
@@ -53,13 +54,7 @@ function Footer() {
                                         id="formControlLg"
                                         className="form-control form-control-lg"
                                     />
-                                    <label
-                                        className="form-label"
-                                        htmlFor="formControlLg"
-                                        style={{marginLeft: 0}}
-                                    >
-                                        Tìm kiếm
-                                    </label>
+
                                     <div className="form-notch">
                                         <div className="form-notch-leading" style={{width: 9}}/>
                                         <div

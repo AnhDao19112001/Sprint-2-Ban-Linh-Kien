@@ -30,41 +30,14 @@ const ChatIcon = () => {
     };
 
     return (
-        // <div className="chat-icon" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-        //     <FontAwesomeIcon icon={faComment} className="chat-icon-content" />
-        //     {showChat && (
-        //         <div className="chat-popup">
-        //             Bạn cần trợ giúp?
-        //         </div>
-        //     )}
-        // </div>
-
-        <div className="chat-container">
-            <div className="chat-icon" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                <FontAwesomeIcon icon={faComment} className="chat-icon-content" />
-            </div>
+        <div className="chat-icon" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <FontAwesomeIcon icon={faComment} className="chat-icon-content" />
             {showChat && (
                 <div className="chat-popup">
-                    <div className="chat-header">
-                        <img src={user.avatar} alt="User Avatar" className="user-avatar" />
-                        <span className="user-name">{user.name}</span>
-                    </div>
-                    <div className="chat-messages">
-                        {/* Display chat messages here */}
-                    </div>
-                    <div className="chat-input">
-                        <input
-                            type="text"
-                            placeholder="Type a message..."
-                            value={message}
-                            onChange={handleMessageChange}
-                        />
-                        <button onClick={sendMessage}>Send</button>
-                    </div>
+                    Bạn cần trợ giúp?
                 </div>
             )}
         </div>
-
     );
 };
 

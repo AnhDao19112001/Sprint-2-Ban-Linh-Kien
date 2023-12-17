@@ -53,11 +53,11 @@ public interface IOrderRepository extends JpaRepository<Orders, Long> {
             "GROUP BY o.date_time", nativeQuery = true)
     Page<IOderDto> getOrderDto(Long id, Pageable pageable);
 
-    @Query(value = "SELECT o.* " +
-            "FROM orders as o " +
-            "JOIN app_user a ON a.id = o.app_user_id " +
-            "WHERE o.app_user_id = :appUserId AND o.flag_deleted = false " +
-            "ORDER BY o.date_time asc ", nativeQuery = true)
+    @Query(value = "SELECT o.*\n" +
+            "FROM orders AS o\n" +
+            "         RIGHT JOIN app_user AS a ON a.id = o.app_user_id\n" +
+            "WHERE a.id = :appUserId AND o.flag_deleted = false\n" +
+            "ORDER BY o.date_time ASC", nativeQuery = true)
     List<Orders> listOrders(@Param("appUserId") Long appUserId);
 
     @Query(value = "SELECT " +

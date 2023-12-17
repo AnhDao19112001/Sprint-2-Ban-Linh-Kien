@@ -19,6 +19,8 @@ import {getAllCarts} from "../order/reduce/cartAction";
 import {useDispatch, useSelector} from "react-redux";
 import {createCartDetail} from "../../service/cart/CartDetail";
 import ChatIcon from "../img/ChatIcon";
+import 'react-toastify/dist/ReactToastify.css';
+import {toast, ToastContainer} from "react-toastify";
 
 function Home() {
     const [productList, setProductList] = useState([]);
@@ -35,10 +37,11 @@ function Home() {
         const result = infoAppUserByJwtToken();
         if (result != null) {
             const response = await createCartDetail(1, result.sub, a.idProduct);
-            Swal.fire({
-                title: "Thêm sản phẩm thành công!",
-                icon: "success",
-            })
+            // Swal.fire({
+            //     title: "Thêm sản phẩm thành công!",
+            //     icon: "success",
+            // })
+            toast("Thêm mới sản phẩm thành công!");
             dispatch(getAllCarts(result.sub));
         } else {
             Swal.fire({
@@ -311,7 +314,7 @@ function Home() {
                 </div>
             </div>
         </section>
-
+        <ToastContainer/>
         <Footer/>
         <ChatIcon/>
     </>)

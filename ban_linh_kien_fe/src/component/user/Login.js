@@ -36,7 +36,7 @@ const Login = () => {
     const loginWithFacebook = async (resolve) => {
         console.log(resolve);
         Swal.fire({
-            text: 'Chào ' + resolve.data.name + ', bạn có muốn đăng nhập thông qua facebook ' + resolve.data.email + " không?",
+            text: 'Chào ' + resolve.data.name + ', bạn có muốn đăng nhập thông qua facebook ' + resolve.data.name + " không?",
             showDenyButton: true,
             confirmButtonText: 'Xác nhận',
             denyButtonText: `Thoát`,
@@ -48,51 +48,6 @@ const Login = () => {
             }
         })
     }
-
-    // const faceSignIn = async () => {
-    //     try {
-    //         const userData = await faceioInstance.authenticate({
-    //             locale: "auto",
-    //         })
-    //         console.log(userData);
-    //         const result = await userService.loginUser(userData);
-    //         userService.addJwtTokenToLocalStorage(result.data.jwtToken)
-    //         const tempURL = localStorage.getItem("tempURL");
-    //         localStorage.removeItem("tempURL");
-    //         if (tempURL) {
-    //             navigate(tempURL);
-    //         } else {
-    //             navigate(`/home`);
-    //         }
-    //         console.log(userData)
-    //         console.log('Unique Facial ID: ', userData.facialId)
-    //         console.log('PayLoad: ', userData.payload)
-    //     } catch (errorCode) {
-    //         console.log(errorCode);
-    //         Swal.fire("Lỗi xác thực","","error");
-    //     }
-    // }
-
-    // const handleLogin = async (appUser) => {
-    //     try {
-    //         const result = await userService.loginUser(appUser);
-    //         userService.addJwtTokenToLocalStorage(result.data.jwtToken)
-    //         console.log(result);
-    //         const tempURL = localStorage.getItem("tempURL");
-    //         localStorage.removeItem("tempURL");
-    //         if (tempURL) {
-    //             navigate(tempURL);
-    //         } else {
-    //             navigate(`/home`);
-    //         }
-    //     } catch (err) {
-    //         Swal.fire({
-    //             icon: 'error',
-    //             title: err.response.data
-    //         })
-    //         console.log(err);
-    //     }
-    // }
 
     const handleLogin = async (appUser) => {
         if (!isLoggingIn) {

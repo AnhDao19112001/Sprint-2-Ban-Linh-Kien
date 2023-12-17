@@ -82,21 +82,6 @@ function DetailProduct() {
                         <div className="col-md-5">
                             <div className="images p-3">
                                 <div className="text-center p-4">
-                                    {/*{images.length > 0 && images.map((el, index) => {*/}
-                                    {/*    return (*/}
-                                    {/*        <button type="button"*/}
-                                    {/*                data-bs-target="#carouselExampleIndicators"*/}
-                                    {/*                data-bs-slide-to={index}*/}
-                                    {/*                className={index === activeIndex ? "active" : ""}*/}
-                                    {/*                aria-current="true"*/}
-                                    {/*                aria-label={`Slide ${index + 1}`}*/}
-                                    {/*                style={{width: 70, height: 70}}>*/}
-                                    {/*            <img src={el} alt=""*/}
-                                    {/*                 id="main-image"*/}
-                                    {/*                 width={250}/>*/}
-                                    {/*        </button>*/}
-                                    {/*    );*/}
-                                    {/*})}*/}
                                     <img src={images} alt=""
                                          id="main-image"
                                          width={250}/>
@@ -141,6 +126,7 @@ function DetailProduct() {
                                         <input type="number" className="form-control quantity fw-bold "
                                                id="quantity-value"
                                                defaultValue={1}
+                                               readOnly={true}
                                                min={1} max={product.quantity} name="quantity"/>
                                     </div>
                                 </div>

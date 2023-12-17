@@ -33,8 +33,8 @@ function App() {
             <Route path='/home/list-product/:nameType' element={<ProductWithKind/>}/>
             <Route path='/home/search/' element={<SearchPage/>}/>
             <Route path={`/home/search/:nameProduct`} element={<SearchPage />} />
-            <Route path={`/home/list-order/1`} element={<ListOrder />} />
-            <Route path={`/order-detail/:idOrder/1`} element={<OrderDetail />} />
+            <Route path={`/home/list-order`} element={<ListOrder />} />
+            <Route path={`/order-detail/:idOrder`} element={<OrderDetail />} />
             <Route element={
                 <Authentication
                     allowedRoles={[

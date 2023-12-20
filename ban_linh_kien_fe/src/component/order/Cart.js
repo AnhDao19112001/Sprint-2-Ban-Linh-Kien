@@ -19,7 +19,6 @@ import {TiDelete} from "react-icons/ti";
 import {Paypal} from "./Paypal";
 import {useSelector} from "react-redux";
 import * as userService from "../../service/user/UserService";
-import ChatIcon from "../img/ChatIcon";
 
 const currency = (number) => {
     const roundedNumber = Math.floor(number);
@@ -172,7 +171,7 @@ function Cart() {
                                             </div>
                                             <div className="col-md-3 col-lg-3 col-xl-3">
                                                 <p className="lead fw-normal mb-2">{c.nameProduct}</p>
-                                                <p><span className="text-muted">Đơn giá: </span>{c.price}
+                                                <p><span className="text-muted">Đơn giá: </span>{currency(c.price)}
                                                 </p>
                                             </div>
                                             <div className="col-md-3 col-lg-3 col-xl-2 d-flex">
@@ -192,7 +191,7 @@ function Cart() {
                                                 </button>
                                             </div>
                                             <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                                <h5 className="mb-0">{c.price * c.quantity}</h5>
+                                                <h5 className="mb-0">{currency(c.price * c.quantity)}</h5>
                                             </div>
                                             <div className="col-md-1 col-lg-1 col-xl-1 text-end">
                                                 <span onClick={() => deleteCart(c)}><TiDelete/></span>
@@ -228,7 +227,6 @@ function Cart() {
                 </div>
             </section>
             <Footer/>
-            <ChatIcon/>
         </>
     )
 }

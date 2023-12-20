@@ -10,7 +10,6 @@ import Swal from "sweetalert2";
 import HavingNoResult from "../search/HavingNoResult";
 import {useDispatch} from "react-redux";
 import {getAllCarts} from "../order/reduce/cartAction";
-import ChatIcon from "../img/ChatIcon";
 
 const ProductWithKind = () => {
     const params = useParams();
@@ -163,7 +162,8 @@ const ProductWithKind = () => {
                                                     </button>
                                                 </div>
                                                 <div className="product-info">
-                                                    <p className="product-short-description">
+                                                    <p className="product-short-description"
+                                                       title={el.nameProduct}>
                                                         {el.nameProduct}
                                                     </p>
                                                     <div className="d-flex justify-content-between">
@@ -237,7 +237,6 @@ const ProductWithKind = () => {
                 )}
             </section>
             <Footer/>
-            <ChatIcon/>
         </>
     )
 }

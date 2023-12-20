@@ -86,10 +86,10 @@ public interface ICartDetailRepository extends JpaRepository<CartDetail, Long> {
             "p.description AS description, " +
             "p.quantity AS quantity, " +
             "t.name_type AS nameType, " +
-            "MIN(i.image_path) AS imagePath " +
+            " GROUP_CONCAT(i.image_path) AS imagePath " +
             "FROM product p " +
             "JOIN type_product t ON p.id_type = t.id_type " +
-            "LEFT JOIN image i ON p.id_product = i.id_product " +
+            "JOIN image i ON p.id_product = i.id_product " +
             "WHERE p.id_product = :idProduct " +
             "GROUP BY p.id_product", nativeQuery = true)
     ProductProjection getProduct(@Param("idProduct") Long idProduct);

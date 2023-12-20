@@ -6,13 +6,16 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
 import thunk from "redux-thunk";
 import cartReducer from "./component/order/reduce/cartReducer";
+import actionChat from "./component/chatbox/reduceChat/actionChat";
 import {applyMiddleware, combineReducers, createStore} from "redux";
 import {Provider} from "react-redux";
 
 const middleware = [thunk];
 const rootReduce = combineReducers({
     cartReducer,
+    actionChat
 });
+
 const store = createStore(rootReduce, applyMiddleware(...middleware));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

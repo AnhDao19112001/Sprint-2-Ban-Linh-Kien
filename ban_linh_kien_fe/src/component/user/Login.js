@@ -146,12 +146,12 @@ const Login = () => {
                                                         <BsFacebook color="blue" size={30}/>
                                                     </LoginSocialFacebook>
                                                 </div>
-                                                <div className="col-3">
-                                                    <Link className="btn"
-                                                    to={`/face`}>
-                                                    <LuScanFace size={30} />
-                                                    </Link>
-                                                </div>
+                                                {/*<div className="col-3">*/}
+                                                {/*    <Link className="btn"*/}
+                                                {/*    to={`/face`}>*/}
+                                                {/*    <LuScanFace size={30} />*/}
+                                                {/*    </Link>*/}
+                                                {/*</div>*/}
                                                 <div className="col-3">
                                                     <Link className="btn"
                                                           to="/face">

@@ -1,3 +1,8 @@
+:root {
+    --offset: 20px;
+    --chatbox: 700px
+}
+
 .chatbox {
     border-left: 1px #151018 solid;
     width: 100%;
@@ -87,15 +92,15 @@
     transition-duration: 0.2s;
 
 }
-.chatbox-detail-button-emoji {
-    background-image: url("../../image/icon/emoji.png");
-}
-.chatbox-detail-button-img {
-    background-image: url("../../image/icon/add-image.png");
-}
-.chatbox-detail-button-send {
-    background-image: url("../../image/icon/send.png");
-}
+/*.chatbox-detail-button-emoji {*/
+/*    background-image: url("../../image/icon/emoji.png");*/
+/*}*/
+/*.chatbox-detail-button-img {*/
+/*    background-image: url("../../image/icon/add-image.png");*/
+/*}*/
+/*.chatbox-detail-button-send {*/
+/*    background-image: url("../../image/icon/send.png");*/
+/*}*/
 .chatbox-detail-button-emoji:hover, .chatbox-detail-button-img:hover {
     background-color: #c1151a;
     scale: 1.03;
@@ -108,7 +113,7 @@
     transition-duration: 0.2s;
 }
 .chatbox-info-empty {
-    background-image: url("../../image/icon/available.png");
+    background-image: url("../../img/arrow.png");
     background-size: cover;
     background-position: center;
 }

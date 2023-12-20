@@ -18,9 +18,9 @@ import {infoAppUserByJwtToken} from "../../service/user/UserService";
 import {getAllCarts} from "../order/reduce/cartAction";
 import {useDispatch, useSelector} from "react-redux";
 import {createCartDetail} from "../../service/cart/CartDetail";
-import ChatIcon from "../img/ChatIcon";
 import 'react-toastify/dist/ReactToastify.css';
 import {toast, ToastContainer} from "react-toastify";
+import ChatBox from "../chatbox/ChatBox";
 
 function Home() {
     const [productList, setProductList] = useState([]);
@@ -93,7 +93,7 @@ function Home() {
                                     <b>LinhKienDT</b> AD
                                 </h1>
                                 <h3 className="h2">
-                                    Nhóm các linh kiện dạng combo thích hợp cho vệc thí nghiệm
+                                    Nhóm các linh kiện dạng combo thích hợp cho việc thí nghiệm
                                 </h3>
                                 <p>Nơi chia sẽ kinh nghiệm, học tập và thỏa mãn đam mê chế đồ điện tử</p>
                             </div>
@@ -204,7 +204,8 @@ function Home() {
                                             </button>
                                         </div>
                                         <div className="product-info">
-                                            <p className="product-short-description text-center">
+                                            <p className="product-short-description text-center"
+                                               title={el.nameProduct}>
                                                 {el.nameProduct}
                                             </p>
                                             <div className="d-flex justify-content-center">
@@ -314,9 +315,9 @@ function Home() {
                 </div>
             </div>
         </section>
+        {/*<ChatBox/>*/}
         <ToastContainer/>
         <Footer/>
-        <ChatIcon/>
     </>)
 }
 

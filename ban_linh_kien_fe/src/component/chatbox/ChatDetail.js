@@ -2,6 +2,7 @@ import Picker from "@emoji-mart/react";
 import data from "@emoji-mart/data";
 import {useEffect, useRef, useState} from "react";
 import {getDate, IdByNow} from "../../service/formatData";
+import "./chatBox.css"
 import {
     database,
     getDownloadURL,
@@ -75,7 +76,7 @@ export function ChatDetail({accountId}) {
         for (let i = 0; i < files.length; i++) {
             try {
                 let file = files[i];
-                let storageRef = refImage(storage, `images-chatbox/` + file.name);
+                let storageRef = refImage(storage, `product` + file.name);
                 let snapshot = await uploadBytes(storageRef, file);
                 let downloadURL = await getDownloadURL(snapshot.ref);
                 pushMessRealTime("img", downloadURL);

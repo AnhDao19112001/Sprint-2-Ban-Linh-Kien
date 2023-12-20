@@ -131,12 +131,12 @@ public class AppUserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getIdCustomer(@PathVariable Long id) {
+    public ResponseEntity<AppUser> getIdCustomer(@PathVariable Long id) {
         AppUser appUser = appUserService.findByIdCustomer(id);
         if (appUser == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Không có dữ liệu!");
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return ResponseEntity.ok().body(appUser);
+        return new ResponseEntity<>(appUser,HttpStatus.OK);
     }
 
     @PatchMapping("/update/{id}")

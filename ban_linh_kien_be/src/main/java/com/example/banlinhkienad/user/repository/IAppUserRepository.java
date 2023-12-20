@@ -60,7 +60,7 @@ public interface IAppUserRepository extends JpaRepository<AppUser, Long> {
                         @Param("id") Long id);
 
     @Query(value = "SELECT * FROM app_user where id = :id AND flag_deleted = false",nativeQuery = true)
-    AppUser findCustomerById(Long id);
+    AppUser findCustomerById(@Param("id") Long id);
 
     @Query(value = "SELECT * FROM app_user WHERE flag_deleted = false",nativeQuery = true)
     List<AppUser> getAllUser();

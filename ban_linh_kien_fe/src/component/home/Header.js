@@ -17,7 +17,6 @@ const Header = ({ inputSearch, onInputChange }) => {
     const [nameProduct, setNameProduct] = useState("");
     const [userId, setUserId] = useState("");
     const [nameType, setNameType] = useState([]);
-    const roleAdmin = userService.checkRollAppUser("ROLE_ADMIN");
     const carts = useSelector((state) => state.cartReducer);
     const dispatch = useDispatch();
 

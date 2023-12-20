@@ -8,7 +8,6 @@ import {getIdByUserName, infoAppUserByJwtToken} from "../../service/user/UserSer
 import {checkQuantity, createCartDetail} from "../../service/cart/CartDetail";
 import {getAllCarts} from "./reduce/cartAction";
 import {useDispatch} from "react-redux";
-import ChatIcon from "../img/ChatIcon";
 
 function DetailProduct() {
     const navigate = useNavigate();
@@ -24,7 +23,7 @@ function DetailProduct() {
             const result = await getIdProduct(idProduct);
             setProduct(result.data);
             console.log(result);
-            const res = result.data.imagePath;
+            const res = result.data.imagePath.split(',');
             setImages(res);
         } catch (error) {
             if (error.response && error.response.status === 406) {
@@ -61,7 +60,7 @@ function DetailProduct() {
         }
     }
     const createMarkup = () => {
-        return { __html: product.description };
+        return {__html: product.description};
     };
     const currency = (money) => {
         return new Intl.NumberFormat("vi-VN").format(money);
@@ -80,26 +79,49 @@ function DetailProduct() {
                 {product.idProduct && (
                     <div className="row">
                         <div className="col-md-5">
-                            <div className="images p-3">
-                                <div className="text-center p-4">
-                                    <img src={images} alt=""
-                                         id="main-image"
-                                         width={250}/>
+                            <div className="images carousel slide col col-md-6 col-auto"
+                                 id="carouselExampleIndicators"
+                                 // className="carousel slide col col-md-6 col-auto"
+                                 data-bs-ride="true"
+                                 style={{ height: "100%", width:"100%" }}>
+                                <div className="carousel-indicators justify-content-start">
+                                    {images.length > 0 &&
+                                        images.map((el, index) => {
+                                            return (
+                                                <button
+                                                    type="button"
+                                                    data-bs-target="#carouselExampleIndicators"
+                                                    data-bs-slide-to={index}
+                                                    className={index === activeIndex ? "active" : ""}
+                                                    aria-current="true"
+                                                    aria-label={`Slide ${index + 1}`}
+                                                    style={{ width: 60, height: 70 }}
+                                                >
+                                                    <img
+                                                        src={el}
+                                                        alt="..."
+                                                        className="d-block w-100"
+                                                        style={{ border: "1px lightskyblue solid" }}
+                                                    />
+                                                </button>
+                                            );
+                                        })}
                                 </div>
-                                <div className="carousel-inner">
-                                    {/*{images.length > 0 &&*/}
-                                    {/*    images.map((el, index) => {*/}
-                                    {/*        return (*/}
-                                    {/*            <div*/}
-                                    {/*                className={`carousel-item ${*/}
-                                    {/*                    index === activeIndex ? "active" : ""}`}>*/}
-                                    {/*                <img src={el} className="d-block w-100" alt=""/>*/}
-                                    {/*            </div>*/}
-                                    {/*        );*/}
-                                    {/*    })}*/}
+                                <div className="carousel-inner text-center">
+                                    {images.length > 0 &&
+                                        images.map((el, index) => {
+                                            return (
+                                                <div
+                                                    className={`carousel-item ${
+                                                        index === activeIndex ? "active" : ""
+                                                    }`}
+                                                >
+                                                    <img src={el} className="d-block" alt="..." style={{width:"350px",marginLeft:60}}/>
+                                                </div>
+                                            );
+                                        })}
                                 </div>
                             </div>
-
                         </div>
                         <div className="col-md-7">
                             <div className="main-description px-2">
@@ -126,7 +148,7 @@ function DetailProduct() {
                                         <input type="number" className="form-control quantity fw-bold "
                                                id="quantity-value"
                                                defaultValue={1}
-                                               readOnly={true}
+                                            // readOnly={true}
                                                min={1} max={product.quantity} name="quantity"/>
                                     </div>
                                 </div>
@@ -143,7 +165,6 @@ function DetailProduct() {
                 )}
             </div>
             <Footer/>
-            <ChatIcon/>
         </>
     )
 }

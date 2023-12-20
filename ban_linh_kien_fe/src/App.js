@@ -13,21 +13,13 @@ import OrderDetail from "./component/order/OrderDetail";
 import FaceID from "./component/user/FaceID";
 import Home from "./component/home/Home";
 import ProductWithKind from "./component/home/ProductWithKind";
-import TestSlider from "./component/img/TestSlider";
-import {ChatDetail} from "./component/img/ChatDetail";
-import ChatIcon from "./component/img/ChatIcon";
 
 function App() {
     return (
         <Routes>
-            {/*<Route path="/login" element={<Login/>}/>*/}
             <Route path="/login" element={<Login />}/>
-            <Route path="/slider" element={<TestSlider />}/>
-            <Route path="/chat" element={<ChatDetail />}/>
-            <Route path="/chat1" element={<ChatIcon />}/>
             <Route path="/home" element={<Home/>}/>
             <Route path="/face" element={<FaceID/>}/>
-            {/*<Route path="/cart" element={<Cart/>}/>*/}
             <Route path="/cart" element={<Cart/>}/>
             <Route path='/details/:idProduct' element={<DetailProduct/>}/>
             <Route path='/home/list-product/:nameType' element={<ProductWithKind/>}/>

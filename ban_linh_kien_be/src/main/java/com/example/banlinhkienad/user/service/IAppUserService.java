@@ -8,7 +8,7 @@ public interface IAppUserService extends UserDetailsService {
     Boolean existsByUsername(String userName);
     void createNewAppUser(AppUser appUser, String role);
     Boolean logout(String userName);
-    Long findAppUserIdByUserName(String userName);
+    AppUser findAppUserIdByUserName(String userName);
     void updateCustomer(AppUser appUser);
     AppUser findByIdCustomer(Long id);
     void saveCustomerForAppUser(Long id);

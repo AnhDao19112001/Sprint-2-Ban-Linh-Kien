@@ -123,7 +123,7 @@ public class AppUserController {
 
     @GetMapping("/id-user/{userName}")
     public ResponseEntity<Object> getIdAppUser(@PathVariable String userName) {
-        Long appUser = appUserService.findAppUserIdByUserName(userName);
+        AppUser appUser = appUserService.findAppUserIdByUserName(userName);
         if (appUser == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Không có dữ liệu!");
         }

@@ -222,6 +222,44 @@ function Cart() {
                                     </div>
                                 </div>
                             </div>
+                            <div className="form-control mt-4 px-5 py-4 card-body">
+                                <h3 className="mb-5 pt-2 text-center fw-bold text-uppercase">
+                                    Địa chỉ nhận hàng
+                                </h3>
+                                <hr/>
+
+                                <ul className="list-group list-group-flush">
+                                    <li
+                                        className="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                                        Tên người nhận:
+                                        <p>{customer.fullName}</p>
+                                    </li>
+                                    <li
+                                        className="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                                        Số điện thoại:
+                                        <p>{customer.phone}</p>
+                                    </li>
+                                    <li
+                                        className="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                                        Địa chỉ:
+                                        <p>{customer.address}</p>
+                                    </li>
+                                    <li className="list-group-item d-flex justify-content-between align-items-center px-0">
+                                        Phí ship
+                                        <p>Miễn phí</p>
+                                    </li>
+                                    <li
+                                        className="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                                        <div>
+                                            <strong>Tổng tiền</strong>
+                                            <strong>
+                                                <p className="mb-0">(bao gồm VAT)</p>
+                                            </strong>
+                                        </div>
+                                        <span><strong>{currency(total)}</strong></span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

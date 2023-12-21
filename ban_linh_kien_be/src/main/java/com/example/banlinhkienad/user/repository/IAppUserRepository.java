@@ -36,7 +36,7 @@ public interface IAppUserRepository extends JpaRepository<AppUser, Long> {
     Integer updateAppUserIsOffline (@Param("userName") String userName);
 
     @Query(value = "SELECT au.* from ban_linh_kien.app_user au WHERE au.user_name = :userName",nativeQuery = true)
-    Long findIdByUserName(@Param("userName") String userName);
+    AppUser findIdByUserName(@Param("userName") String userName);
 
     @Modifying
     @Transactional

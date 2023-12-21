@@ -17,21 +17,21 @@ function Info() {
     const param = useParams();
     const navigate = useNavigate();
 
-    const loadCustomerDetail = async (id) => {
-        try {
-            const result = await checkIdCustomers(id);
-            if ( result == null){
-                Swal.fire("Không tìm thấy người dùng!","","error");
-                navigate(-1);
-            }
-            setCustomer(result);
-        } catch (error){
-            if (error.status === 406){
-                Swal.fire("Khách hàng không tồn tại!","","error");
-                navigate(-1);
-            }
-        }
-    }
+    // const loadCustomerDetail = async (id) => {
+    //     try {
+    //         const result = await checkIdCustomers(id);
+    //         if ( result == null){
+    //             Swal.fire("Không tìm thấy người dùng!","","error");
+    //             navigate(-1);
+    //         }
+    //         setCustomer(result);
+    //     } catch (error){
+    //         if (error.status === 406){
+    //             Swal.fire("Khách hàng không tồn tại!","","error");
+    //             navigate(-1);
+    //         }
+    //     }
+    // }
 
     const handleSubmit = async (value, setError) => {
         try {
@@ -52,9 +52,9 @@ function Info() {
         }
     }
 
-    useEffect(() => {
-        loadCustomerDetail(param.id);
-    },[param.id]);
+    // useEffect(() => {
+    //     loadCustomerDetail(param.id);
+    // },[param.id]);
 
     const fetchData = async () => {
         try {
@@ -110,7 +110,7 @@ function Info() {
                                         <div className="row mt-5 align-items-center">
                                             <div className="col-md-3 text-center mb-5">
                                                 <div className="avatar avatar-xl">
-                                                    <img src={customer.image}
+                                                    <img src="https://bootdey.com/img/Content/avatar/avatar6.png"
                                                          alt="..."
                                                          className="avatar-img rounded-circle"/>
                                                 </div>

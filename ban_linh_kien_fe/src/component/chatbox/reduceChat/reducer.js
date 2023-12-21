@@ -5,10 +5,8 @@ const chatReducer = (chat = initState,action) => {
 
     switch (type){
         case "GET_ALL_CHAT":
-            console.log("ccccccc ",payload);
             return payload;
         default:
-            console.log("ddddddd ",chat)
             return chat;
     }
 };

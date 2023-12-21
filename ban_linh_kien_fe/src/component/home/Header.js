@@ -59,6 +59,7 @@ const Header = ({ inputSearch, onInputChange }) => {
             timer: 2000,
         });
         navigate("/home");
+        window.location.reload();
     }
 
     const handleInputChange = (event) => {

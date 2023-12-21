@@ -7,7 +7,6 @@ export const getAllChat = (id) => async (dispatch) => {
             type: "GET_ALL_CHAT",
             payload: result,
         });
-        console.log("aaaaaaaaaaaaaaaaa ",result)
     } catch (error) {
         console.log(error);
     }

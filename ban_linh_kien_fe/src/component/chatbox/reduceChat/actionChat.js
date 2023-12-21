@@ -1,18 +1,14 @@
-import {chatAction} from "./reducer";
+import {checkIdCustomers} from "../../../service/user/UserService";
 
-const initState = {
-    chatCustomer: -1
-}
-const actionChat = (chats = initState, action) => {
-    switch (action.type) {
-        case chatAction(0):
-            return {
-                ...chats,
-                chatCustomer: action.payload
-            };
-        default:
-            return chats;
+export const getAllChat = (id) => async (dispatch) => {
+    try {
+        const result = await checkIdCustomers(id);
+        dispatch({
+            type: "GET_ALL_CHAT",
+            payload: result,
+        });
+        console.log("aaaaaaaaaaaaaaaaa ",result)
+    } catch (error) {
+        console.log(error);
     }
-
 }
-export default actionChat;

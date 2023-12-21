@@ -53,7 +53,7 @@ export const getAllUserList = async () => {
 
 export const checkIdCustomers = async (id) => {
     try {
-        const result = await axios.get(`http://localhost:8080/api/user/${id}`);
+        const result = await axios.get(`http://localhost:8080/api/user/id-chat/${id}`);
         return result.data;
     } catch (error){
         console.log("Id cũng không lấy được ngu ngu ",error);

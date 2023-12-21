@@ -145,7 +145,6 @@ function FaceID() {
     return (
         <div className="face-authentication-by-anhdao flex fdc jcfc aic">
             <h1>Face Authentication using ReactJS & FaceIO</h1>
-            {/*<button className="actionChat face-registration" onClick={faceRegistration}>Face Registration</button>*/}
             <button className="action face-sign-in" onClick={faceSignIn}>Face Sign In</button>
         </div>
     )

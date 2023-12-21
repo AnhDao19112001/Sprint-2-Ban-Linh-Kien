@@ -1,14 +1,15 @@
+const initState = [];
 
-export const chatAction = (index) => {
-    let array = [
-        "selectChatCustomer"
-    ]
-    return array[index];
-}
+const chatReducer = (chat = initState,action) => {
+    const {type, payload} = action;
 
-export const getAllChat = (id) => {
-    return{
-        type: chatAction(0),
-        payload: id
+    switch (type){
+        case "GET_ALL_CHAT":
+            console.log("ccccccc ",payload);
+            return payload;
+        default:
+            console.log("ddddddd ",chat)
+            return chat;
     }
-}
+};
+export default chatReducer;

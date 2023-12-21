@@ -83,7 +83,7 @@ function DetailProduct() {
                                  id="carouselExampleIndicators"
                                  // className="carousel slide col col-md-6 col-auto"
                                  data-bs-ride="true"
-                                 style={{ height: "100%", width:"100%" }}>
+                                 style={{ height: "60%", width:"100%" }}>
                                 <div className="carousel-indicators justify-content-start">
                                     {images.length > 0 &&
                                         images.map((el, index) => {

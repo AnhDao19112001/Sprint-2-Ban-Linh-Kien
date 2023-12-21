@@ -13,15 +13,19 @@ import OrderDetail from "./component/order/OrderDetail";
 import FaceID from "./component/user/FaceID";
 import Home from "./component/home/Home";
 import ProductWithKind from "./component/home/ProductWithKind";
+import Test from "./component/chatbox/Test";
+import Info from "./component/user/Info";
 
 function App() {
     return (
         <Routes>
             <Route path="/login" element={<Login />}/>
             <Route path="/home" element={<Home/>}/>
+            <Route path="/testChat" element={<Test />}/>
             <Route path="/face" element={<FaceID/>}/>
             <Route path="/cart" element={<Cart/>}/>
             <Route path='/details/:idProduct' element={<DetailProduct/>}/>
+            <Route path='/user-info/:id' element={<Info/>}/>
             <Route path='/home/list-product/:nameType' element={<ProductWithKind/>}/>
             <Route path='/home/search/' element={<SearchPage/>}/>
             <Route path={`/home/search/:nameProduct`} element={<SearchPage />} />

@@ -6,14 +6,14 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
 import thunk from "redux-thunk";
 import cartReducer from "./component/order/reduce/cartReducer";
-import actionChat from "./component/chatbox/reduceChat/actionChat";
 import {applyMiddleware, combineReducers, createStore} from "redux";
 import {Provider} from "react-redux";
+import chatReducer from "./component/chatbox/reduceChat/reducer";
 
 const middleware = [thunk];
 const rootReduce = combineReducers({
     cartReducer,
-    actionChat
+    chatReducer
 });
 
 const store = createStore(rootReduce, applyMiddleware(...middleware));

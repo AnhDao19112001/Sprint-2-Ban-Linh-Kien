@@ -14,20 +14,21 @@ import {
 } from "../../firebase";
 import {getDate, IdByNow} from "../../service/formatData";
 import {infoAppUserByJwtToken} from "../../service/user/UserService";
-export default function PersonalChat() {
+function PersonalChat() {
     const [showChat, setShowChat] = useState(false);
     const [typing, setTyping] = useState(false);
     const [inputMess, setInputMess] = useState("");
     const [showEmoji, setShowEmoji] = useState(false);
-    const [content, setContent] = useState([]);
+    const [content, setContent] = useState();
     const inputImgRef = useRef();
     const buttonArea = useRef();
     const display = useRef();
-    const accountId = infoAppUserByJwtToken();
+    const id = infoAppUserByJwtToken(localStorage.getItem('JWT')).sub;
+    console.log(id)
     const pushMessRealTime = async (type, text) => {
-        if (text !== "") {
-            const path = "mess/mess-" + accountId;
-            const pathNoti = "noti/mess-" + accountId;
+        if (text != "") {
+            const path = "mess/mess-" + id;
+            const pathNoti = "noti/mess-" + id;
             const idMessage = IdByNow();
 
             await push(refText(database, path), {
@@ -43,7 +44,7 @@ export default function PersonalChat() {
     const hiddenButton = (e) => {
         let str = e.target.value;
         setInputMess(str);
-        if (str === "") {
+        if (str == "") {
             setTyping(false);
         } else {
             setTyping(true);
@@ -69,7 +70,7 @@ export default function PersonalChat() {
         for (let i = 0; i < files.length; i++) {
             try {
                 let file = files[i];
-                let storageRef = refImage(storage, `images-chatbox/` + file.name);
+                let storageRef = refImage(storage, `product/` + file.name);
                 let snapshot = await uploadBytes(storageRef, file);
                 let downloadURL = await getDownloadURL(snapshot.ref);
                 await pushMessRealTime("img", downloadURL);
@@ -79,7 +80,7 @@ export default function PersonalChat() {
         }
     };
     const getDatabase = async () => {
-        await onValue(refText(database, `mess/mess-${accountId}`),  (data) => {
+        await onValue(refText(database, `mess/mess-${id}`),  (data) => {
             let message = [];
             data.forEach(e => {
                 message.unshift(e.val());
@@ -98,7 +99,7 @@ export default function PersonalChat() {
         getDatabase();
     },[])
 
-    if (!accountId) {return null}
+    if (!id) {return null}
     return (
         <div className="personalChat boxshadow-outset">
             {showChat ?
@@ -193,3 +194,4 @@ export default function PersonalChat() {
         </div>
     )
 }
+export default PersonalChat;

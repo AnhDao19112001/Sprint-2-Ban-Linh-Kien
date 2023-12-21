@@ -130,8 +130,8 @@ public class AppUserController {
         return ResponseEntity.ok().body(appUser);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<AppUser> getIdCustomer(@PathVariable Long id) {
+    @GetMapping("/id-chat/{id}")
+    public ResponseEntity<?> getIdCustomer(@PathVariable Long id) {
         AppUser appUser = appUserService.findByIdCustomer(id);
         if (appUser == null) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

@@ -6,7 +6,7 @@ import {useEffect, useState} from "react";
 import * as homeService from "../../service/home/HomeService";
 import {Swiper, SwiperSlide} from "swiper/react";
 import 'swiper/css/navigation';
-import {Autoplay, Navigation, Pagination} from 'swiper/modules'
+import {Autoplay, Navigation} from 'swiper/modules'
 import * as utils from "../../service/utils/Utils";
 import arrow from "../../img/arrow.png"
 import 'swiper/css';
@@ -20,7 +20,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {createCartDetail} from "../../service/cart/CartDetail";
 import 'react-toastify/dist/ReactToastify.css';
 import {toast, ToastContainer} from "react-toastify";
-import ChatBox from "../chatbox/ChatBox";
 
 function Home() {
     const [productList, setProductList] = useState([]);
@@ -315,7 +314,6 @@ function Home() {
                 </div>
             </div>
         </section>
-        {/*<ChatBox/>*/}
         <ToastContainer/>
         <Footer/>
     </>)

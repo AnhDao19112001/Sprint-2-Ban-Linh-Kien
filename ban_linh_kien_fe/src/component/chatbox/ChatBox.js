@@ -1,34 +1,36 @@
 import {useEffect, useState} from "react";
 import {checkIdCustomers, getAllUserList} from "../../service/user/UserService";
 import {useDispatch, useSelector} from "react-redux";
-import {getAllChat} from "./reduceChat/reducer";
 import {ChatDetail} from "./ChatDetail";
 import "./chatBox.css"
+import {getAllChat} from "./reduceChat/actionChat";
+
 function ChatBox() {
     const [users, setUsers] = useState();
     const [userList, setUserList] = useState();
-    const appUserId = useSelector(state => state.chatCustomer);
-    console.log(appUserId)
+    const customerId = useSelector(state => state.chatReducer);
+    console.log(customerId)
     const dispatch = useDispatch();
     const getUserChat = async () => {
-        const result = await checkIdCustomers(appUserId);
+        const result = await checkIdCustomers(customerId);
         console.log(result)
         setUsers(result);
     }
     const getCustomer = async () => {
         const result = await getAllUserList();
+        const data = [...result];
         console.log(result)
-        setUserList(result);
+        setUserList(data);
     }
-    const setChatBox = (id) => {
-        dispatch(getAllChat(id));
+    const setChatBox = () => {
+        dispatch(getAllChat(customerId));
     }
 
     useEffect(() => {
-        if (appUserId != -1) {
+        if (customerId !== -1){
             getUserChat();
         }
-    }, [appUserId]);
+    }, [customerId]);
 
     useEffect(() => {
         getCustomer();
@@ -59,15 +61,16 @@ function ChatBox() {
                         {userList && userList.map(e => {
                             return (
                                 <div key={e.id}
-                                     className={`chatlist-member ${appUserId == e.id ?
+                                     className={`chatlist-member ${customerId === e.id ?
                                          "chatlist-member-select" :
                                          "chatlist-member-unselect"}`}
                                      style={{
                                          backgroundImage: `url(${e.image})`
                                      }}
                                      title={e.fullName}
-                                     onClick={ () =>
-                                     {setChatBox(e.id)}
+                                     onClick={() => {
+                                         setChatBox(e.id)
+                                     }
                                      }
                                 >
                                     <span className="color1 borderradius">9</span>
@@ -77,7 +80,7 @@ function ChatBox() {
                     </div>
                 </div>
                 <div className="chatbox-detail">
-                    {users && <ChatDetail accountId={appUserId}/>}
+                    {users && <ChatDetail id={customerId}/>}
                 </div>
             </div>
         </>

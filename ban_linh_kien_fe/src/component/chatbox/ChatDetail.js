@@ -14,7 +14,7 @@ import {
     uploadBytes
 } from "../../firebase";
 
-export function ChatDetail({accountId}) {
+export function ChatDetail({id}) {
     const [inputMess, setInputMess] = useState("");
     const [showEmoji, setShowEmoji] = useState(false);
     const [typing, setTyping] = useState(false);
@@ -24,9 +24,9 @@ export function ChatDetail({accountId}) {
     const display = useRef();
 
     const pushMessRealTime = async (type, text) => {
-        if (text !== "") {
-            const path = "mess/mess-" + accountId;
-            const pathNoti = "noti/mess-" + accountId;
+        if (text != "") {
+            const path = "messmess/-" + id;
+            const pathNoti = "noti/mess-" + id;
             const idMessage = IdByNow();
 
             await push(refText(database, path), {
@@ -42,14 +42,14 @@ export function ChatDetail({accountId}) {
     const hiddenButton = (e) => {
         let str = e.target.value;
         setInputMess(str);
-        if (str === "") {
+        if (str == "") {
             setTyping(false);
         } else {
             setTyping(true);
         }
     }
     const enterButton = (key) => {
-        if (key === "Enter") {
+        if (key == "Enter") {
             handleSendMessage();
 
         }
@@ -79,14 +79,14 @@ export function ChatDetail({accountId}) {
                 let storageRef = refImage(storage, `product` + file.name);
                 let snapshot = await uploadBytes(storageRef, file);
                 let downloadURL = await getDownloadURL(snapshot.ref);
-                pushMessRealTime("img", downloadURL);
+                await pushMessRealTime("img", downloadURL);
             } catch (e) {
                 console.log(e);
             }
         }
     };
     const getDatabase = async () => {
-        await onValue(refText(database, `mess/mess-${accountId}`),  (data) => {
+        await onValue(refText(database, `mess/mess-${id}`),  (data) => {
             let message = [];
             data.forEach(e => {
                 message.unshift(e.val());
@@ -106,7 +106,7 @@ export function ChatDetail({accountId}) {
     },[typing])
     useEffect(() => {
         getDatabase();
-    }, [accountId])
+    }, [id])
 
     return (
         <>

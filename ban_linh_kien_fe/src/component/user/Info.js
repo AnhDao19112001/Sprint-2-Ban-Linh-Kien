@@ -110,7 +110,7 @@ function Info() {
                                         <div className="row mt-5 align-items-center">
                                             <div className="col-md-3 text-center mb-5">
                                                 <div className="avatar avatar-xl">
-                                                    <img src="https://bootdey.com/img/Content/avatar/avatar6.png"
+                                                    <img src={customer.image}
                                                          alt="..."
                                                          className="avatar-img rounded-circle"/>
                                                 </div>

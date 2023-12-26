@@ -12,8 +12,8 @@ import chatReducer from "./component/chatbox/reduceChat/reducer";
 
 const middleware = [thunk];
 const rootReduce = combineReducers({
-    cartReducer,
-    chatReducer
+    cartReducer
+    // chatReducer
 });
 
 const store = createStore(rootReduce, applyMiddleware(...middleware));

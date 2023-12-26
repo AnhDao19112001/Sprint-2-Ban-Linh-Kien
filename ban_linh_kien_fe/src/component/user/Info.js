@@ -76,7 +76,8 @@ function Info() {
     return (
         customer && (
             <>
-                <Header/>
+                <Header onInputChange={() => {
+                }}/>
                 <div className="container">
                     <Formik initialValues={{
                         ...customer,

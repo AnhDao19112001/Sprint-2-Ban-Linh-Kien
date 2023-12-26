@@ -36,10 +36,6 @@ function Home() {
         const result = infoAppUserByJwtToken();
         if (result != null) {
             const response = await createCartDetail(1, result.sub, a.idProduct);
-            // Swal.fire({
-            //     title: "Thêm sản phẩm thành công!",
-            //     icon: "success",
-            // })
             toast("Thêm mới sản phẩm thành công!");
             dispatch(getAllCarts(result.sub));
         } else {

@@ -22,7 +22,7 @@ function DetailProduct() {
         try {
             const result = await getIdProduct(idProduct);
             setProduct(result.data);
-            console.log(result);
+            console.log(result.data);
             const res = result.data.imagePath.split(',');
             setImages(res);
         } catch (error) {
@@ -51,8 +51,8 @@ function DetailProduct() {
                         idProduct,
                         parseInt(quantity));
                     const res = await createCartDetail(quantity, isLogged.sub, idProduct);
-                    dispatch(getAllCarts(user.sub));
                     Swal.fire("Thêm mới sản phẩm thành công!", "", "success");
+                    dispatch(getAllCarts(user.sub));
                 } catch {
                     Swal.fire("Sản phẩm vượt quá số lượng cho phép!", "", "warning");
                 }
@@ -74,7 +74,8 @@ function DetailProduct() {
         product &&
         <>
 
-            <Header/>
+            <Header onInputChange={() => {
+            }}/>
             <div className="container my-5">
                 {product.idProduct && (
                     <div className="row">

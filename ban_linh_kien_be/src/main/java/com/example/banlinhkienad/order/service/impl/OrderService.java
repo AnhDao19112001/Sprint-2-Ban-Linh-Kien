@@ -1,4 +1,5 @@
 package com.example.banlinhkienad.order.service.impl;
+
 import com.example.banlinhkienad.order.dto.*;
 import com.example.banlinhkienad.order.model.Orders;
 import com.example.banlinhkienad.order.repository.ICartDetailRepository;
@@ -28,20 +29,21 @@ public class OrderService implements IOrderService {
     private ICartDetailRepository cartDetailRepository;
     @Autowired
     private IAppUserRepository appUserRepository;
+
     @Override
     public void createOrders(OderDetailDto oderDetailDto, String userName) {
         LocalDate currentDate = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         String formattedDate = currentDate.format(formatter);
         AppUser appUser = appUserRepository.findAppUserByName(userName);
-        orderRepository.createOrders(formattedDate,appUser.getId());
+        orderRepository.createOrders(formattedDate, appUser.getId());
         Long isOrders = orderRepository.getIdMaxOrder();
         List<Product> products = productRepository.findAll();
-        for (CartDetailDto o: oderDetailDto.getCartDetailDtoList()) {
+        for (CartDetailDto o : oderDetailDto.getCartDetailDtoList()) {
             cartDetailRepository.deletedCart(o.getIdProduct(), appUser.getId());
-            orderRepository.createOderDetail(o.getPrice(),isOrders,o.getQuantity(),o.getIdProduct());
-            for (Product p: products) {
-                if (Objects.equals(p.getIdProduct(), o.getIdProduct())){
+            orderRepository.createOderDetail(o.getPrice(), isOrders, o.getQuantity(), o.getIdProduct());
+            for (Product p : products) {
+                if (Objects.equals(p.getIdProduct(), o.getIdProduct())) {
                     orderRepository.updateProduct(p.getQuantity() - o.getQuantity(), o.getIdProduct());
                 }
             }
